@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/26 11:28:10 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/27 22:09:12 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //*************************LIBARYS*********************************************
 
 #include	"libft.h"
-#include	"mlx.h"
+#include	"MLX42.h"
 #include	<fcntl.h>
 #include	"count_stuff.h"
 

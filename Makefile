@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/08/27 18:16:58 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/08/27 22:22:35 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fdf.a
 
 VPATH = src src/libft_plus
 
-CC = cc -g
+CC = cc
 
 CFLAGS = -Werror -Wextra -Wall
 
@@ -28,36 +28,48 @@ MATRIX_LIB = libmatrix.a
 
 LIBFT_LIB = libft.a
 
-MLX_LIB = libmlx.dylib
+MLX_LIB = libmlx42.a
 
-F_MLX = mlx
+F_MLX = MLX42
 
 F_MATRIX = src/matrix
 
 F_LIBFT = libft/
 
-MLX_FLAGS = $(MLX_LIB) -framework OpenGL -framework AppKit
+F_MAPS = test_maps/
 
-LIB_FT_FLAGS = -Llib -lft
+MLX_FLAGS =# -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
+
+LIBFT_FLAGS = -Llib -lft
 
 MATRIX_FLAGS = -Llib -lmatrix
 
 OBJ = $(SRC:.c=.o) $(F_LIBFT_PLUS:.c=.o)
 
 all: $(NAME)
-	./$(NAME)
-	
+
+42: $(NAME)
+	./$(NAME) $(F_MAPS)42.fdf
+
+julia: $(NAME)
+	./$(NAME) $(F_MAPS)julia.fdf
+
+pent: $(NAME)
+	./$(NAME) $(F_MAPS)pentenegpos.fdf
+
+plat: $(NAME)
+	./$(NAME) $(F_MAPS)plat.fdf
 %.o: %.c lib
 	$(CC) -c $(CFLAGS) $< -o $@ 
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(LIB_FT_FLAGS) $(MATRIX_FLAGS) # $(MLX_FLAGS)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_FLAGS) $(MATRIX_FLAGS) $(MLX_FLAGS) -o $(NAME)
 
-lib: $(MATRIX_LIB) $(MATRIX_LIB) $(LIBFT_LIB)
+lib: $(MATRIX_LIB) $(LIBFT_LIB) $(MLX_LIB)
 
 $(MLX_LIB):
 	$(MAKE) all -C $(F_MLX)
-	mv $(F_MLX)/$(MLX_LIB) .
+	mv $(F_MLX)/$(MLX_LIB) ./lib
 
 $(MATRIX_LIB):
 	$(MAKE) -C $(F_MATRIX)

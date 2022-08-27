@@ -69,7 +69,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 
 
-int	main(void)
+int	main(int argc, char** argv)
 {
 	// void	*mlx;
 	// void	*mlx_win;
@@ -81,10 +81,11 @@ int	main(void)
 	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,&img.endian);
 	// int k =0;
 	// int j =0;
-
+	if (argc <= 1)
+		return(0);
 	t_map *map;
 	map = ft_calloc(sizeof(t_map),1);
-	convert_map("test_maps/julia.fdf",map);//need to free it latter
+	convert_map(argv[1],map);//need to free it latter
 	print_map(map);
 	free_map(map);
 	//print_cords(map);

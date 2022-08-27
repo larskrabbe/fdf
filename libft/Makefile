@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/26 12:47:46 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/08/27 18:10:34 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/08/27 21:16:01 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ VPATH = allocation checker list parsing print string
 
 HEADER = libft.h
 
-CC = cc -g
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
