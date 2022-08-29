@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:37:38 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/22 16:58:58 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/29 11:44:50 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 	//----------OBJECTS------
 	int			**matrix;// maybe import this ina separte struct // like a sup class
-
+	
 	//---------PROPERTIES--------
 	// not sure here... because i will need them  to create the base matrix
 	unsigned 	rows;// maybe import this ina separte struct

@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/27 22:09:12 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/29 21:15:48 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 #include	"libft.h"
 #include	"MLX42.h"
+//#include	"MLX42_Int.h"
+#include	"MLX42_Input.h"
 #include	<fcntl.h>
 #include	"count_stuff.h"
 
@@ -31,6 +33,7 @@
 typedef struct s_points{
 	int	cords[3];
 	int	colour;
+	t_point *l;
 }t_points;
 
 /*
@@ -45,6 +48,8 @@ typedef struct s_map{
 	t_points ***position;
 }t_map;
 	
+mlx_image_t	*g_img;
+
 
 //turn the file in 'usefull' dataformat
 
@@ -55,5 +60,7 @@ void	free_map(t_map *map);
 void	print_map(t_map *map);
 void	print_cords(t_map *map);
 void	print_vector(int *vector,int n);
+void	drawline(int x0, int y0, int x1, int y1, mlx_image_t *img);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/27 22:09:35 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:44:32 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,15 @@ int	a_to_map(char *gnl_ptr,t_map *map, unsigned cur_y)
 	{
 		if(a_to_points(map, cur_x, split_str[cur_x],cur_y) != 0)
 			return(-1);
-		free(split_str[cur_x]);
 		cur_x++;
 
+	}
+	int	i;
+	i = 0;
+	while(split_str[i] != NULL)
+	{
+		free(split_str[i]);
+		i++;
 	}
 	free(split_str);
 	if ( map->max_x != (cur_x))
@@ -123,7 +129,7 @@ void	convert_map(char *filename, t_map *map)
 
 	gnl_ptr = NULL;
 	//map = ft_calloc(sizeof(t_map),1);
-	map->max_y = counts_lines_from_file(filename) - 1;
+	map->max_y = counts_lines_from_file(filename);
 	fd = open(filename,O_RDONLY);
 	gnl_ptr = get_next_line(fd);
 	map->max_x = count_words_in_str(gnl_ptr,' ');

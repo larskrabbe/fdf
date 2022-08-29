@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/08/27 22:22:35 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/08/29 20:47:57 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,17 @@ NAME = fdf.a
 
 VPATH = src src/libft_plus
 
-CC = cc
+CC = cc -g
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = #-Werror -Wextra -Wall
 
 SRC = 			convertmap.c \
 				tmp_main.c \
-				utiles.c
+				utiles.c\
+				draw_line.c
 
-F_LIBFT_PLUS =	count_stuff.c 
+F_LIBFT_PLUS =	count_stuff.c \
+				is_white_space.c
 
 MATRIX_LIB = libmatrix.a
 
@@ -38,7 +40,7 @@ F_LIBFT = libft/
 
 F_MAPS = test_maps/
 
-MLX_FLAGS =# -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
+MLX_FLAGS = -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
 
 LIBFT_FLAGS = -Llib -lft
 

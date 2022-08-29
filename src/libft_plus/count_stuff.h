@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:14:51 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/24 11:17:18 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/29 13:31:25 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ int	count_chr_from_str(const char *str, const char chr);
 // could be easily transform to count for any chareckters not just '\n'
 int	counts_lines_from_file(char *file);
 
-//coutns the amount of words the amount of 'words' in a string split by char split ( like space) 
+//coutns the amount of words the amount of 'words' in a string split whitespace {space newline and tab}
 // returns the amount as int 
-// returns 1 if split is '\0'
-int	count_words_in_str(char *str,char split);
+// returns 0 if split is '\0'
+int	count_words_in_str(char *str);
+
+
+int	is_white_space(int a);
+
+
 #endif

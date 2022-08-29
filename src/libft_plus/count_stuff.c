@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:48:02 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/27 16:38:56 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:40:21 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,27 @@ int	counts_lines_from_file(char *file)
 
 //coutns the amount of words the amount of 'words' in a string split by char split ( like space) 
 // returns the amount as int 
-int	count_words_in_str(char *str,char split)
+int	count_words_in_str(char *str)
 {
 	int	i;
 	int n;
 
 	i = 0;
 	n = 0;
-	if (split == '\0')
-		return(1);
 	while(str[i] != '\0')
 	{
-		while (str[i] == split)
+		while (is_white_space(str[i]))
 		{
 			i++;
 		}
-		if(str[i] != split && str[i] != '\0')
+		if(!(is_white_space(str[i])) && str[i] != '\0')
 		{
 			n++;
-			while (str[i] != split && str[i] != '\0')
+			while (!is_white_space(str[i]))
 			{
 				i++;
 			}
-		}	
+		}
 	}
 	return(n);
 }

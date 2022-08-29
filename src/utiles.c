@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/27 17:18:09 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/29 13:36:03 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_map(t_map *map)
 	{
 		while (map->max_x > x)
 		{
-			ft_printf("%3i",map->position[y][x]->cords[2]);
+			ft_printf("%4i",map->position[y][x]->cords[2]);
 			x++;
 		}
 			ft_printf("\n");

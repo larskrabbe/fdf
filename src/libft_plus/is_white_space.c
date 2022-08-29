@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   is_white_space.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 13:00:34 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 13:23:52 by lkrabbe          ###   ########.fr       */
+/*   Created: 2022/08/29 13:23:33 by lkrabbe           #+#    #+#             */
+/*   Updated: 2022/08/29 13:28:37 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int a)
+#include	"count_stuff.h"
+
+int	is_white_space(int a)
 {
-	if ((a >= '0' && a <= '9' ) || (a >= 'a' && a <= 'z'))
+	if (a == ' ' || a == '\n' || a == '\t')
 		return (1);
-	else if (a <= 'Z' && a >= 'A')
-		return (1);
-	else
-		return (0);
+	return (0);
 }
