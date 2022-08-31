@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/31 15:11:52 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/31 20:42:44 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 		ft_printf("\n info == NULL");//safe free exit
 		return(-1);
 	}
+	static int sta = 0;
+	sta += 20;
 	map->position[cur_y][cur_x]->cords[0] = cur_y EXPENT;
-	map->position[cur_y][cur_x]->cords[1] = cur_x EXPENT;
+	map->position[cur_y][cur_x]->cords[1] = cur_x EXPENT + sta;
 	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
 	if (info[1] != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:37:38 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 11:44:50 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/31 20:30:21 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,13 @@ void	set_whole_coloumn(struct s_matrix_obj *matrix, int *new_values, unsigned t_
 int		get_single_value(struct s_matrix_obj *matrix, unsigned column, unsigned row);
 
 //returns a allocated and copied array  of target row
-int	*get_single_row(struct s_matrix_obj *matrix,unsigned t_row);
+int		*get_single_row(struct s_matrix_obj *matrix,unsigned t_row);
 
 //returns a allocated and copied array  of target row
-int	*get_single_column(struct s_matrix_obj *matrix,unsigned t_column);
+int		*get_single_column(struct s_matrix_obj *matrix,unsigned t_column);
 
 //returns a allocated copy of the matrix
-int **get_matrix_copy(struct s_matrix_obj *matrix);
+int 	**get_matrix_copy(struct s_matrix_obj *matrix);
 
 
 

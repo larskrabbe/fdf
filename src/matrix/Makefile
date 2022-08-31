@@ -22,7 +22,7 @@ $(NAME): $(OBJ)
 	make clean
 
 main : 
-		$(CC) $(CFLAGS) $(SRC) $(MAIN)
+		$(CC) $(CFLAGS) $(SRC) $(MAIN) -L../../lib -lft
 
 clean:
 	rm -f *.o

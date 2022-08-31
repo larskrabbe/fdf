@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/31 15:04:36 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/31 20:06:11 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ plotLine(x0, y0, x1, y1)
 		end if
 	end while
 */
-#define COLOUR 1000
+#define COLOUR 0xFFFFF
 void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 {
 	int i;
@@ -83,66 +83,57 @@ void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	}
 }
 
+// need to replace abs with ft_abs
+unsigned ft_abs()
+{
+	
+	
+}
+
+// need  to look to avoid using this struct, but its to many variable , maybe look to splitting funktion
+typedef struct s_bresenham
+{
+	int dx;
+	int sx;
+	int dy;
+	int sy;
+	int err;
+	int e2;
+	int folow[2];
+}t_bresenham;
+
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
 {
-	// int dx, dy, p, x, y;
- 
-	// dx = x1 - x0;
-	// dy = y1 - y0;
-	if(point_a->cords[1] == point_b->cords[1])
+	t_bresenham data;
+
+	data.dx =  abs(point_b->cords[1] - point_a->cords[1]);
+	data.sx = point_a->cords[1] < point_b->cords[1] ? 1 : -1;
+	data.dy = -abs(point_b->cords[0] - point_a->cords[0]);
+	data.sy = point_a->cords[0] < point_b->cords[0] ? 1 : -1;
+	data.err = data.dx + data.dy;
+	data.e2 = 0;
+	data.folow[0] = point_a->cords[0];
+	data.folow[1] = point_a->cords[1];
+
+	if(data.dx == 0)
 		return(draw_vert(point_a, point_b, img));
-	if(point_a->cords[0] == point_b->cords[0])
-		return(draw_vert(point_a, point_b, img));
-	// p = 2 * dy - dx;
-	// if(dy <= dx)
-	// {
-	// 	while(x0 < x1)
-	// 	{
-	// 		if(p >= 0)
-	// 		{
-	// 			mlx_put_pixel(img, x0, y0, 1000);
-	// 			y0 = y0 + 1;
-	// 			p = p + 2 * dy - 2 * dx;
-	// 		}
-	// 		else
-	// 		{
-	// 			mlx_put_pixel(img, x0, y0, 1000);
-	// 			p = p + 2 * dy;
-	// 		}
-	// 		x0 = x0 + 1;
-	// 	}
-	// }
-	// else
-	// {
-	// 	while(y0 < y1)
-	// 	{
-	// 		if(p >= 0)
-	// 		{
-	// 			mlx_put_pixel(img, x0, y0, 1000);
-	// 			x0 = x0 + 1;
-	// 			p = p + 2 * dy - 2 * dx;
-	// 		}
-	// 		else
-	// 		{
-	// 			mlx_put_pixel(img, x0, y0, 1000);
-	// 			p = p + 2 * dy;
-	// 		}
-	// 		y0 = y0 + 1;
-	// 	}
-	// }
+	if(data.dy == 0)
+		return(draw_hori(point_a, point_b, img));
+	while (1)
+	{
+		mlx_put_pixel(img, data.folow[1], data.folow[0], COLOUR);
+		if (data.folow[1] == point_b->cords[1] &&data.folow[0] ==point_b->cords[0])
+			break;
+		data.e2 = 2 * data.err;
+		if (data.e2 > data.dy) 
+		{
+			data.err += data.dy;
+			data.folow[1] += data.sx;
+		}
+		if (data.e2 < data.dx)
+		{
+			data.err += data.dx;
+			data.folow[0] += data.sy;
+		}
+	}
 }
- 
-// int main()
-// {
-// int gdriver=DETECT, gmode, error, x0, y0, x1, y1;
-// initgraph(&gdriver, &gmode, "c:\\turboc3\\bgi");
- 
-// printf("Enter co-ordinates of first point: ");
-// scanf("%d%d", &x0, &y0);
- 
-// printf("Enter co-ordinates of second point: ");
-// scanf("%d%d", &x1, &y1);
-// drawline(x0, y0, x1, y1);
- 
-// return 0;
-// }

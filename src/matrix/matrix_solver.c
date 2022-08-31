@@ -38,6 +38,5 @@ int	*matrix_multiply_vector(struct s_matrix_obj *matrix, int *vector, unsigned v
 		result[i] = vector_add_up(matrix->matrix[i],vector,vec_len);
 		i++;
 	}
-
 	return(result);
 }

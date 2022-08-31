@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/08/29 20:47:57 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/08/31 20:20:18 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,8 +81,11 @@ $(LIBFT_LIB):
 	$(MAKE) -C $(F_LIBFT)
 	mv $(F_LIBFT)/$(LIBFT_LIB) ./lib
 
+#if [ ! -d "MLX422" ]; then do stuff here ;fi
+
 clean:
 	rm -f OBJ
+
 
 fclean:
 	$(MAKE) clean -C $(F_MLX)

@@ -22,29 +22,8 @@ void	hook(void *param)
 		g_img->instances[0].x += 5;
 }
 
-
-
-int32_t	not_main(t_map *map)
+void	draw_on_screen(t_map *map,mlx_image_t *img)
 {
-	mlx_t	*mlx;
-	mlx_image_t *img;
-
-	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", false);
-	if (!mlx)
-		exit(EXIT_FAILURE);
-	img = mlx_new_image(mlx, WIDTH, HEIGHT);
-	g_img = img;
-	int i= 0;
-	// while ( i++ < 100)	
-	// 	mlx_put_pixel(g_img,i, i, 800080);
-
-	//memset(g_img->pixels, 255, g_img->width * g_img->height * sizeof(int));
-	// int t_x = 0;
-	// while(t_x < 500)
-	// {
-	// 	drawline(t_x,0,100,100,img);
-	// 	t_x = t_x + 10;
-	// }
 	int	c_y = 0;
 	int	c_x = 0;
 	while(map->max_y > c_y )
@@ -61,10 +40,20 @@ int32_t	not_main(t_map *map)
 		c_x = 0;
 		c_y++;
 	}
-	 	// drawline(0,0,0,100,img);
-	 	// drawline(0,100,100,100,img);
-	 	// drawline(100,100,100,0,img);
-	 	// drawline(100,0,0,0,img);
+}
+
+int32_t	not_main(t_map *map)
+{
+	mlx_t	*mlx;
+	mlx_image_t *img;
+
+	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", false);
+	if (!mlx)
+		exit(EXIT_FAILURE);
+	img = mlx_new_image(mlx, WIDTH, HEIGHT);
+	g_img = img;
+
+	draw_on_screen(map, img);
 	mlx_image_to_window(mlx, g_img, 50, 50);
 	mlx_loop_hook(mlx, &hook, mlx);
 	mlx_loop(mlx);
