@@ -1,7 +1,7 @@
 #include "../include/fdf.h"
 
-#define WIDTH 256 * 2
-#define HEIGHT 256 * 2
+#define WIDTH 256 * 20
+#define HEIGHT 256 * 20
 
 mlx_image_t	*g_img;
 
@@ -22,6 +22,8 @@ void	hook(void *param)
 		g_img->instances[0].x += 5;
 }
 
+
+
 int32_t	not_main(t_map *map)
 {
 	mlx_t	*mlx;
@@ -37,11 +39,32 @@ int32_t	not_main(t_map *map)
 	// 	mlx_put_pixel(g_img,i, i, 800080);
 
 	//memset(g_img->pixels, 255, g_img->width * g_img->height * sizeof(int));
-	//drawline(50,0,50,600);
-	drawline(20,2,50,100,img);
-	drawline(0,0,50,200,img);
-	drawline(0,0,20,100,img);
-
+	// int t_x = 0;
+	// while(t_x < 500)
+	// {
+	// 	drawline(t_x,0,100,100,img);
+	// 	t_x = t_x + 10;
+	// }
+	int	c_y = 0;
+	int	c_x = 0;
+	while(map->max_y > c_y )
+	{
+		while(map->max_x > c_x)
+		{
+			ft_printf("y %i x %i map x %i map y %i \n",c_y, c_x,map->position[c_y][c_x]->cords[1],map->position[c_y][c_x]->cords[0]);
+			if(c_x + 1< map->max_x)
+				drawline(map->position[c_y][c_x],map->position[c_y][c_x + 1],img);
+			if(c_y + 1 < map->max_y)
+				drawline(map->position[c_y][c_x],map->position[c_y + 1][c_x],img);
+			c_x++;
+		}
+		c_x = 0;
+		c_y++;
+	}
+	 	// drawline(0,0,0,100,img);
+	 	// drawline(0,100,100,100,img);
+	 	// drawline(100,100,100,0,img);
+	 	// drawline(100,0,0,0,img);
 	mlx_image_to_window(mlx, g_img, 50, 50);
 	mlx_loop_hook(mlx, &hook, mlx);
 	mlx_loop(mlx);

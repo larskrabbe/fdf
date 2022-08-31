@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 21:15:48 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/31 14:50:14 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 typedef struct s_points{
 	int	cords[3];
 	int	colour;
-	t_point *l;
 }t_points;
 
 /*
@@ -60,7 +59,7 @@ void	free_map(t_map *map);
 void	print_map(t_map *map);
 void	print_cords(t_map *map);
 void	print_vector(int *vector,int n);
-void	drawline(int x0, int y0, int x1, int y1, mlx_image_t *img);
+void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
 
 
 #endif

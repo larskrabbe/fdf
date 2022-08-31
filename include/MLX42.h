@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   MLX42.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <w2.wizzard@gmail.com>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/28 00:33:01 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/08/10 13:00:48 by lde-la-h      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   MLX42.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/28 00:33:01 by W2Wizard          #+#    #+#             */
+/*   Updated: 2022/08/31 12:52:20 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -711,7 +711,7 @@ mlx_image_t* mlx_put_string(mlx_t* mlx, const char* str, int32_t x, int32_t y);
 const mlx_texture_t* mlx_get_font(void);
 
 /**
- * This function lets you retrieve the X offset 
+ * T u retrieve the X offset 
  * of the given char in the font texture.
  * 
  * NOTE: A single character is 10 * 20 in pixels!

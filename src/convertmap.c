@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 15:44:32 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/31 15:11:52 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 |		need to care about freeing in the end								   |
 |																			   |
 \*----------------------------------------------------------------------------*/
+
+#define EXPENT * 10
 
 // takes the information of a string and allocate and stores the information inside of s_points struct
 int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
@@ -37,8 +39,8 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 		ft_printf("\n info == NULL");//safe free exit
 		return(-1);
 	}
-	map->position[cur_y][cur_x]->cords[0] = cur_y;
-	map->position[cur_y][cur_x]->cords[1] = cur_x;
+	map->position[cur_y][cur_x]->cords[0] = cur_y EXPENT;
+	map->position[cur_y][cur_x]->cords[1] = cur_x EXPENT;
 	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
 	if (info[1] != NULL)
 	{
