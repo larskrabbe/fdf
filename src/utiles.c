@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utiles.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 13:36:03 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/08/31 17:00:53 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	print_cords(t_map *map)
 void	print_vector(int *vector,int n)
 {
 	int	i;
-
+	
 	i = 0;
 	while(n > i)
 	{

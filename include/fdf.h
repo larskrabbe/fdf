@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/31 20:12:52 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/01 10:17:28 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,16 @@ mlx_image_t	*g_img;
 
 void	convert_map(char *filename, t_map *map);
 void	free_map(t_map *map);
+void *create_map(t_map *map, int max_x, int max_y);
 
 //------utiles.c
 void	print_map(t_map *map);
 void	print_cords(t_map *map);
 void	print_vector(int *vector,int n);
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
+
+
+void	convert_test(t_points *input,t_points *result);
 
 
 #endif
