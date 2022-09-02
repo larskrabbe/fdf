@@ -1,4 +1,16 @@
-#include "../include/fdf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_stuff.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
+/*   Updated: 2022/09/02 15:13:19 by lkrabbe          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include	
 
 #define WIDTH 256 * 20
 #define HEIGHT 256 * 20
@@ -60,50 +72,5 @@ int32_t	mlx_main(t_map *map)
 
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
-}
-
-void	map_to_screen(t_map *map,void (*f_convert)(t_map *map, int cur_x, int cur_y))
-{
-	int cur_x;
-	int cur_y;
-
-	cur_x = 0;
-	cur_y = 0;
-	while (cur_y < map->max_y)
-	{
-		while (cur_x < map->max_x)
-		{
-			f_convert(map, cur_x,  cur_y);
-			cur_x++;
-		}
-		cur_x = 0;
-		cur_y++;
-	}
-}
-/*
-2D = (x3D + z3D) * cos(theta)
-y2D = (-x3D + z3D) * sin(theta) + y3D
-*/
-void	convert_test(t_map *map,int cur_x, int cur_y)
-{
-	map->position[cur_y][cur_x]->screen[0] = (map->position[cur_y][cur_x]->cords[0]) * 30;
-	map->position[cur_y][cur_x]->screen[1] = (map->position[cur_y][cur_x]->cords[1] ) * 30;
-}
-
-
-
-int	main(int argc, char** argv)
-{
-	t_map	*map;
-	void	(*f_convert)(t_map *map, int cur_x, int cur_y);
-	f_convert = &convert_test;
-	if (argc <= 1)
-		return(0);
-	map = ft_calloc(sizeof(map),1);
-	convert_map(argv[1],map);
-	map_to_screen(map,f_convert);
-	mlx_main(map);
-	free_map(map);
-	return(0);
 }
 

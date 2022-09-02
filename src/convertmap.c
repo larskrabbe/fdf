@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/01 08:01:30 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/02 09:28:09 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 {
 	char		**info;
 
-	//ft_printf("\n [%i] [%i]",cur_y,cur_x);
+	ft_printf("\n [%i] [%i]",cur_y,cur_x);
 	map->position[cur_y][cur_x] = ft_calloc(sizeof(t_points),1);
 	if (map->position[cur_y][cur_x] == NULL)
 	{
@@ -39,11 +39,10 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 		ft_printf("\n info == NULL");//safe free exit
 		return(-1);
 	}
-	static int sta = 0;//inline test
-	sta += 5;//inline test 
-	map->position[cur_y][cur_x]->cords[0] = cur_y EXPENT;//include inline test
-	map->position[cur_y][cur_x]->cords[1] = cur_x EXPENT + sta;//include inline test
+	map->position[cur_y][cur_x]->cords[0] = cur_y;//include inline test
+	map->position[cur_y][cur_x]->cords[1] = cur_x;//include inline test
 	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
+	//ft_printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);
 	if (info[1] != NULL)
 	{
 		map->position[cur_y][cur_x]->colour = atoi(info[1]);

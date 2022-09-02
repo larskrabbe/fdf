@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/08/31 20:20:18 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/02 14:13:36 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ F_LIBFT = libft/
 
 F_MAPS = test_maps/
 
-MLX_FLAGS = -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
+MLX_FLAGS = #-lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
 
 LIBFT_FLAGS = -Llib -lft
 

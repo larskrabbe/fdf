@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/01 10:17:28 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/01 20:58:59 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include	"MLX42_Input.h"
 #include	<fcntl.h>
 #include	"count_stuff.h"
-
+#include	"math.h"
 //*************************STRUCTURE*******************************************
 
 
@@ -33,6 +33,7 @@
 typedef struct s_points{
 	int	cords[3];
 	int	colour;
+	int screen[2];
 }t_points;
 
 /*
@@ -62,8 +63,7 @@ void	print_cords(t_map *map);
 void	print_vector(int *vector,int n);
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
 
-
-void	convert_test(t_points *input,t_points *result);
+void	convert_test(t_map *map,int cur_y, int cur_x);
 
 
 #endif

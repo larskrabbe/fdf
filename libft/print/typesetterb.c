@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:42:37 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/22 19:05:10 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:06:01 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ void	f_setter_u(t_type *type, va_list va_ptr)
 void	f_setter_i(t_type *type, t_arg *input, va_list va_ptr)
 {
 	long	tmp;
+	int		i;
 
-	tmp = va_arg(va_ptr, int);
+	i = va_arg(va_ptr, int);
+	tmp = (long)i;
 	if (tmp < 0)
 	{
 		tmp = tmp * -1;
