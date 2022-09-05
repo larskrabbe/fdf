@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:33:01 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/08/31 12:52:20 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/05 19:28:49 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,8 @@ typedef struct mlx_image
 	int32_t			count;
 	bool			enabled;
 	void*			context;
-}	mlx_image_t;
+}	
+mlx_image_t;
 
 /**
  * Main MLX handle, carries important data in regards to the program.

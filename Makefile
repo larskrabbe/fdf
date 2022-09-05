@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/09/02 14:13:36 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/05 19:16:59 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CFLAGS = #-Werror -Wextra -Wall
 SRC = 			convertmap.c \
 				tmp_main.c \
 				utiles.c\
-				draw_line.c
+				draw_line.c\
+				input_stuff.c
 
 F_LIBFT_PLUS =	count_stuff.c \
 				is_white_space.c
@@ -40,7 +41,7 @@ F_LIBFT = libft/
 
 F_MAPS = test_maps/
 
-MLX_FLAGS = #-lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
+MLX_FLAGS = -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
 
 LIBFT_FLAGS = -Llib -lft
 
@@ -81,7 +82,7 @@ $(LIBFT_LIB):
 	$(MAKE) -C $(F_LIBFT)
 	mv $(F_LIBFT)/$(LIBFT_LIB) ./lib
 
-#if [ ! -d "MLX422" ]; then do stuff here ;fi
+#if [ ! -d "MLX42" ]; then do stuff here ;fi
 
 clean:
 	rm -f OBJ

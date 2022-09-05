@@ -22,8 +22,8 @@ $(NAME): $(OBJ)
 	make clean
 
 main : 
-	$(CC) $(CFLAGS) $(SRC) -L../../lib -lft $(MAIN)
-
+	$(CC) $(CFLAGS) $(SRC) -L../../lib -lft $(MAIN) -o a.matrix
+	./a.matrix
 clean:
 	rm -f *.o
 

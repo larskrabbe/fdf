@@ -16,13 +16,13 @@ int	vector_add_up(int *vec_a,int *vec_b,int vec_len)
 	add_up = 0;
 	while (i < vec_len)
 	{
-		ft_printf("%i = %i + %i * %i \n",add_up + (vec_a[i] * vec_b[i]),add_up,vec_a[i],vec_b[i]);
-		printf("Here >>>%d\n",add_up);
-		printf("vecta: %d\n", vec_a[i]);
-		printf("vectb: %d\n", vec_b[i]);
-		printf("A*B: %d\n", (vec_a[i] * vec_b[i]));
+		//printf("%i = %i + %i * %i \n\n",add_up + (vec_a[i] * vec_b[i]),add_up,vec_a[i],vec_b[i]);
+		// printf("Here >>>%d\n",add_up);
+		// printf("vecta: %d\n", vec_a[i]);
+		// printf("vectb: %d\n", vec_b[i]);
+		// printf("A*B: %d\n", (vec_a[i] * vec_b[i]));
 		add_up = add_up + (vec_a[i] * vec_b[i]);
-		printf("Here >>>%d\n",add_up);
+		// printf("Here >>>%d\n",add_up);
 		i++;
 	}
 	return(add_up);
@@ -35,14 +35,15 @@ void	matrix_multiply_vector(struct s_matrix_obj *matrix, int *vector, unsigned v
 	//ft_printf("rows -> %i ",matrix->rows);
 	if(vec_len < matrix->rows)
 	{
-		ft_printf("vector has a not a valid size");
+		printf("vector has a not a valid size >> rows =>%i vector %i\n",matrix->rows, vec_len);
 		return;
 	}
 	i = 0;
 	while (i < matrix->rows)
 	{
+		//matrix->f_print(matrix);
 		result[i] = vector_add_up(matrix->matrix[i],vector,vec_len);
-		ft_printf("result {%i}",result[i]);
+		//printf(">>>>>result {%i}",result[i]);
 		i++;
 	}
 }

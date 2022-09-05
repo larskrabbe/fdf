@@ -6,7 +6,7 @@ void	set_sinlge_value(struct s_matrix_obj *matrix, unsigned row,unsigned column,
 {
 	if (row >= matrix->rows || column >= matrix->columns)
 		{
-			ft_printf("Try to excess outside scope || target => row %u , column %u",row , column);
+			printf("Try to excess outside scope || target => row %u , column %u",row , column);
 			exit(EXIT_FAILURE);
 		}	
 	matrix->matrix[column][row] = value;

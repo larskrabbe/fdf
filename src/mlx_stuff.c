@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/02 15:13:19 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/05 20:09:52 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@
 
 mlx_image_t	*g_img;
 
-void	hook(void *param)
-{
-	mlx_t	*mlx;
+// void	hook(void *param, void *param2)
+// {
+// 	mlx_t	*mlx;
 
-	mlx = param;
-	if (mlx_is_key_down(param, MLX_KEY_ESCAPE))
-		mlx_close_window(param);
-	if (mlx_is_key_down(param, MLX_KEY_UP))
-		g_img->instances[0].y -= 5;
-	if (mlx_is_key_down(param, MLX_KEY_DOWN))
-		g_img->instances[0].y += 5;
-	if (mlx_is_key_down(param, MLX_KEY_LEFT))
-		g_img->instances[0].x -= 5;
-	if (mlx_is_key_down(param, MLX_KEY_RIGHT))
-		g_img->instances[0].x += 5;
-}
+// 	mlx = param;
+// 	if (mlx_is_key_down(param, MLX_KEY_ESCAPE))
+// 		mlx_close_window(param);
+// 	if (mlx_is_key_down(param, MLX_KEY_UP))
+// 		g_img->instances[0].y -= 5;
+// 	if (mlx_is_key_down(param, MLX_KEY_DOWN))
+// 		g_img->instances[0].y += 5;
+// 	if (mlx_is_key_down(param, MLX_KEY_LEFT))
+// 		g_img->instances[0].x -= 5;
+// 	if (mlx_is_key_down(param, MLX_KEY_RIGHT))
+// 		g_img->instances[0].x += 5;
+// }git
 
 void	draw_on_screen(t_map *map,mlx_image_t *img)
 {
@@ -42,7 +42,7 @@ void	draw_on_screen(t_map *map,mlx_image_t *img)
 	{
 		while(map->max_x > c_x)
 		{
-			ft_printf("y %i x %i map x %i map y %i \n",c_y, c_x,map->position[c_y][c_x]->cords[1],map->position[c_y][c_x]->cords[0]);
+			//ft_printf("y %i x %i map x %i map y %i \n",c_y, c_x,map->position[c_y][c_x]->cords[1],map->position[c_y][c_x]->cords[0]);
 			if(c_x + 1< map->max_x)
 				drawline(map->position[c_y][c_x],map->position[c_y][c_x + 1],img);
 			if(c_y + 1 < map->max_y)
@@ -54,7 +54,7 @@ void	draw_on_screen(t_map *map,mlx_image_t *img)
 	}
 }
 
-int32_t	mlx_main(t_map *map)
+int32_t	mlx_main(t_map *map, t_input *input)
 {
 	mlx_t	*mlx;
 	mlx_image_t *img;
@@ -67,7 +67,7 @@ int32_t	mlx_main(t_map *map)
 
 	draw_on_screen(map, img);
 	mlx_image_to_window(mlx, g_img, 50, 50);
-	mlx_loop_hook(mlx, &hook, mlx);
+	mlx_loop_hook(mlx, &hook, mlx, input);
 	mlx_loop(mlx);
 
 	mlx_terminate(mlx);

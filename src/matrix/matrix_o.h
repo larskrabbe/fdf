@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:37:38 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/31 20:30:21 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:41:00 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 //*************************LIBARYS*********************************************
 
-# include	"../../include/fdf.h"//need to change for later projects
+# include	"../../include/libft.h"//need to change for later projects
 
 //*************************STRUCTURE*******************************************
 

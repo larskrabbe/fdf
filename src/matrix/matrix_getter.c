@@ -17,7 +17,7 @@ int	*get_single_row(struct s_matrix_obj *matrix,unsigned t_row)
 	copy = malloc( sizeof(int *) * (matrix->rows + 1));
 	if (copy == NULL)
 	{
-		ft_printf("allocation failed for get row");
+		printf("allocation failed for get row");
 		return(NULL);
 	}
 	while(i <= matrix->columns)
@@ -38,7 +38,7 @@ int	*get_single_column(struct s_matrix_obj *matrix,unsigned t_column)
 	copy = malloc(sizeof(int *) * (matrix->columns + 1));
 	if (copy == NULL)
 	{
-		ft_printf("allocation failed for get column");
+		printf("allocation failed for get column");
 		return(NULL);
 	}
 	while(i <= matrix->rows)
@@ -59,7 +59,7 @@ int **get_matrix_copy(struct s_matrix_obj *matrix)
 	copy = malloc(sizeof(int *) * (matrix->columns + 1));
 	if (copy == NULL)
 	{
-		ft_printf("allocation failed for copy matrix");
+		printf("allocation failed for copy matrix");
 		return(NULL);
 	}
 	while(matrix->columns <= i)
@@ -67,7 +67,7 @@ int **get_matrix_copy(struct s_matrix_obj *matrix)
 		copy[i] = get_single_row(matrix, i);
 		if(copy[i] == NULL)
 		{
-			ft_printf("allocation failed for copy matrix");
+			printf("allocation failed for copy matrix");
 			return(free_arrays(copy,i));
 		}
 		i++;

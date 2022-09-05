@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:37:38 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/23 20:47:53 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:40:44 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 //*************************LIBARYS*********************************************
 
-# include	"fdf.h"//need to change for later projects
+# include	"libft.h"//need to change for later projects
 
 //*************************STRUCTURE*******************************************
 
@@ -33,7 +33,7 @@
 
 	//----------OBJECTS------
 	int			**matrix;// maybe import this ina separte struct // like a sup class
-
+	
 	//---------PROPERTIES--------
 	// not sure here... because i will need them  to create the base matrix
 	unsigned 	rows;// maybe import this ina separte struct
@@ -112,13 +112,13 @@ void	set_whole_coloumn(struct s_matrix_obj *matrix, int *new_values, unsigned t_
 int		get_single_value(struct s_matrix_obj *matrix, unsigned column, unsigned row);
 
 //returns a allocated and copied array  of target row
-int	*get_single_row(struct s_matrix_obj *matrix,unsigned t_row);
+int		*get_single_row(struct s_matrix_obj *matrix,unsigned t_row);
 
 //returns a allocated and copied array  of target row
-int	*get_single_column(struct s_matrix_obj *matrix,unsigned t_column);
+int		*get_single_column(struct s_matrix_obj *matrix,unsigned t_column);
 
 //returns a allocated copy of the matrix
-int **get_matrix_copy(struct s_matrix_obj *matrix);
+int 	**get_matrix_copy(struct s_matrix_obj *matrix);
 
 
 

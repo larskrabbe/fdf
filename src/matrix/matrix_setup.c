@@ -46,6 +46,8 @@ void	*free_arrays(int **ptr, unsigned n)
 void	delete_matrix(t_matrix_obj *matrix)
 {
 	free_arrays(matrix->matrix,matrix->columns);
+	matrix->columns = 0;
+	matrix->rows = 0;
 }
 
 //Constructor for my 'Class'

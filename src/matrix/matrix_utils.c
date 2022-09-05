@@ -6,8 +6,8 @@ void	print_matrix(t_matrix_obj *matrix)
 	unsigned x;
 	unsigned y;
 
-	ft_printf("rows = %u \n",matrix->rows);
-	ft_printf("columns = %u \n\n",matrix->columns);
+	printf("rows = %u \n",matrix->rows);
+	printf("columns = %u \n\n",matrix->columns);
 
 	x = 0;
 	y = 0;
@@ -15,12 +15,11 @@ void	print_matrix(t_matrix_obj *matrix)
 	{
 		while(x < matrix->rows)
 		{
-			ft_printf("| %i ",matrix->matrix[y][x]);
-			matrix->matrix[y][x]++;
+			printf("| %3i ",matrix->matrix[y][x]);
 			x++;
 		}
 		x = 0;
-		ft_printf("|\n\n");
+		printf("|\n\n");
 		y++;
 	}
 }
