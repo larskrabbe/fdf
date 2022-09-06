@@ -2,7 +2,7 @@
 #include	"matrix_o.h"
 
 //create the matrix(int [][])
-int	**create_matrix(struct s_matrix_obj *matrix, unsigned rows,unsigned columns)
+double	**create_matrix(struct s_matrix_obj *matrix, unsigned rows,unsigned columns)
 {
 	unsigned cur_column;
 
@@ -30,7 +30,7 @@ int	**create_matrix(struct s_matrix_obj *matrix, unsigned rows,unsigned columns)
 }
 
 
-void	*free_arrays(int **ptr, unsigned n)
+void	*free_arrays(double **ptr, unsigned n)
 {
 	while (n > 0)
 	{

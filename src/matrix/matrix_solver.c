@@ -7,7 +7,7 @@
 // 	return (NULL);
 // }
 
-int	vector_add_up(int *vec_a,int *vec_b,int vec_len)
+int	vector_add_up(double *vec_a,double *vec_b,int vec_len)
 {
 	int add_up;
 	int i;
@@ -16,19 +16,13 @@ int	vector_add_up(int *vec_a,int *vec_b,int vec_len)
 	add_up = 0;
 	while (i < vec_len)
 	{
-		//printf("%i = %i + %i * %i \n\n",add_up + (vec_a[i] * vec_b[i]),add_up,vec_a[i],vec_b[i]);
-		// printf("Here >>>%d\n",add_up);
-		// printf("vecta: %d\n", vec_a[i]);
-		// printf("vectb: %d\n", vec_b[i]);
-		// printf("A*B: %d\n", (vec_a[i] * vec_b[i]));
 		add_up = add_up + (vec_a[i] * vec_b[i]);
-		// printf("Here >>>%d\n",add_up);
 		i++;
 	}
 	return(add_up);
 }
 
-void	matrix_multiply_vector(struct s_matrix_obj *matrix, int *vector, unsigned vec_len, int *result)
+void	matrix_multiply_vector(struct s_matrix_obj *matrix, double *vector, unsigned vec_len, double *result)
 {
 	unsigned	i;
 

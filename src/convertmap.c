@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/05 15:58:40 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 10:38:14 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,20 +127,16 @@ void	*read_map(t_map *map, int fd,char *gnl_ptr)
 //convets the file into cordinate inside a struct
 void	convert_map(char *filename, t_map *map)
 {
-	//t_map	*map;
 	char	*gnl_ptr;
 	int		fd;
 
 	gnl_ptr = NULL;
-	//map = ft_calloc(sizeof(t_map),1);
 	map->max_y = counts_lines_from_file(filename);
 	fd = open(filename,O_RDONLY);
 	gnl_ptr = get_next_line(fd);
 	map->max_x = count_words_in_str(gnl_ptr,' ');
 	create_map(map,map->max_x,map->max_y);
-	read_map(map,fd,gnl_ptr);
-	// return (map);
-	
+	read_map(map,fd,gnl_ptr);	
 }
 
 void	free_map(t_map *map)
@@ -162,5 +158,4 @@ void	free_map(t_map *map)
 		x = 0;
 	}
 	free(map->position);
-	free(map);
 }

@@ -15,7 +15,7 @@ void	print_matrix(t_matrix_obj *matrix)
 	{
 		while(x < matrix->rows)
 		{
-			printf("| %3i ",matrix->matrix[y][x]);
+			printf("| %3f ",matrix->matrix[y][x]);
 			x++;
 		}
 		x = 0;

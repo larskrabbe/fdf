@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/09/05 19:16:59 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/06 01:32:23 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ pent: $(NAME)
 
 plat: $(NAME)
 	./$(NAME) $(F_MAPS)plat.fdf
+
 %.o: %.c lib
 	$(CC) -c $(CFLAGS) $< -o $@ 
 

@@ -2,19 +2,19 @@
 #include	"matrix_o.h"
 
 //return a single value of the matrix
-int		get_single_value(struct s_matrix_obj *matrix, unsigned column,unsigned row)
+double		get_single_value(struct s_matrix_obj *matrix, unsigned column,unsigned row)
 {
 	return(matrix->matrix[column][row]);
 }
 
 //returns a allocated and copied array  of target row
-int	*get_single_row(struct s_matrix_obj *matrix,unsigned t_row)
+double	*get_single_row(struct s_matrix_obj *matrix,unsigned t_row)
 {
-	int			*copy;
+	double			*copy;
 	unsigned	i;
 
 	i = 0;
-	copy = malloc( sizeof(int *) * (matrix->rows + 1));
+	copy = malloc( sizeof(double *) * (matrix->rows + 1));
 	if (copy == NULL)
 	{
 		printf("allocation failed for get row");
@@ -29,13 +29,13 @@ int	*get_single_row(struct s_matrix_obj *matrix,unsigned t_row)
 }
 
 //returns a allocated and copied array  of target row
-int	*get_single_column(struct s_matrix_obj *matrix,unsigned t_column)
+double	*get_single_column(struct s_matrix_obj *matrix,unsigned t_column)
 {
-	int			*copy;
+	double			*copy;
 	unsigned	i;
 
 	i = 0;
-	copy = malloc(sizeof(int *) * (matrix->columns + 1));
+	copy = malloc(sizeof(double *) * (matrix->columns + 1));
 	if (copy == NULL)
 	{
 		printf("allocation failed for get column");
@@ -50,13 +50,13 @@ int	*get_single_column(struct s_matrix_obj *matrix,unsigned t_column)
 }
 
 //returns a allocated copy of the matrix
-int **get_matrix_copy(struct s_matrix_obj *matrix)
+double **get_matrix_copy(struct s_matrix_obj *matrix)
 {
-	int **copy;
+	double **copy;
 	unsigned i;
 
 	i = 0;
-	copy = malloc(sizeof(int *) * (matrix->columns + 1));
+	copy = malloc(sizeof(double *) * (matrix->columns + 1));
 	if (copy == NULL)
 	{
 		printf("allocation failed for copy matrix");

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/02 10:52:14 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 10:49:01 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
 
-#define COLOUR 0xFFFFFF
+#define COLOUR 0xFFFFFF 
 
 void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 {
@@ -39,7 +39,7 @@ void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 
 void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 {
-	int i;
+	unsigned i;
 
 	i = 0;
 	if(point_a->screen[0] <= point_b->screen[0])
@@ -91,6 +91,7 @@ void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	data.e2 = 0;
 	data.folow[0] = point_a->screen[0];
 	data.folow[1] = point_a->screen[1];
+	unsigned i = 0;
 
 	if(data.dx == 0)
 		return(draw_vert(point_a, point_b, img));
@@ -98,6 +99,7 @@ void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
 		return(draw_hori(point_a, point_b, img));
 	while (1)
 	{
+		i++;
 		mlx_put_pixel(img, data.folow[1], data.folow[0], COLOUR);
 		if (data.folow[1] == point_b->screen[1] &&data.folow[0] ==point_b->screen[0])
 			break;

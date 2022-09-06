@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_o.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:37:38 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/05 15:40:44 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 09:19:30 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 //*************************LIBARYS*********************************************
 
-# include	"libft.h"//need to change for later projects
+# include	"../include/libft.h"//need to change for later projects
 
 //*************************STRUCTURE*******************************************
 
@@ -32,7 +32,7 @@
 	typedef struct	s_matrix_obj{ 
 
 	//----------OBJECTS------
-	int			**matrix;// maybe import this ina separte struct // like a sup class
+	double			**matrix;// maybe import this ina separte struct // like a sup class
 	
 	//---------PROPERTIES--------
 	// not sure here... because i will need them  to create the base matrix
@@ -41,7 +41,7 @@
 
 	//---------METHODS--------
 	//setup
-	int			**(*f_create)(struct s_matrix_obj *matrix, unsigned rows,unsigned columns);
+	double			**(*f_create)(struct s_matrix_obj *matrix, unsigned rows,unsigned columns);
 	void		(*f_delete_matrix)(struct s_matrix_obj *matrix);
 	
 	//utiles
@@ -49,15 +49,15 @@
 	void 		(*f_set_to_null)(struct s_matrix_obj *matrix);
 	
 	//setter
-	void		(*f_set_single)(struct s_matrix_obj *matrix, unsigned row, unsigned column,int value);
-	void		(*f_set_row)(struct s_matrix_obj *matrix, int *new_values, unsigned t_row);
-	void		(*f_set_column)(struct s_matrix_obj *matrix, int *new_values, unsigned t_column);
+	void		(*f_set_single)(struct s_matrix_obj *matrix, unsigned row, unsigned column,double value);
+	void		(*f_set_row)(struct s_matrix_obj *matrix, double *new_values, unsigned t_row);
+	void		(*f_set_column)(struct s_matrix_obj *matrix, double *new_values, unsigned t_column);
 	
 	//getter
-	int			(*f_get_single)(struct s_matrix_obj *matrix, unsigned column,unsigned row);
-	int			*(*f_get_row)(struct s_matrix_obj *matrix,unsigned t_row);
-	int			*(*f_get_column)(struct s_matrix_obj *matrix,unsigned t_column);
-	int			**(*f_get_matrix)(struct s_matrix_obj *matrix);
+	double		*(*f_get_row)(struct s_matrix_obj *matrix,unsigned t_row);
+	double		*(*f_get_column)(struct s_matrix_obj *matrix,unsigned t_column);
+	double		(*f_get_single)(struct s_matrix_obj *matrix, unsigned column,unsigned row);
+	double		**(*f_get_matrix)(struct s_matrix_obj *matrix);
 	
 	
 	//void		(*f_change_row)(unsigned row,int *values); // no reason to do this yet,
@@ -79,10 +79,10 @@
 void	construct_matrix_obj(t_matrix_obj *matrix);
 
 // frees a specic amount of arrays and the pointer that points to it //not in the constructer
-void	*free_arrays(int **ptr, unsigned n);
+void	*free_arrays(double **ptr, unsigned n);
 
 //create the matrix(int [columns][rows]) will be stored in the heap
-int		**create_matrix(struct s_matrix_obj *matrix, unsigned rows,unsigned columns);
+double		**create_matrix(struct s_matrix_obj *matrix, unsigned rows,unsigned columns);
 
 // frees the whole matrix 
 void	delete_matrix(t_matrix_obj *matrix);
@@ -98,28 +98,32 @@ void 	null_matrix(struct s_matrix_obj *matrix);
 //------matrix_setter.c
 
 // change a single value of the matrix
-void	set_sinlge_value(struct s_matrix_obj *matrix, unsigned row,unsigned column,int value);
+void	set_sinlge_value(struct s_matrix_obj *matrix, unsigned row,unsigned column,double value);
 
 //change the target row to the value of the array
-void	set_whole_row(struct s_matrix_obj *matrix, int *new_values, unsigned t_row);
+void	set_whole_row(struct s_matrix_obj *matrix, double *new_values, unsigned t_row);
 
 //change the target row to the value of the array
-void	set_whole_coloumn(struct s_matrix_obj *matrix, int *new_values, unsigned t_column);
+void	set_whole_coloumn(struct s_matrix_obj *matrix, double *new_values, unsigned t_column);
 
 //------matrix_getter.c
 
 //return a single value of the matrix
-int		get_single_value(struct s_matrix_obj *matrix, unsigned column, unsigned row);
+double		get_single_value(struct s_matrix_obj *matrix, unsigned column, unsigned row);
 
 //returns a allocated and copied array  of target row
-int		*get_single_row(struct s_matrix_obj *matrix,unsigned t_row);
+double		*get_single_row(struct s_matrix_obj *matrix,unsigned t_row);
 
 //returns a allocated and copied array  of target row
-int		*get_single_column(struct s_matrix_obj *matrix,unsigned t_column);
+double		*get_single_column(struct s_matrix_obj *matrix,unsigned t_column);
 
 //returns a allocated copy of the matrix
-int 	**get_matrix_copy(struct s_matrix_obj *matrix);
+double 	**get_matrix_copy(struct s_matrix_obj *matrix);
 
+//------matrix_solver.c
+
+//
+double	*matrix_multiply_vector(struct s_matrix_obj *matrix, double *vector, unsigned vec_len,double *result);
 
 
 

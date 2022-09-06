@@ -2,7 +2,7 @@
 #include	"matrix_o.h"
 
 // change a single value of the matrix
-void	set_sinlge_value(struct s_matrix_obj *matrix, unsigned row,unsigned column,int value)
+void	set_sinlge_value(struct s_matrix_obj *matrix, unsigned row,unsigned column,double value)
 {
 	if (row >= matrix->rows || column >= matrix->columns)
 		{
@@ -13,7 +13,7 @@ void	set_sinlge_value(struct s_matrix_obj *matrix, unsigned row,unsigned column,
 }
 
 //change the target row to the value of the array
-void	set_whole_row(struct s_matrix_obj *matrix, int *new_values, unsigned t_row)
+void	set_whole_row(struct s_matrix_obj *matrix, double *new_values, unsigned t_row)
 {
 	unsigned	i;
 
@@ -26,7 +26,7 @@ void	set_whole_row(struct s_matrix_obj *matrix, int *new_values, unsigned t_row)
 }
 
 //change the target row to the value of the array
-void	set_whole_coloumn(struct s_matrix_obj *matrix, int *new_values, unsigned t_column)
+void	set_whole_coloumn(struct s_matrix_obj *matrix, double *new_values, unsigned t_column)
 {
 	unsigned	i;
 

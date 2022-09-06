@@ -14,7 +14,6 @@ OBJ = $(SRC:.c=.o)
 
 MAIN = 	matrix_main.c 
 
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -24,6 +23,7 @@ $(NAME): $(OBJ)
 main : 
 	$(CC) $(CFLAGS) $(SRC) -L../../lib -lft $(MAIN) -o a.matrix
 	./a.matrix
+
 clean:
 	rm -f *.o
 

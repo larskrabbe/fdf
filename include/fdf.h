@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/05 20:06:09 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 10:39:29 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@
 	int screen[4]		=>	stors the cords after translating it through the matrix,the z position shold be irrelevant
 */
 typedef struct s_points{
-	int	cords[4];
+	double	cords[4];
 	int	colour;
-	int screen[4];
+	double screen[4];
 }t_points;
 
 /*
@@ -76,7 +76,7 @@ typedef struct s_input
 typedef	struct s_tmp_struct
 {
 	mlx_t	*mlx;
-	t_input	*input;
+	//t_input	*input;
 	t_map	*map;
 	t_matrix_obj *mat;
 }t_tmp_struct;
@@ -92,6 +92,7 @@ void	convert_map(char *filename, t_map *map);
 void	free_map(t_map *map);
 void 	*create_map(t_map *map, int max_x, int max_y);
 void 	default_input(t_input *input);
+void	set_the_matrix(t_matrix_obj *mat,t_map *map);
 
 //------utiles.c
 void	print_map(t_map *map);
