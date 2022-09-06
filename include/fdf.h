@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/06 10:39:29 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 20:36:20 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,52 +55,55 @@ typedef struct s_map{
 
 typedef struct s_input
 {
-	int input0;
-	int input1;
-	int input2;
-	int input3;
-	int input4;
-	int input5;
-	int input6;
-	int input7;
-	int input8;
-	int input9;
-	int input10;
-	int input11;
-	int input12;
-	int input13;
-	int input14;
-	int input15;
+	double input0;
+	double input1;
+	double input2;
+	double input3;
+	double input4;
+	double input5;
+	double input6;
+	double input7;
+	double input8;
+	double input9;
+	double input10;
+	double input11;
+	double input12;
+	double input13;
+	double input14;
+	double input15;
 } t_input;
 
-typedef	struct s_tmp_struct
+typedef	struct 	s_all_structs
 {
-	mlx_t	*mlx;
-	//t_input	*input;
-	t_map	*map;
-	t_matrix_obj *mat;
-}t_tmp_struct;
+	mlx_t			*mlx;
+	mlx_image_t		*img;
+	t_input			*input;
+	t_map			*map;
+	t_matrix_obj	*mtx_p;
+	t_matrix_obj	*mtx_x;
+	t_matrix_obj	*mtx_y;
+	t_matrix_obj	*mtx_z;
+}t_all_structs;
 
 
-mlx_image_t	*g_img;
-
+void 	set_the_matrices(t_all_structs *a_s);
+void	map_to_screen(t_all_structs *a_s);
+void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
 
 //turn the file in 'usefull' dataformat
 void	hook(void *param);
 void	draw_on_screen(t_map *map,mlx_image_t *img);
-void	convert_map(char *filename, t_map *map);
+t_map	*convert_map(char *filename, t_map *map);
 void	free_map(t_map *map);
 void 	*create_map(t_map *map, int max_x, int max_y);
-void 	default_input(t_input *input);
-void	set_the_matrix(t_matrix_obj *mat,t_map *map);
+t_input	*default_input(t_input *input);
+void	set_the_matrix(t_matrix_obj *mat,t_map *map,t_input *input);
 
 //------utiles.c
+void	print_screen(t_map *map);
 void	print_map(t_map *map);
 void	print_cords(t_map *map);
-void	print_vector(int *vector,int n);
+void	print_vector(double *vector,int n);
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
-
-void	convert_test(t_map *map,t_matrix_obj *mat,int cur_y, int cur_x);
-
 
 #endif

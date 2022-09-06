@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:33:01 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/09/05 19:28:49 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 14:41:40 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -686,7 +686,7 @@ bool mlx_resize_image(mlx_image_t* img, uint32_t nwidth, uint32_t nheight);
  * so if you don't see your image anymore make sure its not conflicting by being on
  * the same layer as another image.
  * 
- * @param[in] instance The instane on which to change the depth.
+ * @param[in] instance The instane  .
  * @param[in] zdepth The new depth value.
  */
 void mlx_set_instance_depth(mlx_instance_t* instance, int32_t zdepth);

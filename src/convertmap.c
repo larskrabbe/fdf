@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/06 10:38:14 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 22:01:17 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,25 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 {
 	char		**info;
 
-	//ft_printf("\n [%i] [%i]",cur_y,cur_x);
+	//printf("\n [%i] [%i]",cur_y,cur_x);
 	map->position[cur_y][cur_x] = ft_calloc(sizeof(t_points),1);
 	if (map->position[cur_y][cur_x] == NULL)
 	{
-		ft_printf("\n tmp == NULL");//safe free exit
+		printf("\n tmp == NULL");//safe free exit
 		return(-1);
 	}
 	
 	info = ft_split(str,',');
 	if (info == NULL)
 	{
-		ft_printf("\n info == NULL");//safe free exit
+		printf("\n info == NULL");//safe free exit
 		return(-1);
 	}
 	map->position[cur_y][cur_x]->cords[0] = cur_y;//include inline test
 	map->position[cur_y][cur_x]->cords[1] = cur_x;//include inline test
 	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
-	map->position[cur_y][cur_x]->cords[3] =	0;
-	//ft_printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);
+	map->position[cur_y][cur_x]->cords[3] =	1;
+	//printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);
 	if (info[1] != NULL)
 	{
 		map->position[cur_y][cur_x]->colour = atoi(info[1]);
@@ -82,7 +82,7 @@ int	a_to_map(char *gnl_ptr,t_map *map, unsigned cur_y)
 	}
 	free(split_str);
 	if ( map->max_x != (cur_x))
-		ft_printf("ERROR map size is not uniform { cur_x = %i max_x = %i cur_y = %i max_x = %i}\n",cur_x,map->max_x, cur_y, map->max_y);// need safe exit
+		printf("ERROR map size is not uniform { cur_x = %i max_x = %i cur_y = %i max_x = %i}\n",cur_x,map->max_x, cur_y, map->max_y);// need safe exit
 	return(0);
 }
 
@@ -125,18 +125,20 @@ void	*read_map(t_map *map, int fd,char *gnl_ptr)
 
 
 //convets the file into cordinate inside a struct
-void	convert_map(char *filename, t_map *map)
+t_map	*convert_map(char *filename, t_map *map)
 {
 	char	*gnl_ptr;
 	int		fd;
-
+	//printf(">>>%p",map);
 	gnl_ptr = NULL;
 	map->max_y = counts_lines_from_file(filename);
 	fd = open(filename,O_RDONLY);
 	gnl_ptr = get_next_line(fd);
 	map->max_x = count_words_in_str(gnl_ptr,' ');
 	create_map(map,map->max_x,map->max_y);
-	read_map(map,fd,gnl_ptr);	
+	read_map(map,fd,gnl_ptr);
+	print_map(map);
+	return(map);
 }
 
 void	free_map(t_map *map)

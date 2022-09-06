@@ -2,11 +2,6 @@
 #include	"matrix_o.h"
 #include	<stdio.h>
 
-// int	**matrix_multiply(struct s_matrix_obj *matrixa, struct s_matrix_obj *matrixb)
-// {
-// 	return (NULL);
-// }
-
 int	vector_add_up(double *vec_a,double *vec_b,int vec_len)
 {
 	int add_up;
@@ -26,7 +21,7 @@ void	matrix_multiply_vector(struct s_matrix_obj *matrix, double *vector, unsigne
 {
 	unsigned	i;
 
-	//ft_printf("rows -> %i ",matrix->rows);
+	//printf("rows -> %i ",matrix->rows);
 	if(vec_len < matrix->rows)
 	{
 		printf("vector has a not a valid size >> rows =>%i vector %i\n",matrix->rows, vec_len);
@@ -35,9 +30,7 @@ void	matrix_multiply_vector(struct s_matrix_obj *matrix, double *vector, unsigne
 	i = 0;
 	while (i < matrix->rows)
 	{
-		//matrix->f_print(matrix);
 		result[i] = vector_add_up(matrix->matrix[i],vector,vec_len);
-		//printf(">>>>>result {%i}",result[i]);
 		i++;
 	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_o.h                                         :+:      :+:    :+:   */
+/*   matrix_o.old.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:37:38 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/05 23:57:12 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/06 18:04:44 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,26 @@
 
 
 	//-----------CLASS-------
+	
+	//my try on oop for matrix
 	typedef struct	s_matrix_obj{ 
-
 	//----------OBJECTS------
 	int			**matrix;// maybe import this ina separte struct // like a sup class
-	
 	//---------PROPERTIES--------
 	// not sure here... because i will need them  to create the base matrix
 	unsigned 	rows;// maybe import this ina separte struct
 	unsigned 	columns;// maybe import this ina separte struct
-
 	//---------METHODS--------
 	//setup
 	int			**(*f_create)(struct s_matrix_obj *matrix, unsigned rows,unsigned columns);
 	void		(*f_delete_matrix)(struct s_matrix_obj *matrix);
-	
 	//utiles
 	void		(*f_print)(struct s_matrix_obj *matrix);
 	void 		(*f_set_to_null)(struct s_matrix_obj *matrix);
-	
 	//setter
 	void		(*f_set_single)(struct s_matrix_obj *matrix, unsigned row, unsigned column,int value);
 	void		(*f_set_row)(struct s_matrix_obj *matrix, int *new_values, unsigned t_row);
 	void		(*f_set_column)(struct s_matrix_obj *matrix, int *new_values, unsigned t_column);
-	
 	//getter
 	int			(*f_get_single)(struct s_matrix_obj *matrix, unsigned column,unsigned row);
 	int			*(*f_get_row)(struct s_matrix_obj *matrix,unsigned t_row);

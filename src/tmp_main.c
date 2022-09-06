@@ -1,50 +1,80 @@
 #include "../include/fdf.h"
 
-mlx_image_t	*g_img;
-
-
-void	hook(void *param)
+/*
+	returns plus or minus  One depending if the Caps key is pressed
+*/
+int Caps_check(mlx_t *mlx)
 {
-	mlx_t	*mlx;
-	// t_input	*input;
-	// t_map	*map;
-	// mlx_image_t *img_b;
-	// t_tmp_struct *tmp;
-	// tmp = param;
-	// mlx = get_s_mlx(param);
-	// input = get_s_input(param);
-	// map = get_s_map(param);
-	//img_b = mlx_new_image(mlx, WIDTH, HEIGHT);
-
-	if (mlx_is_key_down(param, MLX_KEY_ESCAPE))// this stays
-		mlx_close_window(param);
-	//printf("here\n");
-	// if(mlx_is_key_down(param, MLX_KEY_UP))
-	// 	tmp->input->input0++;
-	if (mlx_is_key_down(param, MLX_KEY_UP))
-		g_img->instances[0].y -= 5;
-	if (mlx_is_key_down(param, MLX_KEY_DOWN))
-		g_img->instances[0].y += 5;
-	if (mlx_is_key_down(param, MLX_KEY_LEFT))
-		g_img->instances[0].x -= 5;
-	if (mlx_is_key_down(param, MLX_KEY_RIGHT))
-		g_img->instances[0].x += 5;
-	//mlx_image_to_window(mlx,g_img,50,50);
-	//draw_on_screen(map,img_b);
-	//set_the_matrix(tmp->mat,map,input);
-	//print_matrix(tmp->mat);
+	if (mlx_is_key_down(mlx, MLX_KEY_LEFT_SHIFT) || mlx_is_key_down(mlx, MLX_KEY_CAPS_LOCK))
+		return(-1);
+	return(1);
 }
 
+/*
 
-void	draw_on_screen(t_map *map,mlx_image_t *img)
+*/
+void	hook(void *param)// can use this to  spin things around
+{
+	t_all_structs *a_s;
+
+	a_s = param;
+
+	double boost;
+	boost =0.1;
+
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_ESCAPE))// this stays
+		mlx_close_window(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_UP))
+		a_s->input->input3++;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_DOWN))
+		a_s->input->input3--;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_LEFT))
+		a_s->input->input7++;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_RIGHT))
+		a_s->input->input7--;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_A))
+		a_s->input->input0 = a_s->input->input0 + boost * Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_S))
+		a_s->input->input1 = a_s->input->input1 + boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_D))
+		a_s->input->input2 = a_s->input->input2 + boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_F))
+		a_s->input->input3 = a_s->input->input3 + boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_1))
+		a_s->input->input4 = a_s->input->input4 + boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_2))
+		a_s->input->input5 = a_s->input->input5 + boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_2))
+		a_s->input->input6 = a_s->input->input6 + boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
+		a_s->mtx_p->f_print(a_s->mtx_p);
+	//printf("before set_matrices\n");
+	set_the_matrices(a_s);
+	ft_bzero(a_s->img->pixels,(a_s->img->width * a_s->img->height));
+	//printf("before map_to_screen\n");
+	// a_s->mtx_p->f_print(a_s->mtx_p);
+	// a_s->mtx_z->f_print(a_s->mtx_z);
+	// a_s->mtx_y->f_print(a_s->mtx_y);
+	// a_s->mtx_x->f_print(a_s->mtx_x);
+	map_to_screen(a_s);
+	//print_screen(a_s->map);
+	//printf("before draw_on_screen\n");
+	draw_on_screen(a_s->map, a_s->img);
+}
+
+/*
+
+*/
+void	draw_on_screen(t_map *map, mlx_image_t *img)
 {
 	int	c_y = 0;
 	int	c_x = 0;
+
+	//print_map(map);
 	while(map->max_y > c_y )
 	{
 		while(map->max_x > c_x)
 		{
-			//ft_printf("y %i x %i map x %i map y %i \n",c_y, c_x,map->position[c_y][c_x]->cords[1],map->position[c_y][c_x]->cords[0]);
 			if(c_x + 1< map->max_x)
 				drawline(map->position[c_y][c_x],map->position[c_y][c_x + 1],img);
 			if(c_y + 1 < map->max_y)
@@ -56,45 +86,55 @@ void	draw_on_screen(t_map *map,mlx_image_t *img)
 	}
 }
 
-int32_t	mlx_main(t_map *map, t_matrix_obj *mat)
+/*
+
+*/
+int32_t	mlx_main(t_all_structs *a_s)
 {
-	mlx_t	*mlx;
-	mlx_image_t *img;
-	t_tmp_struct tmp;
-
-	tmp.mlx = mlx;
-	//tmp.input = input;
-	tmp.mat = mat;
-	tmp.map = map;
-	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
-	if (!mlx)
-		exit(EXIT_FAILURE);
-	img = mlx_new_image(mlx, WIDTH, HEIGHT);
-	g_img = img;
-
-	draw_on_screen(map, img);
-	
-	mlx_image_to_window(mlx, g_img, 500, 500);
-	printf("here\n");
-	mlx_loop_hook(mlx, &hook, mlx);
-	mlx_loop(mlx);
-
-	mlx_terminate(mlx);
+	a_s->mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
+	if (!a_s->mlx)
+		exit(EXIT_FAILURE);// need safe release
+	a_s->img = mlx_new_image(a_s->mlx, WIDTH, HEIGHT);// need to safe width and heigth in to struct
+	mlx_image_to_window(a_s->mlx, a_s->img, 100, 100);
+	mlx_loop_hook(a_s->mlx, &hook, a_s);
+	//printf("before mlx_loop\n");
+	mlx_loop(a_s->mlx);
+	mlx_terminate(a_s->mlx);
 	return (EXIT_SUCCESS);
 }
 
-void	map_to_screen(t_map *map,t_matrix_obj *mat,void (*f_convert)(t_map *map, t_matrix_obj *mat, int cur_x, int cur_y))
+/*
+	rotaion and transformation of each cordinate
+*/
+void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
+{
+	double	tmp_a[4];
+	double	tmp_b[4];
+
+//	printf("before set_matrices\n");
+	//a_s->mtx_p->f_print(a_s->mtx_p);
+	matrix_multiply_vector(a_s->mtx_p,a_s->map->position[cur_y][cur_x]->cords,4,tmp_a);
+	matrix_multiply_vector(a_s->mtx_z,tmp_a,4,tmp_b);
+	matrix_multiply_vector(a_s->mtx_y,tmp_b,4,tmp_a);
+	matrix_multiply_vector(a_s->mtx_x,tmp_a,4,a_s->map->position[cur_y][cur_x]->screen);
+}
+
+/*
+	uses f vector_transform on each cordinate// maybe change it to funktion pointer
+*/
+void	map_to_screen(t_all_structs *a_s)
 {
 	int cur_x;
 	int cur_y;
 
 	cur_x = 0;
 	cur_y = 0;
-	while (cur_y < map->max_y)
+	while (cur_y < a_s->map->max_y)
 	{
-		while (cur_x < map->max_x)
+		while (cur_x < a_s->map->max_x)
 		{
-			f_convert(map,mat, cur_x,  cur_y);
+			//printf("before vector_transform\n");
+			vector_transform(a_s, cur_x,  cur_y);
 			cur_x++;
 		}
 		cur_x = 0;
@@ -103,36 +143,54 @@ void	map_to_screen(t_map *map,t_matrix_obj *mat,void (*f_convert)(t_map *map, t_
 }
 
 /*
-2D = (x3D + z3D) * cos(theta)
-y2D = (-x3D + z3D) * sin(theta) + y3D
+	frees all the stuff that was allocated in the beginnig
 */
-void	convert_test(t_map *map,t_matrix_obj *mat,int cur_x, int cur_y)
+void free_before_end(t_all_structs *a_s)
 {
-	matrix_multiply_vector(mat,map->position[cur_y][cur_x]->cords,4,map->position[cur_y][cur_x]->screen);
-	// map->position[cur_y][cur_x]->screen[0] = (map->position[cur_y][cur_x]->cords[0]) * 30;
-	// map->position[cur_y][cur_x]->screen[1] = (map->position[cur_y][cur_x]->cords[1] ) * 30;
+	a_s->mtx_p->f_delete_matrix(a_s->mtx_p);
+	a_s->mtx_p->f_delete_matrix(a_s->mtx_x);
+	a_s->mtx_p->f_delete_matrix(a_s->mtx_y);
+	a_s->mtx_p->f_delete_matrix(a_s->mtx_z);
+	free_map(a_s->map);
 }
 
+/*
+	setup for my matrices
+	creates 4 4x4 matrices
+*/
+t_matrix_obj	*matrix_setup(t_matrix_obj *mtx)
+{
+	construct_matrix_obj(mtx);
+	mtx->f_create(mtx,4,4);
+	return(mtx);
+}
+
+/*
+	Creat the main Struct that contain all other structs and frees them at the end
+	small input protection
+	gives the main struct to the mlx_main
+*/
 int	main(int argc, char** argv)
 {
+	mlx_t			mlx;
 	t_map			map;
-	t_matrix_obj	mat;
-	//t_input			input;
-	void			(*f_convert)(t_map *map, t_matrix_obj *mat, int cur_x, int cur_y);
+	t_input			input;
+	t_matrix_obj	mtx_p;
+	t_matrix_obj	mtx_x;
+	t_matrix_obj	mtx_y;
+	t_matrix_obj	mtx_z;
+	t_all_structs	a_s;
 
-	f_convert = &convert_test;
 	if (argc <= 1)
 		return(0);
-	//default_input(&input);
-	convert_map(argv[1],&map);
-	construct_matrix_obj(&mat);
-	mat.f_create(&mat,4,4);
-	set_the_matrix(&mat,&map);
-	mat.f_print(&mat);
-	map_to_screen(&map,&mat,f_convert);
-	mlx_main(&map,&mat);
-	mat.f_delete_matrix(&mat);
-	free_map(&map);
+	a_s.mlx = &mlx;
+	a_s.input = default_input(&input);
+	a_s.map = convert_map(argv[1],&map);
+	a_s.mtx_p = matrix_setup(&mtx_p);
+	a_s.mtx_x = matrix_setup(&mtx_x);
+	a_s.mtx_y = matrix_setup(&mtx_y);
+	a_s.mtx_z = matrix_setup(&mtx_z);
+	mlx_main(&a_s);
+	free_before_end(&a_s);
 	return(0);
 }
-
