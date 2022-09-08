@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:53:26 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/07 14:37:22 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/08 10:26:15 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

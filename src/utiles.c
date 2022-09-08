@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/06 20:35:21 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/08 10:10:32 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_map(t_map *map)
 	{
 		while (map->max_x > x)
 		{
-			printf("{%4f}",map->position[y][x]->cords[2]);
+			printf("{%4f}",map->position[y][x]->cords[0]);
 			x++;
 		}
 			printf("\n");
@@ -54,7 +54,7 @@ void	print_screen(t_map *map)
 		while (map->max_x > x)
 		{	
 			printf("{%4f |",map->position[y][x]->screen[0]);
-			printf("{%4f |",map->position[y][x]->screen[1]);
+			printf("%4f |",map->position[y][x]->screen[1]);
 			printf("%4f}",map->position[y][x]->screen[2]);
 			x++;
 		}

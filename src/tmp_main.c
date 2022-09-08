@@ -47,7 +47,10 @@ void	hook(void *param)// can use this to  spin things around
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_3))
 		a_s->input->input6 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
-		a_s->mtx_p->f_print(a_s->mtx_p);
+		print_screen(a_s->map);
+		
+		
+	//a_s->mtx_p->f_print(a_s->mtx_p);
 	//printf("before set_matrices\n");
 	set_the_matrices(a_s);
 	ft_bzero(a_s->img->pixels,(a_s->img->width * a_s->img->height));
@@ -95,14 +98,18 @@ int32_t	mlx_main(t_all_structs *a_s)
 	if (!a_s->mlx)
 		exit(EXIT_FAILURE);// need safe release
 	a_s->img = mlx_new_image(a_s->mlx, WIDTH, HEIGHT);// need to safe width and heigth in to struct
-	mlx_image_to_window(a_s->mlx, a_s->img, 100, 100);
+	mlx_image_to_window(a_s->mlx, a_s->img, 0, 0);
 	mlx_loop_hook(a_s->mlx, &hook, a_s);
 	//printf("before mlx_loop\n");
 	mlx_loop(a_s->mlx);
 	mlx_terminate(a_s->mlx);
 	return (EXIT_SUCCESS);
 }
-
+double convert_cords_back(double cur_p, unsigned max,int zoom)
+{
+	return((double)cur_p * (max/2) + max/2);	
+}
+	
 /*
 	rotaion and transformation of each cordinate
 */
@@ -113,13 +120,16 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
 
 	//printf("before set_matrices\n");
 	//a_s->mtx_p->f_print(a_s->mtx_p);
-	static int i = 0;
-	printf("%i\n",i++);
+	
 	matrix_multiply_vector(a_s->mtx_p,a_s->map->position[cur_y][cur_x]->cords,4,tmp_a);
 	matrix_multiply_vector(a_s->mtx_z,tmp_a,4,tmp_b);
 	matrix_multiply_vector(a_s->mtx_y,tmp_b,4,tmp_a);
-	matrix_multiply_vector(a_s->mtx_x,tmp_a,4,a_s->map->position[cur_y][cur_x]->screen);
-	// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
+	matrix_multiply_vector(a_s->mtx_x,tmp_a,4,tmp_b);// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
+	a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0],WIDTH/10,1);
+	a_s->map->position[cur_y][cur_x]->screen[1] = convert_cords_back(tmp_b[1],HEIGHT/10,1);
+	//a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0], a_s->map->max_z);
+
+	
 	// 	return;
 	// a_s->map->position[cur_y][cur_x]->screen[0] /= a_s->map->position[cur_y][cur_x]->screen[3];
 	// a_s->map->position[cur_y][cur_x]->screen[1] /= a_s->map->position[cur_y][cur_x]->screen[3];
