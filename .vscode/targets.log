@@ -6,296 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
-/Applications/Xcode.app/Contents/Developer/usr/bin/make -C src/matrix
-# GNU Make 3.81
-# Copyright (C) 2006  Free Software Foundation, Inc.
-# This is free software; see the source for copying conditions.
-# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE.
 
-# This program built for i386-apple-darwin11.3.0
- 
-make[1]: *** No rule to make target `matrix_getter.o', needed by `libmatrix.a'.  Stop.
-
-make: *** [libmatrix.a] Error 2
-
-
-# Make data base, printed on Tue Sep  6 18:47:49 2022
-
-# Variables
-
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# automatic
-?F = $(notdir $?)
-# makefile (from `Makefile', line 13)
-OBJ = $(SRC:.c=.o)
-# makefile (from `Makefile', line 7)
-SRC = matrix_getter.c matrix_setter.c matrix_utils.c matrix_setup.c matrix_solver.c
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# automatic
-@D = $(patsubst %/,%,$(dir $@))
-# automatic
-@F = $(notdir $@)
-# makefile
-CURDIR := /Users/lkrabbe/uruk/fdf/src/matrix
-# makefile
-SHELL = /bin/sh
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# environment
-_ = /usr/bin/make
-# makefile (from `Makefile', line 3)
-CFLAGS = -Werror -Wextra -Wall
-# makefile (from `Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# environment
-VSCODE_CWD = /
-# environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
-# environment
-LaunchInstanceID = 8E3D8F07-87B2-4999-B095-A1CA3CC97377
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# default
-.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
-# environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.KvWszsizma/Listeners
-# automatic
-%F = $(notdir $%)
-# environment
-PWD = /Users/lkrabbe/uruk/fdf
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-HOME = /Users/lkrabbe
-# default
-MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
-# environment
-VSCODE_CODE_CACHE_PATH = /Users/lkrabbe/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
-# environment
-LOGNAME = lkrabbe
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-XPC_FLAGS = 0x0
-# default
-MAKE = $(MAKE_COMMAND)
-# environment
-SHLVL = 1
-# makefile (from `Makefile', line 5)
-CC = cc
-# default
-MAKE_VERSION := 3.81
-# environment
-USER = lkrabbe
-# makefile
-.DEFAULT_GOAL := all
-# makefile (from `Makefile', line 1)
-NAME = libmatrix.a
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# default
-MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
-# default
-.VARIABLES := 
-# environment
-TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cch8003342/T/
-# automatic
-*F = $(notdir $*)
-# environment
-VSCODE_IPC_HOOK = /Users/lkrabbe/Library/Application Support/Code/1.71.0-main.sock
-# environment
-MallocNanoZone = 0
-# makefile
-MAKEFLAGS = Rrqp
-# environment
-MFLAGS = -Rrqp
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# makefile (from `Makefile', line 15)
-MAIN = matrix_main.c 
-# environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2604
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# automatic
-+F = $(notdir $+)
-# environment
-__CF_USER_TEXT_ENCODING = 0x18C82:0x0:0x0
-# default
-MAKEFILES := 
-# automatic
-<F = $(notdir $<)
-# environment
-LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a8
-# automatic
-^F = $(notdir $^)
-# default
-SUFFIXES := 
-# default
-.INCLUDE_DIRS = /usr/local/include
-# environment
-MAKELEVEL := 1
-# environment
-LANG = C
-# environment
-VSCODE_PID = 72346
-# variable set hash-table stats:
-# Load=63/1024=6%, Rehash=0, Collisions=3/93=3%
-
-# Pattern-specific Variable Values
-
-# No pattern-specific variable values.
-
-# Directories
-
-# . (device 16777225, inode 1724562): 12 files, no impossibilities.
-
-# 12 files, no impossibilities in 1 directories.
-
-# Implicit Rules
-
-# No implicit rules.
-
-# Files
-
-libmatrix.a: matrix_getter.o matrix_setter.o matrix_utils.o matrix_setup.o matrix_solver.o
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 20):
-	ar -rs $(NAME) $(OBJ)
-	make clean
-	
-
-# Not a target:
-matrix_getter.o:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-all: libmatrix.a
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-matrix_solver.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-.PHONY: all re clean fclean
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-matrix_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-matrix_setup.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-Makefile:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-06 12:04:53
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-matrix_setter.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-fclean: clean
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 31):
-	rm -f $(NAME)
-	
-
-# Not a target:
-.DEFAULT:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-re: fclean all
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 28):
-	rm -f *.o
-	
-
-main:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 24):
-	$(CC) $(CFLAGS) $(SRC) -L../../lib -lft $(MAIN) -o a.matrix
-	./a.matrix
-	
-
-# files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/40=0%
-# VPATH Search Paths
-
-# No `vpath' search paths.
-
-# No general (`VPATH' variable) search path.
-
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
-
-# Finished Make data base on Tue Sep  6 18:47:49 2022
-
-
-# Make data base, printed on Tue Sep  6 18:47:49 2022
+# Make data base, printed on Wed Sep  7 06:01:38 2022
 
 # Variables
 
@@ -307,6 +19,8 @@ main:
 OBJ = $(SRC:.c=.o) $(F_LIBFT_PLUS:.c=.o)
 # makefile (from `Makefile', line 21)
 SRC = convertmap.c tmp_main.c utiles.c draw_line.c input_stuff.c
+# environment
+VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -314,7 +28,7 @@ SRC = convertmap.c tmp_main.c utiles.c draw_line.c input_stuff.c
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/lkrabbe/uruk/fdf
+CURDIR := /Users/larskrabbe/c_stuff/new_fdf
 # makefile
 SHELL = /bin/sh
 # environment
@@ -330,13 +44,19 @@ CFLAGS =
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/xh/w0prvyz17hlg4v8psphkxp9h0000gn/T/vscode-ipc-49e16b4b-9bc7-47b8-b854-0020d902b3c4.sock
+# environment
 VSCODE_CWD = /
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
 # makefile (from `Makefile', line 15)
 VPATH = src src/libft_plus
 # environment
-LaunchInstanceID = 8E3D8F07-87B2-4999-B095-A1CA3CC97377
+VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 34)
@@ -344,26 +64,27 @@ MLX_LIB = libmlx42.a
 # makefile (from `Makefile', line 46)
 LIBFT_FLAGS = -Llib -lft
 # default
- 
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.KvWszsizma/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.eOfdsUmDFv/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-PWD = /Users/lkrabbe/uruk/fdf
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/larskrabbe/c_stuff/new_fdf
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /Users/lkrabbe
+HOME = /Users/larskrabbe
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/lkrabbe/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
+VSCODE_CODE_CACHE_PATH = /Users/larskrabbe/Library/Application Support/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
-LOGNAME = lkrabbe
+LOGNAME = larskrabbe
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
@@ -387,7 +108,7 @@ MATRIX_FLAGS = -Llib -lmatrix
 # default
 MAKE_VERSION := 3.81
 # environment
-USER = lkrabbe
+USER = larskrabbe
 # makefile
 .DEFAULT_GOAL := all
 # makefile (from `Makefile', line 13)
@@ -399,13 +120,11 @@ MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cch8003342/T/
+TMPDIR = /var/folders/xh/w0prvyz17hlg4v8psphkxp9h0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/lkrabbe/Library/Application Support/Code/1.71.0-main.sock
-# environment
-MallocNanoZone = 0
+VSCODE_IPC_HOOK = /Users/larskrabbe/Library/Application Support/Code/1.68.1-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # makefile (from `Makefile', line 27)
@@ -415,13 +134,15 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2604
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.12885072091.12885072097
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
-__CF_USER_TEXT_ENCODING = 0x18C82:0x0:0x0
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -432,8 +153,6 @@ F_MATRIX = src/matrix
 MLX_FLAGS = -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a8
 # automatic
 ^F = $(notdir $^)
 # default
@@ -447,11 +166,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 72346
+VSCODE_PID = 74008
 # makefile (from `Makefile', line 32)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=6/121=5%
+# Load=79/1024=8%, Rehash=0, Collisions=5/119=4%
 
 # Pattern-specific Variable Values
 
@@ -459,11 +178,11 @@ LIBFT_LIB = libft.a
 
 # Directories
 
-# . (device 16777225, inode 1724342): 24 files, no impossibilities.
-# src (device 16777225, inode 1724557): 10 files, no impossibilities.
-# src/libft_plus (device 16777225, inode 1724559): 5 files, no impossibilities.
+# . (device 16777220, inode 12887034822): 23 files, no impossibilities.
+# src (device 16777220, inode 12887035302): 4 files, no impossibilities so far.
+# src/libft_plus (device 16777220, inode 12887035304): No files, no impossibilities so far.
 
-# 39 files, no impossibilities in 3 directories.
+# 27 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -478,28 +197,8 @@ LIBFT_LIB = libft.a
 
 libmatrix.a:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  Last modified 1970-01-01 00:59:56
-#  File has been updated.
-#  Failed to be updated.
-# automatic
-# @ := libmatrix.a
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/15=20%
+#  Modification time never checked.
+#  File has not been updated.
 #  commands to execute (from `Makefile', line 79):
 	$(MAKE) -C $(F_MATRIX)
 	mv $(F_MATRIX)/$(MATRIX_LIB) ./lib
@@ -507,10 +206,11 @@ libmatrix.a:
 
 fdf.a: convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o count_stuff.o is_white_space.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-06 16:54:29
-#  File has not been updated.
+#  Last modified 2022-09-07 06:01:02
+#  File has been updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 #  commands to execute (from `Makefile', line 70):
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_FLAGS) $(MATRIX_FLAGS) $(MLX_FLAGS) -o $(NAME)
 	
@@ -526,9 +226,10 @@ all: fdf.a
 #  Command-line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
 .PHONY: all re clean fclean lib
 #  Implicit rule search has not been done.
@@ -544,10 +245,27 @@ count_stuff.o:
 convertmap.o: src/convertmap.c lib
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `convertmap'
-#  Last modified 2022-09-06 16:54:29
-#  File has not been updated.
+#  Last modified 2022-09-07 06:00:58
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := convertmap.o
+# automatic
+# % := 
+# automatic
+# * := convertmap
+# automatic
+# + := src/convertmap.c lib
+# automatic
+# | := 
+# automatic
+# < := src/convertmap.c
+# automatic
+# ^ := src/convertmap.c lib
+# automatic
+# ? := 
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
 #  commands to execute (from `Makefile', line 67):
 	$(CC) -c $(CFLAGS) $< -o $@ 
 	
@@ -555,7 +273,7 @@ convertmap.o: src/convertmap.c lib
 # Not a target:
 src/convertmap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-06 17:44:33
+#  Last modified 2022-09-07 01:06:01
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -578,7 +296,7 @@ src/convertmap.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-06 12:04:53
+#  Last modified 2022-09-07 06:01:34
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -592,6 +310,7 @@ draw_line.o:
 
 libft.a:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 83):
@@ -625,13 +344,12 @@ fclean:
 	rm -f lib/* 
 	
 
-lib: libmatrix.a libft.a libmlx42.a
+lib:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -667,7 +385,6 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
- 
 #  commands to execute (from `Makefile', line 89):
 	rm -f OBJ
 	
@@ -693,7 +410,7 @@ tmp_main.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=25/1024=2%, Rehash=0, Collisions=0/74=0%
+# Load=25/1024=2%, Rehash=0, Collisions=0/66=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -706,6 +423,6 @@ tmp_main.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Sep  6 18:47:49 2022
+# Finished Make data base on Wed Sep  7 06:01:38 2022
 
  

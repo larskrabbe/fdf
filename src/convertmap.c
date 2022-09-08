@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/06 22:01:17 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/07 11:49:55 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@
 
 #define EXPENT * 10
 
+double convert_cords(unsigned cur_p, unsigned max)
+{
+	double tmp;
+	tmp = cur_p;
+	//printf("");
+
+	return(cur_p);	
+}
+	
 // takes the information of a string and allocate and stores the information inside of s_points struct
 int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 {
@@ -39,8 +48,8 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 		printf("\n info == NULL");//safe free exit
 		return(-1);
 	}
-	map->position[cur_y][cur_x]->cords[0] = cur_y;//include inline test
-	map->position[cur_y][cur_x]->cords[1] = cur_x;//include inline test
+	map->position[cur_y][cur_x]->cords[0] = cur_x;//convert_cords(cur_x,map->max_x);//include inline test
+	map->position[cur_y][cur_x]->cords[1] = cur_y;//convert_cords(cur_y,map->max_y); //include inline test
 	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
 	map->position[cur_y][cur_x]->cords[3] =	1;
 	//printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);
@@ -49,6 +58,8 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 		map->position[cur_y][cur_x]->colour = atoi(info[1]);
 		free(info[1]);
 	}
+	else
+		map->position[cur_y][cur_x]->colour = COLOUR;
 	free(info[0]);
 	free(info);
 	return(0);
@@ -137,7 +148,7 @@ t_map	*convert_map(char *filename, t_map *map)
 	map->max_x = count_words_in_str(gnl_ptr,' ');
 	create_map(map,map->max_x,map->max_y);
 	read_map(map,fd,gnl_ptr);
-	print_map(map);
+	//print_map(map);
 	return(map);
 }
 

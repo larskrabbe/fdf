@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:48:02 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 15:40:21 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/07 15:30:35 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int	counts_lines_from_file(char *file)
 	{
 		buffer[BUFFER_SIZE] = '\0';
 		lines = lines + count_chr_from_str(buffer,'\n');
+		ft_bzero(buffer,BUFFER_SIZE*sizeof(char));
 	}
+	printf("%i\n",lines);
 	close(fd);
 	return(lines);
 }

@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/06 20:33:59 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/07 01:05:04 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
 
-#define COLOUR 0xFFFFFF 
 
-int pixel_put_plus(mlx_image_t *img,double x,double y)
+int pixel_put_plus(mlx_image_t *img,double x,double y,int color)
 {
 	if (x >= img->width || y >= img->height)
 	{
@@ -27,10 +26,22 @@ int pixel_put_plus(mlx_image_t *img,double x,double y)
 		return(1);
 	}
 	
-	mlx_put_pixel(img,  x, y,COLOUR);
+	mlx_put_pixel(img,  x, y,color);
 	return(0);
 }
 
+/*
+	calc the colour depending on the distance to the points
+*/
+int		choose_colour()
+{
+	
+	return(COLOUR);
+}
+
+/*
+	draws a horisontel line on the screen(img). its faster as bresenham
+*/
 void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 {
 	int i;
@@ -40,7 +51,7 @@ void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[1] + i <= point_b->screen[1])
 		{
-			if(pixel_put_plus(img, point_a->screen[1] + i ,  point_a->screen[0]))
+			if(pixel_put_plus(img, point_a->screen[1] + i ,  point_a->screen[0],point_a->colour))
 				return;
 			i++;
 		}
@@ -49,7 +60,7 @@ void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[1] + i >= point_b->screen[1])
 		{
-			if(pixel_put_plus(img,  point_a->screen[1] + i, point_a->screen[0]))
+			if(pixel_put_plus(img,  point_a->screen[1] + i, point_a->screen[0],point_a->colour))
 				return;
 			i--;
 		}
@@ -65,7 +76,7 @@ void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[0] + i <= point_b->screen[0])
 		{
-			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i ))
+			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i ,point_a->colour))
 				return;
 			i++;
 		}
@@ -74,7 +85,7 @@ void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[0] + i >= point_b->screen[0])
 		{
-			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i))
+			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i,point_a->colour))
 				return;
 			i--;
 		}
@@ -123,7 +134,7 @@ void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	while (1)
 	{
 		i++;
-		if(pixel_put_plus(img, data.folow[1], data.folow[0]))
+		if(pixel_put_plus(img, data.folow[1], data.folow[0],point_a->colour))
 			return;
 		if (data.folow[1] == point_b->screen[1] &&data.folow[0] ==point_b->screen[0])
 			break;

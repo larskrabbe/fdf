@@ -25,27 +25,27 @@ void	hook(void *param)// can use this to  spin things around
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_ESCAPE))// this stays
 		mlx_close_window(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_UP))
-		a_s->input->input3++;
+		a_s->input->input7-= boost* 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_DOWN))
-		a_s->input->input3--;
+		a_s->input->input7+= 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_LEFT))
-		a_s->input->input7++;
+		a_s->input->input8-= 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_RIGHT))
-		a_s->input->input7--;
+		a_s->input->input8+= 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_A))
-		a_s->input->input0 = a_s->input->input0 + boost * Caps_check(a_s->mlx);
+		a_s->input->input0 += boost * Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_S))
-		a_s->input->input1 = a_s->input->input1 + boost *Caps_check(a_s->mlx);
+		a_s->input->input1 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_D))
-		a_s->input->input2 = a_s->input->input2 + boost *Caps_check(a_s->mlx);
+		a_s->input->input2 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_F))
-		a_s->input->input3 = a_s->input->input3 + boost *Caps_check(a_s->mlx);
+		a_s->input->input3 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_1))
-		a_s->input->input4 = a_s->input->input4 + boost *Caps_check(a_s->mlx);
+		a_s->input->input4 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_2))
-		a_s->input->input5 = a_s->input->input5 + boost *Caps_check(a_s->mlx);
-	if (mlx_is_key_down(a_s->mlx, MLX_KEY_2))
-		a_s->input->input6 = a_s->input->input6 + boost *Caps_check(a_s->mlx);
+		a_s->input->input5 += boost *Caps_check(a_s->mlx);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_3))
+		a_s->input->input6 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
 		a_s->mtx_p->f_print(a_s->mtx_p);
 	//printf("before set_matrices\n");
@@ -63,7 +63,7 @@ void	hook(void *param)// can use this to  spin things around
 }
 
 /*
-
+	draws line betwenn cords
 */
 void	draw_on_screen(t_map *map, mlx_image_t *img)
 {
@@ -87,7 +87,7 @@ void	draw_on_screen(t_map *map, mlx_image_t *img)
 }
 
 /*
-
+	funktion to start the loob and open the window
 */
 int32_t	mlx_main(t_all_structs *a_s)
 {
@@ -111,12 +111,20 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
 	double	tmp_a[4];
 	double	tmp_b[4];
 
-//	printf("before set_matrices\n");
+	//printf("before set_matrices\n");
 	//a_s->mtx_p->f_print(a_s->mtx_p);
+	static int i = 0;
+	printf("%i\n",i++);
 	matrix_multiply_vector(a_s->mtx_p,a_s->map->position[cur_y][cur_x]->cords,4,tmp_a);
 	matrix_multiply_vector(a_s->mtx_z,tmp_a,4,tmp_b);
 	matrix_multiply_vector(a_s->mtx_y,tmp_b,4,tmp_a);
 	matrix_multiply_vector(a_s->mtx_x,tmp_a,4,a_s->map->position[cur_y][cur_x]->screen);
+	// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
+	// 	return;
+	// a_s->map->position[cur_y][cur_x]->screen[0] /= a_s->map->position[cur_y][cur_x]->screen[3];
+	// a_s->map->position[cur_y][cur_x]->screen[1] /= a_s->map->position[cur_y][cur_x]->screen[3];
+	// a_s->map->position[cur_y][cur_x]->screen[2] /= a_s->map->position[cur_y][cur_x]->screen[3];
+	// a_s->map->position[cur_y][cur_x]->screen[3] /= a_s->map->position[cur_y][cur_x]->screen[3];
 }
 
 /*
@@ -190,6 +198,8 @@ int	main(int argc, char** argv)
 	a_s.mtx_x = matrix_setup(&mtx_x);
 	a_s.mtx_y = matrix_setup(&mtx_y);
 	a_s.mtx_z = matrix_setup(&mtx_z);
+	print_map(&map);
+	printf("-------\n\n\n");
 	mlx_main(&a_s);
 	free_before_end(&a_s);
 	return(0);
