@@ -107,7 +107,8 @@ int32_t	mlx_main(t_all_structs *a_s)
 }
 double convert_cords_back(double cur_p, unsigned max,int zoom)
 {
-	return((double)cur_p * (max/2) + max/2);	
+	//printf("%f\n",cur_p);
+	return((double)cur_p );	
 }
 	
 /*
@@ -125,8 +126,8 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
 	matrix_multiply_vector(a_s->mtx_z,tmp_a,4,tmp_b);
 	matrix_multiply_vector(a_s->mtx_y,tmp_b,4,tmp_a);
 	matrix_multiply_vector(a_s->mtx_x,tmp_a,4,tmp_b);// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
-	a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0],WIDTH/10,1);
-	a_s->map->position[cur_y][cur_x]->screen[1] = convert_cords_back(tmp_b[1],HEIGHT/10,1);
+	a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0],WIDTH,1);
+	a_s->map->position[cur_y][cur_x]->screen[1] = convert_cords_back(tmp_b[1],HEIGHT,1);
 	//a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0], a_s->map->max_z);
 
 	

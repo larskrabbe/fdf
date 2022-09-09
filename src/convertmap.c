@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/08 09:53:50 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:39:31 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 double convert_cords(unsigned cur_p, unsigned max)
 {
-	return((double)cur_p / (max - 1) *2 -1 );	
+	return(cur_p);	
 }
 	
 // takes the information of a string and allocate and stores the information inside of s_points struct

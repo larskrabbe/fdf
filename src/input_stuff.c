@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:53:26 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/08 10:26:15 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:23:04 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_input *default_input(t_input *input)
 	input->input4  = 0;//x-rotation
 	input->input5  = 0;//y-rotation
 	input->input6  = 0;//z-rotation
-	input->input7  = 1;//translation in x
-	input->input8  = 1;//translation in y
+	input->input7  = 0;//translation in x
+	input->input8  = 0;//translation in y
 	input->input9  = 1;
 	input->input10 = 1;
 	input->input11 = 1;
