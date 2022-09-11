@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/larskrabbe/c_stuff/new_fdf'
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -C src/matrix
@@ -108,15 +109,18 @@ echo "\033[32;1m\033[1mDone\033[0m"
 make[1]: Leaving directory `/Users/larskrabbe/c_stuff/new_fdf/MLX42'
  
 mv MLX42/libmlx42.a ./lib
+=======
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/lkrabbe/uruk/fdf'
+>>>>>>> Stashed changes
 cc -g -c  src/convertmap.c -o convertmap.o 
 cc -g -c  src/tmp_main.c -o tmp_main.o 
 cc -g -c  src/utiles.c -o utiles.o 
 cc -g -c  src/draw_line.c -o draw_line.o 
 cc -g -c  src/input_stuff.c -o input_stuff.o 
- 
 cc -g -c  src/libft_plus/count_stuff.c -o count_stuff.o 
  
 cc -g -c  src/libft_plus/is_white_space.c -o is_white_space.o 
 cc -g  convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o count_stuff.o is_white_space.o -Llib -lft -Llib -lmatrix -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit -o fdf.a
-make: Leaving directory `/Users/larskrabbe/c_stuff/new_fdf'
+make: Leaving directory `/Users/lkrabbe/uruk/fdf'
  

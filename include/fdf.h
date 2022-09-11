@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/07 05:52:06 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/11 15:51:38 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,11 @@ typedef	struct 	s_all_structs
 	mlx_image_t		*img;
 	t_input			*input;
 	t_map			*map;
-	t_matrix_obj	*mtx_p;
+	t_matrix_obj	*mtx_s;
 	t_matrix_obj	*mtx_x;
 	t_matrix_obj	*mtx_y;
 	t_matrix_obj	*mtx_z;
+	t_matrix_obj	*mtx_p;
 }t_all_structs;
 
 

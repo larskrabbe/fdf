@@ -20,7 +20,7 @@ void	hook(void *param)// can use this to  spin things around
 	a_s = param;
 
 	double boost;
-	boost =0.1;
+	boost =1;
 
 	
 
@@ -48,9 +48,7 @@ void	hook(void *param)// can use this to  spin things around
 		a_s->input->input5 += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_3))
 		a_s->input->input6 += boost *Caps_check(a_s->mlx);
-	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
-		print_screen(a_s->map);
-		
+
 		
 	//a_s->mtx_p->f_print(a_s->mtx_p);
 	//printf("before set_matrices\n");
@@ -64,7 +62,21 @@ void	hook(void *param)// can use this to  spin things around
 	map_to_screen(a_s);
 	//print_screen(a_s->map);
 	//printf("before draw_on_screen\n");
-	draw_on_screen(a_s->map, a_s->img);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
+	{
+		printf("scale matrix \n");
+		a_s->mtx_s->f_print(a_s->mtx_s);
+		printf("z rotation matrix \n");
+		a_s->mtx_z->f_print(a_s->mtx_z);
+		printf("y rotation matrix \n");
+		a_s->mtx_y->f_print(a_s->mtx_y);
+		printf("x rotation matrix \n");
+		a_s->mtx_x->f_print(a_s->mtx_x);
+		printf("projection matrix \n");
+		a_s->mtx_p->f_print(a_s->mtx_p);
+		print_screen(a_s->map);
+	}
+		draw_on_screen(a_s->map, a_s->img);
 }
 
 /*
@@ -103,13 +115,15 @@ int32_t	mlx_main(t_all_structs *a_s)
 	mlx_image_to_window(a_s->mlx, a_s->img, 0, 0);
 	mlx_loop_hook(a_s->mlx, &hook, a_s);
 	//printf("before mlx_loop\n");
+	//a_s->mtx_s->f_print(a_s->mtx_s);
 	mlx_loop(a_s->mlx);
 	mlx_terminate(a_s->mlx);
 	return (EXIT_SUCCESS);
 }
 double convert_cords_back(double cur_p, unsigned max,int zoom)
 {
-	return((double)(long)(cur_p * 100));	
+	//printf(">>%f\n",cur_p);
+	return((int)(cur_p));	
 }
 	
 /*
@@ -120,28 +134,14 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
 	double	tmp_a[4];
 	double	tmp_b[4];
 
-	//printf("before set_matrices\n");
-	//a_s->mtx_p->f_print(a_s->mtx_p);
-	//printf("\n\n\n x = %f | y = %f  z = %f\n",a_s->map->position[cur_y][cur_x]->cords[0],a_s->map->position[cur_y][cur_x]->cords[1],a_s->map->position[cur_y][cur_x]->cords[2]);
-	matrix_multiply_vector(a_s->mtx_z,a_s->map->position[cur_y][cur_x]->cords,4,tmp_a);
-	//printf("x = %f | y = %f  z = %f\n",tmp_a[0],tmp_a[1],tmp_a[2]);
+	matrix_multiply_vector(a_s->mtx_s,a_s->map->position[cur_y][cur_x]->cords,4,tmp_b);
+	matrix_multiply_vector(a_s->mtx_z,tmp_b,4,tmp_a);
 	matrix_multiply_vector(a_s->mtx_y,tmp_a,4,tmp_b);
-	//printf("x = %f | y = %f  z = %f\n",tmp_b[0],tmp_b[1],tmp_b[2]);
 	matrix_multiply_vector(a_s->mtx_x,tmp_b,4,tmp_a);
-	//printf("x = %f | y = %f  z = %f\n",tmp_a[0],tmp_a[1],tmp_a[2]);
 	matrix_multiply_vector(a_s->mtx_p,tmp_a,4,tmp_b);// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
-	//printf("x = %f | y = %f  z = %f\n",tmp_b[0],tmp_b[1],tmp_b[2]);
 	a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0],WIDTH,1);
 	a_s->map->position[cur_y][cur_x]->screen[1] = convert_cords_back(tmp_b[1],HEIGHT,1);
-	//a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0], a_s->map->max_z);
-	//printf("\n\n\n x = %f | y = %f  z = %f\n",a_s->map->position[cur_y][cur_x]->screen[0],a_s->map->position[cur_y][cur_x]->screen[1],a_s->map->position[cur_y][cur_x]->screen[2]);
-	print_screen(a_s->map);
-	
-	// 	return;
-	// a_s->map->position[cur_y][cur_x]->screen[0] /= a_s->map->position[cur_y][cur_x]->screen[3];
-	// a_s->map->position[cur_y][cur_x]->screen[1] /= a_s->map->position[cur_y][cur_x]->screen[3];
-	// a_s->map->position[cur_y][cur_x]->screen[2] /= a_s->map->position[cur_y][cur_x]->screen[3];
-	// a_s->map->position[cur_y][cur_x]->screen[3] /= a_s->map->position[cur_y][cur_x]->screen[3];
+	//print_screen(a_s->map);
 }
 
 /*
@@ -172,10 +172,11 @@ void	map_to_screen(t_all_structs *a_s)
 */
 void free_before_end(t_all_structs *a_s)
 {
-	a_s->mtx_p->f_delete_matrix(a_s->mtx_p);
+	a_s->mtx_p->f_delete_matrix(a_s->mtx_s);
 	a_s->mtx_p->f_delete_matrix(a_s->mtx_x);
 	a_s->mtx_p->f_delete_matrix(a_s->mtx_y);
 	a_s->mtx_p->f_delete_matrix(a_s->mtx_z);
+	a_s->mtx_p->f_delete_matrix(a_s->mtx_p);
 	free_map(a_s->map);
 }
 
@@ -200,10 +201,11 @@ int	main(int argc, char** argv)
 	mlx_t			mlx;
 	t_map			map;
 	t_input			input;
-	t_matrix_obj	mtx_p;
+	t_matrix_obj	mtx_s;
 	t_matrix_obj	mtx_x;
 	t_matrix_obj	mtx_y;
 	t_matrix_obj	mtx_z;
+	t_matrix_obj	mtx_p;
 	t_all_structs	a_s;
 
 	if (argc <= 1)
@@ -211,12 +213,14 @@ int	main(int argc, char** argv)
 	a_s.mlx = &mlx;
 	a_s.input = default_input(&input);
 	a_s.map = convert_map(argv[1],&map);
-	a_s.mtx_p = matrix_setup(&mtx_p);
+	a_s.mtx_s = matrix_setup(&mtx_s);
 	a_s.mtx_x = matrix_setup(&mtx_x);
 	a_s.mtx_y = matrix_setup(&mtx_y);
 	a_s.mtx_z = matrix_setup(&mtx_z);
-	print_map(&map);
-	printf("-------\n\n\n");
+	a_s.mtx_p = matrix_setup(&mtx_p);
+	mtx_s.f_print(&mtx_s);
+	// print_map(&map);
+	// printf("-------\n\n\n");
 	mlx_main(&a_s);
 	free_before_end(&a_s);
 	return(0);
