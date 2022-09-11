@@ -6,7 +6,7 @@
 /*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/08 12:39:31 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/10 15:27:11 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 #define EXPENT * 10
 
-double convert_cords(unsigned cur_p, unsigned max)
+double convert_cords(unsigned cur_p, double max)
 {
-	return(cur_p);	
+	return((double)(cur_p/(max -1) - 0.5) * 2);	
 }
 	
 // takes the information of a string and allocate and stores the information inside of s_points struct
@@ -44,8 +44,8 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 		printf("\n info == NULL");//safe free exit
 		return(-1);
 	}
-	map->position[cur_y][cur_x]->cords[0] = convert_cords(cur_x,map->max_x);//include inline test
-	map->position[cur_y][cur_x]->cords[1] = convert_cords(cur_y,map->max_y); //include inline test
+	map->position[cur_y][cur_x]->cords[0] = convert_cords(cur_x,map->max_x );//include inline test
+	map->position[cur_y][cur_x]->cords[1] = convert_cords(cur_y,map->max_y ); //include inline test
 	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
 	map->position[cur_y][cur_x]->cords[3] =	1;
 	//printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);

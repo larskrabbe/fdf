@@ -2,9 +2,9 @@
 #include	"matrix_o.h"
 #include	<stdio.h>
 
-int	vector_add_up(double *vec_a,double *vec_b,int vec_len)
+double	vector_add_up(double *vec_a,double *vec_b,int vec_len)
 {
-	int add_up;
+	double add_up;
 	int i;
 
 	i = 0;
@@ -14,7 +14,7 @@ int	vector_add_up(double *vec_a,double *vec_b,int vec_len)
 		add_up = add_up + (vec_a[i] * vec_b[i]);
 		i++;
 	}
-	return(add_up);
+	return((double)add_up);
 }
 
 void	matrix_multiply_vector(struct s_matrix_obj *matrix, double *vector, unsigned vec_len, double *result)

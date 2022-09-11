@@ -6,7 +6,7 @@
 #    By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/09/07 06:01:34 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/10 15:35:05 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ plat: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_FLAGS) $(MATRIX_FLAGS) $(MLX_FLAGS) -o $(NAME)
 
-lib: #$(MATRIX_LIB) $(LIBFT_LIB) $(MLX_LIB)
+lib: $(MATRIX_LIB) $(LIBFT_LIB) $(MLX_LIB)
 
 $(MLX_LIB):
 	$(MAKE) all -C $(F_MLX)

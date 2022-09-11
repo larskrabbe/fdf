@@ -6,7 +6,7 @@
 /*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/07 01:05:04 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/11 10:57:49 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,16 @@ void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	data.folow[1] = point_a->screen[1];
 	unsigned i = 0;
 
+	if(point_a->screen[0] <= 0 || point_a->screen[1] <= 0)
+		printf("a below 0\n");
+
+	if(point_a->screen[0] >= WIDTH || point_a->screen[1] >= HEIGHT)
+		printf("a above max == %f %f\n",point_a->screen[0],point_a->screen[1]);
+	if(point_b->screen[0] <= 0 || point_b->screen[1] <= 0)
+		printf("b below 0\n");
+
+	if(point_b->screen[0] >= WIDTH || point_b->screen[1] >= HEIGHT)
+		printf("b above max\n");
 	if(point_a->screen[1] > img->height || point_a->screen[0] > img->width)
 		return;
 	if(data.dx == 0)
@@ -136,7 +146,7 @@ void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
 		i++;
 		if(pixel_put_plus(img, data.folow[1], data.folow[0],point_a->colour))
 			return;
-		if (data.folow[1] == point_b->screen[1] &&data.folow[0] ==point_b->screen[0])
+		if (data.folow[1] >= point_b->screen[1] && data.folow[0] >= point_b->screen[0])
 			break;
 		data.e2 = 2 * data.err;
 		if (data.e2 > data.dy) 

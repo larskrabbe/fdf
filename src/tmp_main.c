@@ -22,6 +22,8 @@ void	hook(void *param)// can use this to  spin things around
 	double boost;
 	boost =0.1;
 
+	
+
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_ESCAPE))// this stays
 		mlx_close_window(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_UP))
@@ -107,8 +109,7 @@ int32_t	mlx_main(t_all_structs *a_s)
 }
 double convert_cords_back(double cur_p, unsigned max,int zoom)
 {
-	//printf("%f\n",cur_p);
-	return((double)cur_p );	
+	return((double)(long)(cur_p * 100));	
 }
 	
 /*
@@ -121,15 +122,20 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
 
 	//printf("before set_matrices\n");
 	//a_s->mtx_p->f_print(a_s->mtx_p);
-	
-	matrix_multiply_vector(a_s->mtx_p,a_s->map->position[cur_y][cur_x]->cords,4,tmp_a);
-	matrix_multiply_vector(a_s->mtx_z,tmp_a,4,tmp_b);
-	matrix_multiply_vector(a_s->mtx_y,tmp_b,4,tmp_a);
-	matrix_multiply_vector(a_s->mtx_x,tmp_a,4,tmp_b);// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
+	//printf("\n\n\n x = %f | y = %f  z = %f\n",a_s->map->position[cur_y][cur_x]->cords[0],a_s->map->position[cur_y][cur_x]->cords[1],a_s->map->position[cur_y][cur_x]->cords[2]);
+	matrix_multiply_vector(a_s->mtx_z,a_s->map->position[cur_y][cur_x]->cords,4,tmp_a);
+	//printf("x = %f | y = %f  z = %f\n",tmp_a[0],tmp_a[1],tmp_a[2]);
+	matrix_multiply_vector(a_s->mtx_y,tmp_a,4,tmp_b);
+	//printf("x = %f | y = %f  z = %f\n",tmp_b[0],tmp_b[1],tmp_b[2]);
+	matrix_multiply_vector(a_s->mtx_x,tmp_b,4,tmp_a);
+	//printf("x = %f | y = %f  z = %f\n",tmp_a[0],tmp_a[1],tmp_a[2]);
+	matrix_multiply_vector(a_s->mtx_p,tmp_a,4,tmp_b);// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
+	//printf("x = %f | y = %f  z = %f\n",tmp_b[0],tmp_b[1],tmp_b[2]);
 	a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0],WIDTH,1);
 	a_s->map->position[cur_y][cur_x]->screen[1] = convert_cords_back(tmp_b[1],HEIGHT,1);
 	//a_s->map->position[cur_y][cur_x]->screen[0] = convert_cords_back(tmp_b[0], a_s->map->max_z);
-
+	//printf("\n\n\n x = %f | y = %f  z = %f\n",a_s->map->position[cur_y][cur_x]->screen[0],a_s->map->position[cur_y][cur_x]->screen[1],a_s->map->position[cur_y][cur_x]->screen[2]);
+	print_screen(a_s->map);
 	
 	// 	return;
 	// a_s->map->position[cur_y][cur_x]->screen[0] /= a_s->map->position[cur_y][cur_x]->screen[3];
