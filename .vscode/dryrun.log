@@ -1,126 +1,163 @@
-<<<<<<< Updated upstream
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/larskrabbe/c_stuff/new_fdf'
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/lkrabbe/uruk/fdf'
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -C src/matrix
  
-make[1]: Entering directory `/Users/larskrabbe/c_stuff/new_fdf/src/matrix'
+make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/src/matrix'
 cc -Werror -Wextra -Wall   -c -o matrix_getter.o matrix_getter.c
-cc -Werror -Wextra -Wall   -c -o matrix_setter.o matrix_setter.c
  
+cc -Werror -Wextra -Wall   -c -o matrix_setter.o matrix_setter.c
 cc -Werror -Wextra -Wall   -c -o matrix_utils.o matrix_utils.c
 cc -Werror -Wextra -Wall   -c -o matrix_setup.o matrix_setup.c
  
 cc -Werror -Wextra -Wall   -c -o matrix_solver.o matrix_solver.c
 ar -rs libmatrix.a matrix_getter.o matrix_setter.o matrix_utils.o matrix_setup.o matrix_solver.o
 make clean
-make[1]: Leaving directory `/Users/larskrabbe/c_stuff/new_fdf/src/matrix'
- 
+make[1]: Leaving directory `/Users/lkrabbe/uruk/fdf/src/matrix'
 mv src/matrix/libmatrix.a ./lib
- 
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -C libft/
  
-make[1]: Entering directory `/Users/larskrabbe/c_stuff/new_fdf/libft'
-cc -c allocation/ft_bzero.c -o ft_bzero.o
+make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/libft'
  
+cc -c allocation/ft_bzero.c -o ft_bzero.o
 cc -c allocation/ft_calloc.c -o ft_calloc.o
  
 cc -c checker/ft_isalnum.c -o ft_isalnum.o
- 
 cc -c checker/ft_isalpha.c -o ft_isalpha.o
- 
 cc -c checker/ft_isascii.c -o ft_isascii.o
- 
 cc -c checker/ft_isdigit.c -o ft_isdigit.o
 cc -c checker/ft_isprint.c -o ft_isprint.o
+ 
 cc -c checker/ft_memchr.c -o ft_memchr.o
 cc -c checker/ft_memcmp.c -o ft_memcmp.o
 cc -c checker/ft_strchr.c -o ft_strchr.o
- 
 cc -c checker/ft_strncmp.c -o ft_strncmp.o
 cc -c checker/ft_strnstr.c -o ft_strnstr.o
- 
 cc -c checker/ft_strrchr.c -o ft_strrchr.o
  
 cc -c print/calc_length.c -o calc_length.o
- 
 cc -c print/create_output.c -o create_output.o
- 
 cc -c print/fill_struct.c -o fill_struct.o
- 
 cc -c print/ft_printf.c -o ft_printf.o
- 
 cc -c print/ft_putchar_fd.c -o ft_putchar_fd.o
 cc -c print/ft_putendl_fd.c -o ft_putendl_fd.o
- 
 cc -c print/ft_putnbr_fd.c -o ft_putnbr_fd.o
+ 
 cc -c print/ft_putstr_fd.c -o ft_putstr_fd.o
 cc -c print/printf_convert.c -o printf_convert.o
 cc -c print/typesettera.c -o typesettera.o
- 
 cc -c print/typesetterb.c -o typesetterb.o
- 
 cc -c list/ft_lstadd_back.c -o ft_lstadd_back.o
  
 cc -c list/ft_lstadd_front.c -o ft_lstadd_front.o
- 
 cc -c list/ft_lstclear.c -o ft_lstclear.o
 cc -c list/ft_lstdelone.c -o ft_lstdelone.o
 cc -c list/ft_lstiter.c -o ft_lstiter.o
+ 
 cc -c list/ft_lstlast.c -o ft_lstlast.o
 cc -c list/ft_lstmap.c -o ft_lstmap.o
 cc -c list/ft_lstnew.c -o ft_lstnew.o
- 
 cc -c list/ft_lstsize.c -o ft_lstsize.o
 cc -c parsing/ft_atoi.c -o ft_atoi.o
+ 
 cc -c parsing/ft_itoa.c -o ft_itoa.o
 cc -c parsing/ft_strlen.c -o ft_strlen.o
 cc -c parsing/get_next_line.c -o get_next_line.o
- 
 cc -c string/ft_memcpy.c -o ft_memcpy.o
  
 cc -c string/ft_memmove.c -o ft_memmove.o
 cc -c string/ft_memset.c -o ft_memset.o
 cc -c string/ft_split.c -o ft_split.o
+ 
 cc -c string/ft_strdup.c -o ft_strdup.o
 cc -c string/ft_striteri.c -o ft_striteri.o
- 
 cc -c string/ft_strjoin.c -o ft_strjoin.o
- 
 cc -c string/ft_strlcat.c -o ft_strlcat.o
 cc -c string/ft_strlcpy.c -o ft_strlcpy.o
  
 cc -c string/ft_strmapi.c -o ft_strmapi.o
 cc -c string/ft_strtrim.c -o ft_strtrim.o
 cc -c string/ft_substr.c -o ft_substr.o
- 
 cc -c string/ft_tolower.c -o ft_tolower.o
- 
 cc -c string/ft_toupper.c -o ft_toupper.o
+ 
 ar -rs libft.a ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcmp.o ft_strchr.o ft_strncmp.o ft_strnstr.o ft_strrchr.o calc_length.o create_output.o fill_struct.o ft_printf.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o printf_convert.o typesettera.o typesetterb.o ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o ft_atoi.o ft_itoa.o ft_strlen.o get_next_line.o ft_memcpy.o ft_memmove.o ft_memset.o ft_split.o ft_strdup.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strmapi.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
 make clean
-make[1]: Leaving directory `/Users/larskrabbe/c_stuff/new_fdf/libft'
+make[1]: Leaving directory `/Users/lkrabbe/uruk/fdf/libft'
 mv libft//libft.a ./lib
 /Applications/Xcode.app/Contents/Developer/usr/bin/make all -C MLX42
  
-make[1]: Entering directory `/Users/larskrabbe/c_stuff/new_fdf/MLX42'
+make[1]: brew: Command not found
+
+make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/MLX42'
+
+echo "\033[32;1m\033[1mShader to C: shaders/default.frag -> src/mlx_frag_shader.c\033[0m"
+bash tools/compile_shader.sh shaders/default.frag > src/mlx_frag_shader.c
  
+echo "\033[32;1m\033[1mShader to C: shaders/default.vert -> src/mlx_vert_shader.c\033[0m"
+bash tools/compile_shader.sh shaders/default.vert > src/mlx_vert_shader.c
+ 
+echo "\033[32;1m\033[1mCompiling:\033[0m glad.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o lib/glad/glad.o -c lib/glad/glad.c -I include -I /include
+ 
+echo "\033[32;1m\033[1mCompiling:\033[0m lodepng.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o lib/png/lodepng.o -c lib/png/lodepng.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_font.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/font/mlx_font.o -c src/font/mlx_font.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_cursor.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_cursor.o -c src/mlx_cursor.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_exit.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_exit.o -c src/mlx_exit.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_frag_shader.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_frag_shader.o -c src/mlx_frag_shader.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_images.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_images.o -c src/mlx_images.c -I include -I /include
+ 
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_init.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_init.o -c src/mlx_init.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_keys.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_keys.o -c src/mlx_keys.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_loop.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_loop.o -c src/mlx_loop.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_monitor.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_monitor.o -c src/mlx_monitor.c -I include -I /include
+ 
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_mouse.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_mouse.o -c src/mlx_mouse.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_put_pixel.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_put_pixel.o -c src/mlx_put_pixel.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_vert_shader.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_vert_shader.o -c src/mlx_vert_shader.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_window.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_window.o -c src/mlx_window.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_png.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/textures/mlx_png.o -c src/textures/mlx_png.c -I include -I /include
+ 
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_texture.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/textures/mlx_texture.o -c src/textures/mlx_texture.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_xpm42.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/textures/mlx_xpm42.o -c src/textures/mlx_xpm42.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_error.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/utils/mlx_error.o -c src/utils/mlx_error.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_list.c"
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/utils/mlx_list.o -c src/utils/mlx_list.c -I include -I /include
+echo "\033[32;1m\033[1mCompiling:\033[0m mlx_utils.c"
+ 
+cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/utils/mlx_utils.o -c src/utils/mlx_utils.c -I include -I /include
 ar rc libmlx42.a lib/glad/glad.o lib/png/lodepng.o src/font/mlx_font.o src/mlx_cursor.o src/mlx_exit.o src/mlx_frag_shader.o src/mlx_images.o src/mlx_init.o src/mlx_keys.o src/mlx_loop.o src/mlx_monitor.o src/mlx_mouse.o src/mlx_put_pixel.o src/mlx_vert_shader.o src/mlx_window.o src/textures/mlx_png.o src/textures/mlx_texture.o src/textures/mlx_xpm42.o src/utils/mlx_error.o src/utils/mlx_list.o src/utils/mlx_utils.o
 echo "\033[32;1m\033[1mDone\033[0m"
-make[1]: Leaving directory `/Users/larskrabbe/c_stuff/new_fdf/MLX42'
- 
+make[1]: Leaving directory `/Users/lkrabbe/uruk/fdf/MLX42'
 mv MLX42/libmlx42.a ./lib
-=======
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/lkrabbe/uruk/fdf'
->>>>>>> Stashed changes
 cc -g -c  src/convertmap.c -o convertmap.o 
 cc -g -c  src/tmp_main.c -o tmp_main.o 
+ 
 cc -g -c  src/utiles.c -o utiles.o 
 cc -g -c  src/draw_line.c -o draw_line.o 
 cc -g -c  src/input_stuff.c -o input_stuff.o 
-cc -g -c  src/libft_plus/count_stuff.c -o count_stuff.o 
+cc -g -c  src/mlx_stuff.c -o mlx_stuff.o 
+cc -g -c  src/matrix_stuff.c -o matrix_stuff.o 
  
+cc -g -c  src/libft_plus/count_stuff.c -o count_stuff.o 
 cc -g -c  src/libft_plus/is_white_space.c -o is_white_space.o 
-cc -g  convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o count_stuff.o is_white_space.o -Llib -lft -Llib -lmatrix -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit -o fdf.a
+cc -g  convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o mlx_stuff.o matrix_stuff.o count_stuff.o is_white_space.o -Llib -lft -Llib -lmatrix -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit -o fdf.a
 make: Leaving directory `/Users/lkrabbe/uruk/fdf'
  

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/10 15:27:11 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/12 13:28:15 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 /*----------------------------------------------------------------------------*\
 |																			   |
-|		need to care about freeing in the end								   |
+|		create a structure and stores data of the  fdf.file inside of it 	   |
 |																			   |
 \*----------------------------------------------------------------------------*/
 
-#define EXPENT * 10
 
+/*
+	converts the cordinate so that  0 0 is in the the middle of the object
+*/
 double convert_cords(unsigned cur_p, double max)
 {
 	return((double)(cur_p/(max -1) - 0.5) * 2);	
 }
 	
-// takes the information of a string and allocate and stores the information inside of s_points struct
+/*
+	takes the information of a string and allocate and stores the information inside of s_points struct
+*/
 int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 {
 	char		**info;
@@ -61,7 +65,9 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 	return(0);
 }
 
-// takes the information of a string and stores in the map
+/*
+	takes the information of a string and stores in the map
+*/
 int	a_to_map(char *gnl_ptr,t_map *map, unsigned cur_y)
 {
 	char		**split_str;
@@ -78,7 +84,6 @@ int	a_to_map(char *gnl_ptr,t_map *map, unsigned cur_y)
 		if(a_to_points(map, cur_x, split_str[cur_x],cur_y) != 0)
 			return(-1);
 		cur_x++;
-
 	}
 	int	i;
 	i = 0;
@@ -93,7 +98,9 @@ int	a_to_map(char *gnl_ptr,t_map *map, unsigned cur_y)
 	return(0);
 }
 
-
+/*
+	allocate the whole structur for storing the data of the fdf.file
+*/
 void *create_map(t_map *map, int max_x, int max_y)
 {
 	int	y;
@@ -105,15 +112,22 @@ void *create_map(t_map *map, int max_x, int max_y)
 	while (y <= max_y)
 	{
 		map->position[y] = ft_calloc(sizeof(t_points ), (max_x + 1));
+		if(map->position[y] == NULL)
+		{
+			free_map(map,0,y);
+			return(NULL); //will return a error code
+		}
 		y++;
 	}
 	
 	return(NULL);
 }
 
-// read a file and stores the information in the map struct
-// can also be massivly improve by changing get next line(in a way where we dont malloc the string at all 
-// and importing the data dirctly in the structes) and so reducing systemcalls for not using after  get_next_line ft_split
+/*
+	read a file and stores the information in the map struct
+	can also be massivly improve by changing get next line(in a way where we dont malloc the string at all 
+	and importing the data dirctly in the structes) and so reducing systemcalls for not using after  get_next_line ft_split
+*/
 void	*read_map(t_map *map, int fd,char *gnl_ptr)
 {
 	unsigned	y;
@@ -131,7 +145,9 @@ void	*read_map(t_map *map, int fd,char *gnl_ptr)
 }
 
 
-//convets the file into cordinate inside a struct
+/*
+	convets the file into cordinate inside a struct
+*/
 t_map	*convert_map(char *filename, t_map *map)
 {
 	char	*gnl_ptr;
@@ -148,16 +164,20 @@ t_map	*convert_map(char *filename, t_map *map)
 	return(map);
 }
 
-void	free_map(t_map *map)
+/*
+	free the whole map that was allocated
+	if the map was correctly allocated  max_x and max_y is the same as the max value inside of the map struct
+*/
+void	free_map(t_map *map,int max_x,int max_y)
 {
-	unsigned int	x;
-	unsigned int	y;
+	int	x;
+		int	y;
 
 	x = 0;
 	y = 0;
-	while(map->max_y >= y)
+	while(max_y >= y)
 	{
-		while(map->max_x >= x)
+		while(max_x >= x)
 		{
 			free(map->position[y][x]);
 			x++;

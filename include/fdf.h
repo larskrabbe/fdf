@@ -6,16 +6,16 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/11 15:51:38 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/12 15:48:47 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# define WIDTH 256 * 20
-# define HEIGHT 256 * 20
-# define COLOUR 0xae5b5b 
+# define WIDTH 1000
+# define HEIGHT 1000
+# define COLOUR 0xFF5b5b 
 
 //*************************LIBARYS*********************************************
 
@@ -30,6 +30,7 @@
 //*************************STRUCTURE*******************************************
 
 
+
 /*
 		s_points		=>	stores the  information of each cordinate coresponding to the file
 	int cords[4]		=>	stors the  x y z cords /THE LAST VALUE IS ONLY THERE TO USE A 4 X 4 MATRIX								//maybe change in 3 diffrent int , but a array works better for  my matrix solver// lets see for now
@@ -38,8 +39,8 @@
 */
 typedef struct s_points{
 	double	cords[4];
-	int	colour;
-	double screen[4];
+	u_int32_t	colour;
+	int screen[4];
 }t_points;
 
 /*
@@ -96,7 +97,7 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
 void	hook(void *param);
 void	draw_on_screen(t_map *map,mlx_image_t *img);
 t_map	*convert_map(char *filename, t_map *map);
-void	free_map(t_map *map);
+void	free_map(t_map *map,int max_x,int max_y);
 void 	*create_map(t_map *map, int max_x, int max_y);
 t_input	*default_input(t_input *input);
 void	set_the_matrix(t_matrix_obj *mat,t_map *map,t_input *input);
@@ -107,5 +108,13 @@ void	print_map(t_map *map);
 void	print_cords(t_map *map);
 void	print_vector(double *vector,int n);
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
+//------mlx-stuff.c
+int32_t	mlx_main(t_all_structs *a_s);
+//------matrix_stuff.c
+void free_before_end(t_all_structs *a_s);
+void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
+t_matrix_obj	*matrix_setup(t_matrix_obj *mtx);
+
+
 
 #endif

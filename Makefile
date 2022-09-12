@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+         #
+#    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/09/10 15:35:05 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/12 13:44:24 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRC = 			convertmap.c \
 				tmp_main.c \
 				utiles.c\
 				draw_line.c\
-				input_stuff.c
+				input_stuff.c\
+				mlx_stuff.c\
+				matrix_stuff.c
 
 F_LIBFT_PLUS =	count_stuff.c \
 				is_white_space.c

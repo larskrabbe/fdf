@@ -35,7 +35,10 @@ void 	null_matrix(struct s_matrix_obj *matrix)
 	while (y < matrix->columns)
 	{
 		while(x < matrix->rows)
-		{
+		{		
+			if( x == y)
+				matrix->matrix[y][x] = 1;
+			else
 				matrix->matrix[y][x] = 0;
 			x++;
 		}
