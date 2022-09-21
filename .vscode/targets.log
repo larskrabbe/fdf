@@ -16,11 +16,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make[1]: *** No rule to make target `matrix_getter.o', needed by `libmatrix.a'.  Stop.
 
-
-# Make data base, printed on Sat Sep 17 16:20:30 2022
+# Make data base, printed on Wed Sep 21 12:36:39 2022
 
 # Variables
 
@@ -55,13 +52,13 @@ VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # environment
-LaunchInstanceID = AC103207-B560-4247-BBB5-7C168A96FAC5
+LaunchInstanceID = 244D03E4-3B83-4B59-9BD5-B5567F0F3D0C
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.iW2K5HNBMC/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.UBjkqcm76i/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,7 +120,7 @@ MFLAGS = -Rrqp
 # makefile (from `Makefile', line 15)
 MAIN = matrix_main.c 
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000014.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -139,7 +136,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a7
+SECURITYSESSIONID = 186e6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -151,7 +148,7 @@ MAKELEVEL := 1
 # environment
 LANG = C
 # environment
-VSCODE_PID = 849
+VSCODE_PID = 82777
 # variable set hash-table stats:
 # Load=64/1024=6%, Rehash=0, Collisions=3/94=3%
 
@@ -294,11 +291,10 @@ main:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Sep 17 16:20:30 2022
+# Finished Make data base on Wed Sep 21 12:36:39 2022
 
- 
 
-# Make data base, printed on Sat Sep 17 16:20:30 2022
+# Make data base, printed on Wed Sep 21 12:36:39 2022
 
 # Variables
 
@@ -318,9 +314,6 @@ SRC = convertmap.c tmp_main.c utiles.c draw_line.c input_stuff.c mlx_stuff.c mat
 @F = $(notdir $@)
 # makefile
 CURDIR := /Users/lkrabbe/uruk/fdf
- 
-make: *** [libmatrix.a] Error 2
-
 # makefile
 SHELL = /bin/sh
 # environment
@@ -339,10 +332,14 @@ MAKEFILE_LIST :=  Makefile
 VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
+ 
+make[1]: *** No rule to make target `matrix_getter.o', needed by `libmatrix.a'.  Stop.
+make: *** [libmatrix.a] Error 2
+
 # makefile (from `Makefile', line 15)
 VPATH = src src/libft_plus
 # environment
-LaunchInstanceID = AC103207-B560-4247-BBB5-7C168A96FAC5
+LaunchInstanceID = 244D03E4-3B83-4B59-9BD5-B5567F0F3D0C
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 36)
@@ -352,7 +349,7 @@ LIBFT_FLAGS = -Llib -lft
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.iW2K5HNBMC/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.UBjkqcm76i/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -420,7 +417,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000014.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -440,7 +437,7 @@ MLX_FLAGS = -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework 
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a7
+SECURITYSESSIONID = 186e6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -454,7 +451,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 849
+VSCODE_PID = 82777
 # makefile (from `Makefile', line 34)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
@@ -514,7 +511,7 @@ libmatrix.a:
 
 fdf.a: convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o mlx_stuff.o matrix_stuff.o count_stuff.o is_white_space.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-17 16:18:11
+#  Last modified 2022-09-21 12:36:25
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/7=0%
@@ -551,7 +548,7 @@ count_stuff.o:
 convertmap.o: src/convertmap.c lib
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `convertmap'
-#  Last modified 2022-09-17 16:18:11
+#  Last modified 2022-09-21 12:36:24
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/7=0%
@@ -562,7 +559,7 @@ convertmap.o: src/convertmap.c lib
 # Not a target:
 src/convertmap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-12 13:28:15
+#  Last modified 2022-09-21 12:20:19
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -585,7 +582,7 @@ src/convertmap.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-12 13:44:24
+#  Last modified 2022-09-21 12:33:23
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -640,7 +637,6 @@ fclean:
 
 lib: libmatrix.a libft.a libmlx42.a
 #  Phony target (prerequisite of .PHONY).
- 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -662,6 +658,7 @@ julia: fdf.a
 	
 
 re:
+ 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -672,8 +669,8 @@ libmlx42.a:
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 77):
-	$(MAKE) all -C $(F_MLX)
-	mv $(F_MLX)/$(MLX_LIB) ./lib
+	# $(MAKE) all -C $(F_MLX)
+	# mv $(F_MLX)/$(MLX_LIB) ./lib
 	
 
 clean:
@@ -725,6 +722,6 @@ mlx_stuff.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Sep 17 16:20:30 2022
+# Finished Make data base on Wed Sep 21 12:36:39 2022
 
  
