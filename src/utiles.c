@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utiles.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/11 16:44:57 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:58:01 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	print_screen(t_map *map)
 	{
 		while (map->max_x > x)
 		{	
-			printf("{%4f |",map->position[y][x]->screen[0]);
-			printf("%4f}",map->position[y][x]->screen[1]);
+			printf("{%4d |",map->position[y][x]->screen[0]);
+			printf("%4d}",map->position[y][x]->screen[1]);
 			//printf("%4f}",map->position[y][x]->screen[2]);
 			x++;
 		}

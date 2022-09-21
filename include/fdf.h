@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 15:48:47 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/14 01:05:34 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 #include	"math.h"
 #include	"matrix_o.h"
 //*************************STRUCTURE*******************************************
-
-
 
 /*
 		s_points		=>	stores the  information of each cordinate coresponding to the file
@@ -55,24 +53,14 @@ typedef struct s_map{
 	t_points ***position;
 }t_map;
 
+/*
+	stores the values for the matrices that can be change user inputs
+*/
 typedef struct s_input
 {
-	double input0;
-	double input1;
-	double input2;
-	double input3;
-	double input4;
-	double input5;
-	double input6;
-	double input7;
-	double input8;
-	double input9;
-	double input10;
-	double input11;
-	double input12;
-	double input13;
-	double input14;
-	double input15;
+	int32_t	*heigt;
+	int32_t *width;
+	double input[16];
 } t_input;
 
 typedef	struct 	s_all_structs
@@ -88,6 +76,19 @@ typedef	struct 	s_all_structs
 	t_matrix_obj	*mtx_p;
 }t_all_structs;
 
+//*************************ENUMS*******************************************
+
+typedef enum e_enput{
+	x_scale = 0,
+	y_scale = 1,
+	z_scale = 2,
+	w_scale = 3,
+	x_rotation = 4,
+	y_rotation = 5,
+	z_rotation = 6,
+	x_translation = 7,
+	y_translation = 8,
+}t_enput;
 
 void 	set_the_matrices(t_all_structs *a_s);
 void	map_to_screen(t_all_structs *a_s);

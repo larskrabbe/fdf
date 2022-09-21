@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_stuff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 16:05:48 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:41:02 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,48 +38,42 @@ void	hook(void *param)// can use this to  spin things around
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_ESCAPE))// this stays
 		mlx_close_window(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_UP))
-		a_s->input->input8 -= 10;
+		a_s->input->input[y_translation] -= 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_DOWN))
-		a_s->input->input8 += 10;
+		a_s->input->input[y_translation] += 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_LEFT))
-		a_s->input->input7 -= 10;
+		a_s->input->input[x_translation] -= 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_RIGHT))
-		a_s->input->input7 += 10;
+		a_s->input->input[x_translation] += 10;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_A))
-		a_s->input->input0 += boost* 10 * Caps_check(a_s->mlx);
+		a_s->input->input[x_scale] += boost* 10 * Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_S))
-		a_s->input->input1 += boost* 10 *Caps_check(a_s->mlx);
+		a_s->input->input[y_scale] += boost* 10 *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_D))
-		a_s->input->input2 += boost *Caps_check(a_s->mlx);
-	if (mlx_is_key_down(a_s->mlx, MLX_KEY_F))
-		a_s->input->input3 += boost *Caps_check(a_s->mlx);
+		a_s->input->input[z_scale] += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_1))
-		a_s->input->input4 += boost *Caps_check(a_s->mlx);
+		a_s->input->input[x_rotation] += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_2))
-		a_s->input->input5 += boost *Caps_check(a_s->mlx);
+		a_s->input->input[y_rotation] += boost *Caps_check(a_s->mlx);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_3))
-		a_s->input->input6 += boost *Caps_check(a_s->mlx);
-	a_s->input->input6 += boost/ 100;
-	a_s->input->input4 += boost/ 30;
-	a_s->input->input5 += boost/ 75;
-
+		a_s->input->input[z_rotation] += boost *Caps_check(a_s->mlx);
 	set_the_matrices(a_s);
 	ft_bzero(a_s->img->pixels,(WIDTH * HEIGHT * sizeof(u_int32_t)));
 	map_to_screen(a_s);
-	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
-	{
-		printf("scale matrix \n");
-		a_s->mtx_s->f_print(a_s->mtx_s);
-		printf("z rotation matrix \n");
-		a_s->mtx_z->f_print(a_s->mtx_z);
-		printf("y rotation matrix \n");
-		a_s->mtx_y->f_print(a_s->mtx_y);
-		printf("x rotation matrix \n");
-		a_s->mtx_x->f_print(a_s->mtx_x);
-		printf("projection matrix \n");
-		a_s->mtx_p->f_print(a_s->mtx_p);
-		print_screen(a_s->map);
-	}
+	// if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
+	// {
+	// 	printf("scale matrix \n");
+	// 	a_s->mtx_s->f_print(a_s->mtx_s);
+	// 	printf("z rotation matrix \n");
+	// 	a_s->mtx_z->f_print(a_s->mtx_z);
+	// 	printf("y rotation matrix \n");
+	// 	a_s->mtx_y->f_print(a_s->mtx_y);
+	// 	printf("x rotation matrix \n");
+	// 	a_s->mtx_x->f_print(a_s->mtx_x);
+	// 	printf("projection matrix \n");
+	// 	a_s->mtx_p->f_print(a_s->mtx_p);
+	// 	print_screen(a_s->map);
+	// }
 		draw_on_screen(a_s->map, a_s->img);
 }
 

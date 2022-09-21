@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/09/12 13:44:24 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/14 14:23:53 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
