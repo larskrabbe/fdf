@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 15:48:47 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/02 16:58:07 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@
 #include	"matrix_o.h"
 //*************************STRUCTURE*******************************************
 
+typedef	union s_colour
+{
+	struct 
+	{
+		int8_t a;
+		int8_t b;
+		int8_t c;
+		int8_t d;
+	};
+	int32_t abcd;
+}u_colour;
+
 
 
 /*
@@ -38,9 +50,9 @@
 	int screen[4]		=>	stors the cords after translating it through the matrix,the z position shold be irrelevant
 */
 typedef struct s_points{
-	double	cords[4];
-	u_int32_t	colour;
-	int screen[4];
+	double		cords[4];
+	u_colour	colour;
+	int			screen[4];
 }t_points;
 
 /*

@@ -5,19 +5,20 @@ make: Entering directory `/Users/lkrabbe/uruk/fdf'
 make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/src/matrix'
 cc -Werror -Wextra -Wall   -c -o matrix_getter.o matrix_getter.c
 cc -Werror -Wextra -Wall   -c -o matrix_setter.o matrix_setter.c
+ 
 cc -Werror -Wextra -Wall   -c -o matrix_utils.o matrix_utils.c
 cc -Werror -Wextra -Wall   -c -o matrix_setup.o matrix_setup.c
+ 
 cc -Werror -Wextra -Wall   -c -o matrix_solver.o matrix_solver.c
 ar -rs libmatrix.a matrix_getter.o matrix_setter.o matrix_utils.o matrix_setup.o matrix_solver.o
 make clean
 make[1]: Leaving directory `/Users/lkrabbe/uruk/fdf/src/matrix'
- 
 mv src/matrix/libmatrix.a ./lib
+ 
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -C libft/
  
 make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/libft'
 cc -c allocation/ft_bzero.c -o ft_bzero.o
- 
 cc -c allocation/ft_calloc.c -o ft_calloc.o
 cc -c checker/ft_isalnum.c -o ft_isalnum.o
 cc -c checker/ft_isalpha.c -o ft_isalpha.o
@@ -29,6 +30,7 @@ cc -c checker/ft_memcmp.c -o ft_memcmp.o
 cc -c checker/ft_strchr.c -o ft_strchr.o
 cc -c checker/ft_strncmp.c -o ft_strncmp.o
 cc -c checker/ft_strnstr.c -o ft_strnstr.o
+ 
 cc -c checker/ft_strrchr.c -o ft_strrchr.o
 cc -c print/calc_length.c -o calc_length.o
 cc -c print/create_output.c -o create_output.o
@@ -74,10 +76,6 @@ make[1]: Leaving directory `/Users/lkrabbe/uruk/fdf/libft'
 mv libft//libft.a ./lib
 /Applications/Xcode.app/Contents/Developer/usr/bin/make all -C MLX42
  
-make[1]: brew: Command not found
-
-make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/MLX42'
-
 echo "\033[32;1m\033[1mShader to C: shaders/default.frag -> src/mlx_frag_shader.c\033[0m"
 bash tools/compile_shader.sh shaders/default.frag > src/mlx_frag_shader.c
 echo "\033[32;1m\033[1mShader to C: shaders/default.vert -> src/mlx_vert_shader.c\033[0m"
@@ -140,3 +138,6 @@ cc -g -c  src/libft_plus/is_white_space.c -o is_white_space.o
 cc -g  convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o mlx_stuff.o matrix_stuff.o count_stuff.o is_white_space.o -Llib -lft -Llib -lmatrix -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit -o fdf.a
 make: Leaving directory `/Users/lkrabbe/uruk/fdf'
  
+make[1]: brew: Command not found
+make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/MLX42'
+

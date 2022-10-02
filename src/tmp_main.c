@@ -48,6 +48,7 @@ void	map_to_screen(t_all_structs *a_s)
 	}
 }
 
+
 /*
 	Creat the main Struct that contain all other structs and frees them at the end
 	small input protection
@@ -64,6 +65,8 @@ int	main(int argc, char** argv)
 	t_matrix_obj	mtx_z;
 	t_matrix_obj	mtx_p;
 	t_all_structs	a_s;
+
+	int32_t test = 561351321;
 
 	if (argc <= 1)
 		return(0);

@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 16:05:48 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/02 18:15:09 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,16 @@ void	hook(void *param)// can use this to  spin things around
 	a_s->input->input6 += boost/ 100;
 	a_s->input->input4 += boost/ 30;
 	a_s->input->input5 += boost/ 75;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_0))
+		a_s->input->input12 += 1 *Caps_check(a_s->mlx);	set_the_matrices(a_s);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_9))
+		a_s->input->input13 += 1 *Caps_check(a_s->mlx);	set_the_matrices(a_s);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_8))
+		a_s->input->input14 += 1 *Caps_check(a_s->mlx);	set_the_matrices(a_s);
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_7))
+		a_s->input->input15 += 1 *Caps_check(a_s->mlx);	set_the_matrices(a_s);
+		
 
-	set_the_matrices(a_s);
 	ft_bzero(a_s->img->pixels,(WIDTH * HEIGHT * sizeof(u_int32_t)));
 	map_to_screen(a_s);
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))

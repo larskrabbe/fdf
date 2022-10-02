@@ -6,12 +6,11 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:53:26 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 15:10:18 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/02 18:24:51 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
-
 /*
 	set the default value inside myinput struct
 */
@@ -23,18 +22,18 @@ t_input *default_input(t_input *input)
 	input->input1  = 500;//y
 	input->input2  = 1;//z
 	input->input3  = 1;//w
-	input->input4  = 0;//x-rotation
-	input->input5  = 0;//y-rotation
+	input->input4  = 35.264/360 ;//x-rotation
+	input->input5  = 45/360 ;//y-rotation
 	input->input6  = 0;//z-rotation
 	input->input7  = WIDTH/2;//translation in x
 	input->input8  = HEIGHT/2;//translation in y
 	input->input9  = 0;
 	input->input10 = 0;
 	input->input11 = 0;
-	input->input12 = 0;
-	input->input13 = 0;
-	input->input14 = 0;
-	input->input15 = 0;
+	input->input12 = 10;//a
+	input->input13 = 10;//b
+	input->input14 = 10;//c
+	input->input15 = 10;//d
 	return(input);
 }
 
@@ -108,8 +107,8 @@ void set_the_z_matrix(double **matrix, double value)
 }
 
 /*
-	set the values inside all matrices
-*/
+	set all matrices
+ */
 void set_the_matrices(t_all_structs *a_s)
 {
 	set_the_s_matrix(a_s->mtx_s->matrix,a_s->input);

@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/09/12 13:44:24 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/09/21 12:59:15 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ lib: $(MATRIX_LIB) $(LIBFT_LIB) $(MLX_LIB)
 $(MLX_LIB):
 	$(MAKE) all -C $(F_MLX)
 	mv $(F_MLX)/$(MLX_LIB) ./lib
-
+glfw: 
+	git fetch https://github.com/glfw/glfw.git/inlcude/GLFW/glfw.h
 $(MATRIX_LIB):
 	$(MAKE) -C $(F_MATRIX)
 	mv $(F_MATRIX)/$(MATRIX_LIB) ./lib
@@ -88,7 +89,7 @@ $(LIBFT_LIB):
 #if [ ! -d "MLX42" ]; then do stuff here ;fi
 
 clean:
-	rm -f OBJ
+	rm -f *.c
 
 
 fclean:

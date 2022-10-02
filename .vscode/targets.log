@@ -8,7 +8,6 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -C src/matrix
- 
 # GNU Make 3.81
 # Copyright (C) 2006  Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.
@@ -16,11 +15,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make[1]: *** No rule to make target `matrix_getter.o', needed by `libmatrix.a'.  Stop.
 
-
-# Make data base, printed on Sat Sep 17 16:20:30 2022
+# Make data base, printed on Thu Sep 22 09:34:12 2022
 
 # Variables
 
@@ -55,13 +51,13 @@ VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # environment
-LaunchInstanceID = AC103207-B560-4247-BBB5-7C168A96FAC5
+LaunchInstanceID = BA4F4CD9-8D3C-45AB-8FEC-FE33D087ADC7
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.iW2K5HNBMC/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.cNkkEU6Krz/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,15 +119,13 @@ MFLAGS = -Rrqp
 # makefile (from `Makefile', line 15)
 MAIN = matrix_main.c 
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.1204
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18C82:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -151,9 +145,9 @@ MAKELEVEL := 1
 # environment
 LANG = C
 # environment
-VSCODE_PID = 849
+VSCODE_PID = 75182
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=3/94=3%
+# Load=63/1024=6%, Rehash=0, Collisions=3/93=3%
 
 # Pattern-specific Variable Values
 
@@ -294,11 +288,10 @@ main:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Sep 17 16:20:30 2022
+# Finished Make data base on Thu Sep 22 09:34:12 2022
 
- 
 
-# Make data base, printed on Sat Sep 17 16:20:30 2022
+# Make data base, printed on Thu Sep 22 09:34:12 2022
 
 # Variables
 
@@ -318,9 +311,6 @@ SRC = convertmap.c tmp_main.c utiles.c draw_line.c input_stuff.c mlx_stuff.c mat
 @F = $(notdir $@)
 # makefile
 CURDIR := /Users/lkrabbe/uruk/fdf
- 
-make: *** [libmatrix.a] Error 2
-
 # makefile
 SHELL = /bin/sh
 # environment
@@ -339,10 +329,14 @@ MAKEFILE_LIST :=  Makefile
 VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
+ 
+make[1]: *** No rule to make target `matrix_getter.o', needed by `libmatrix.a'.  Stop.
+make: *** [libmatrix.a] Error 2
+
 # makefile (from `Makefile', line 15)
 VPATH = src src/libft_plus
 # environment
-LaunchInstanceID = AC103207-B560-4247-BBB5-7C168A96FAC5
+LaunchInstanceID = BA4F4CD9-8D3C-45AB-8FEC-FE33D087ADC7
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 36)
@@ -352,7 +346,7 @@ LIBFT_FLAGS = -Llib -lft
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.iW2K5HNBMC/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.cNkkEU6Krz/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -420,15 +414,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.1204
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18C82:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -454,11 +446,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 849
+VSCODE_PID = 75182
 # makefile (from `Makefile', line 34)
 LIBFT_LIB = libft.a
 # variable set hash-table stats:
-# Load=76/1024=7%, Rehash=0, Collisions=6/122=5%
+# Load=75/1024=7%, Rehash=0, Collisions=6/121=5%
 
 # Pattern-specific Variable Values
 
@@ -466,11 +458,11 @@ LIBFT_LIB = libft.a
 
 # Directories
 
-# . (device 16777225, inode 1724342): 26 files, no impossibilities.
+# . (device 16777225, inode 1724342): 25 files, no impossibilities.
 # src (device 16777225, inode 1724557): 11 files, no impossibilities.
 # src/libft_plus (device 16777225, inode 1724559): 5 files, no impossibilities.
 
-# 42 files, no impossibilities in 3 directories.
+# 41 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -507,14 +499,14 @@ libmatrix.a:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/15=20%
-#  commands to execute (from `Makefile', line 81):
+#  commands to execute (from `Makefile', line 82):
 	$(MAKE) -C $(F_MATRIX)
 	mv $(F_MATRIX)/$(MATRIX_LIB) ./lib
 	
 
 fdf.a: convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o mlx_stuff.o matrix_stuff.o count_stuff.o is_white_space.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-17 16:18:11
+#  Last modified 2022-09-21 13:57:42
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/7=0%
@@ -551,7 +543,7 @@ count_stuff.o:
 convertmap.o: src/convertmap.c lib
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `convertmap'
-#  Last modified 2022-09-17 16:18:11
+#  Last modified 2022-09-21 13:57:28
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/7=0%
@@ -562,7 +554,7 @@ convertmap.o: src/convertmap.c lib
 # Not a target:
 src/convertmap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-12 13:28:15
+#  Last modified 2022-09-21 12:20:19
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -585,7 +577,7 @@ src/convertmap.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-12 13:44:24
+#  Last modified 2022-09-21 12:59:15
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -601,7 +593,7 @@ libft.a:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 85):
+#  commands to execute (from `Makefile', line 86):
 	$(MAKE) -C $(F_LIBFT)
 	mv $(F_LIBFT)/$(LIBFT_LIB) ./lib
 	
@@ -631,7 +623,7 @@ fclean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 95):
+#  commands to execute (from `Makefile', line 96):
 	$(MAKE) clean -C $(F_MLX)
 	$(MAKE) clean -C $(F_MATRIX)
 	$(MAKE) clean -C $(F_LIBFT)
@@ -640,7 +632,6 @@ fclean:
 
 lib: libmatrix.a libft.a libmlx42.a
 #  Phony target (prerequisite of .PHONY).
- 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -659,6 +650,15 @@ julia: fdf.a
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 60):
 	./$(NAME) $(F_MAPS)julia.fdf
+	
+
+glfw:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 80):
+	git fetch https://github.com/glfw/glfw.git/inlcude/GLFW/glfw.h
 	
 
 re:
@@ -681,8 +681,8 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 91):
-	rm -f OBJ
+#  commands to execute (from `Makefile', line 92):
+	rm -f *.c
 	
 
 # Not a target:
@@ -712,7 +712,7 @@ mlx_stuff.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=0/78=0%
+# Load=28/1024=3%, Rehash=0, Collisions=0/79=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -725,6 +725,6 @@ mlx_stuff.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Sep 17 16:20:30 2022
+# Finished Make data base on Thu Sep 22 09:34:24 2022
 
  

@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:44:36 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 15:51:23 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/02 18:14:17 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,16 @@ double convert_cords_back(double cur_p, unsigned max,int zoom)
 	//printf(">>%f\n",cur_p);
 	return((int)(cur_p));	
 }
-
+u_colour paint_is_pain(t_all_structs *a_s,int cur_x,int cur_y)
+{
+	u_colour tmp;
+	
+	tmp.a = a_s->input->input12 + a_s->map->position[cur_y][cur_x]->colour.a;
+	tmp.b = a_s->input->input13+ a_s->map->position[cur_y][cur_x]->colour.b;
+	tmp.c = a_s->input->input14+ a_s->map->position[cur_y][cur_x]->colour.c;
+	tmp.d = a_s->input->input15+ a_s->map->position[cur_y][cur_x]->colour.d;
+	return(tmp);
+}
 
 /*
 	rotaion and transformation of each cordinate
@@ -48,6 +57,8 @@ void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y)
 	matrix_multiply_vector(a_s->mtx_p,tmp_a,4,tmp_b);// if(a_s->map->position[cur_y][cur_x]->screen[3] == 0)
 	a_s->map->position[cur_y][cur_x]->screen[0] = (int)tmp_b[0];
 	a_s->map->position[cur_y][cur_x]->screen[1] = (int)tmp_b[1];
+	a_s->map->position[cur_y][cur_x]->colour = paint_is_pain(a_s,cur_x,cur_y);
+
 	//print_screen(a_s->map);
 }
 
