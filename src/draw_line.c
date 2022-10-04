@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 12:22:06 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/03 14:34:20 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[1] + i <= point_b->screen[1])
 		{
-			if(pixel_put_plus(img, point_a->screen[1] + i ,  point_a->screen[0],point_a->colour))
+			if(pixel_put_plus(img, point_a->screen[1] + i ,  point_a->screen[0],point_a->color.color))
 				return;
 			i++;
 		}
@@ -60,7 +60,7 @@ void	draw_hori(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[1] + i >= point_b->screen[1])
 		{
-			if(pixel_put_plus(img,  point_a->screen[1] + i, point_a->screen[0],point_a->colour))
+			if(pixel_put_plus(img,  point_a->screen[1] + i, point_a->screen[0],point_a->color.color))
 				return;
 			i--;
 		}
@@ -76,7 +76,7 @@ void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[0] + i <= point_b->screen[0])
 		{
-			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i ,point_a->colour))
+			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i ,point_a->color.color))
 				return;
 			i++;
 		}
@@ -85,7 +85,7 @@ void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	{
 		while (point_a->screen[0] + i >= point_b->screen[0])
 		{
-			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i,point_a->colour))
+			if(pixel_put_plus(img, point_a->screen[1], point_a->screen[0] + i,point_a->color.color))
 				return;
 			i--;
 		}

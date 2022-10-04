@@ -6,7 +6,7 @@
 /*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/14 01:05:34 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/03 14:33:08 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,21 @@
 #include	"matrix_o.h"
 //*************************STRUCTURE*******************************************
 
+/**
+ * @brief union to cheat out the diffrent colours
+ * 
+ */
+typedef union u_color{
+	struct{
+		int8_t red;
+		int8_t blue;
+		int8_t green;
+		int8_t opaqnis;
+	};
+	int32_t color;
+}t_color;
+
+
 /*
 		s_points		=>	stores the  information of each cordinate coresponding to the file
 	int cords[4]		=>	stors the  x y z cords /THE LAST VALUE IS ONLY THERE TO USE A 4 X 4 MATRIX								//maybe change in 3 diffrent int , but a array works better for  my matrix solver// lets see for now
@@ -37,7 +52,7 @@
 */
 typedef struct s_points{
 	double	cords[4];
-	u_int32_t	colour;
+	t_color	color;
 	int screen[4];
 }t_points;
 

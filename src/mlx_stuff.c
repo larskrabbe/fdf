@@ -6,7 +6,7 @@
 /*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/13 16:41:02 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/03 13:29:37 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,20 @@ void	hook(void *param)// can use this to  spin things around
 	set_the_matrices(a_s);
 	ft_bzero(a_s->img->pixels,(WIDTH * HEIGHT * sizeof(u_int32_t)));
 	map_to_screen(a_s);
-	// if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
-	// {
-	// 	printf("scale matrix \n");
-	// 	a_s->mtx_s->f_print(a_s->mtx_s);
-	// 	printf("z rotation matrix \n");
-	// 	a_s->mtx_z->f_print(a_s->mtx_z);
-	// 	printf("y rotation matrix \n");
-	// 	a_s->mtx_y->f_print(a_s->mtx_y);
-	// 	printf("x rotation matrix \n");
-	// 	a_s->mtx_x->f_print(a_s->mtx_x);
-	// 	printf("projection matrix \n");
-	// 	a_s->mtx_p->f_print(a_s->mtx_p);
-	// 	print_screen(a_s->map);
-	// }
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
+	{
+		printf("scale matrix \n");
+		a_s->mtx_s->f_print(a_s->mtx_s);
+		printf("z rotation matrix \n");
+		a_s->mtx_z->f_print(a_s->mtx_z);
+		printf("y rotation matrix \n");
+		a_s->mtx_y->f_print(a_s->mtx_y);
+		printf("x rotation matrix \n");
+		a_s->mtx_x->f_print(a_s->mtx_x);
+		printf("projection matrix \n");
+		a_s->mtx_p->f_print(a_s->mtx_p);
+		print_screen(a_s->map);
+	}
 		draw_on_screen(a_s->map, a_s->img);
 }
 

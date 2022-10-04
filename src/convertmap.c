@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/12 13:28:15 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/03 14:32:33 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 	//printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);
 	if (info[1] != NULL)
 	{
-		map->position[cur_y][cur_x]->colour = atoi(info[1]);
+		map->position[cur_y][cur_x]->color.color = atoi(info[1]+2);
 		free(info[1]);
 	}
 	else
-		map->position[cur_y][cur_x]->colour = COLOUR;
+		map->position[cur_y][cur_x]->color.color = COLOUR;
 	free(info[0]);
 	free(info);
 	return(0);

@@ -1,5 +1,5 @@
 #include "../include/fdf.h"
-
+#include "../include/glfw3.h"
 
 /*
 	draws line betwenn cords
