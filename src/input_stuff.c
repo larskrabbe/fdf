@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:53:26 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/14 11:57:31 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/04 12:10:22 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,19 @@
 */
 t_input *default_input(t_input *input)
 {
-	int32_t test = 100;
-	input->width = &test;
-	input->heigt = &test;
-	mlx_get_monitor_size(0, input->width, input->heigt);
-	printf("w %d h %d",input->width[0],input->heigt[0]);
-;
-
-
-	input->input[x_scale]  = 300;//x
-	input->input[y_scale]  = 300;//y
-	input->input[z_scale] = 1;//z
-	input->input[w_scale]  = 1;//w
-	input->input[x_rotation]  = 0;//x-rotation
-	input->input[y_rotation]  = 0;//y-rotation
-	input->input[z_rotation]  = 0;//z-rotation
-	input->input[x_translation]  = WIDTH/2;//translation in x
-	input->input[y_translation]  = HEIGHT/2;//translation in y
+	input->input[x_scale]  = 300;
+	input->input[y_scale]  = 300;
+	input->input[z_scale] = 1;
+	input->input[w_scale]  = 1;
+	input->input[x_rotation]  = 0;
+	input->input[y_rotation]  = 0;
+	input->input[z_rotation]  = 0;
+	input->input[x_translation] = WIDTH/2;
+	input->input[y_translation] = HEIGHT/2;
+	input->input[red] = 12;
+	input->input[green] = 12;
+	input->input[blue] = 12;
+	input->input[opacity] = 12;
 	return(input);
 }
 

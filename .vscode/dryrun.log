@@ -4,14 +4,15 @@ make: Entering directory `/Users/lkrabbe/uruk/fdf'
  
 make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/src/matrix'
 cc -Werror -Wextra -Wall   -c -o matrix_getter.o matrix_getter.c
+ 
 cc -Werror -Wextra -Wall   -c -o matrix_setter.o matrix_setter.c
 cc -Werror -Wextra -Wall   -c -o matrix_utils.o matrix_utils.c
 cc -Werror -Wextra -Wall   -c -o matrix_setup.o matrix_setup.c
+ 
 cc -Werror -Wextra -Wall   -c -o matrix_solver.o matrix_solver.c
 ar -rs libmatrix.a matrix_getter.o matrix_setter.o matrix_utils.o matrix_setup.o matrix_solver.o
 make clean
 make[1]: Leaving directory `/Users/lkrabbe/uruk/fdf/src/matrix'
- 
 mv src/matrix/libmatrix.a ./lib
 /Applications/Xcode.app/Contents/Developer/usr/bin/make -C libft/
  
@@ -19,21 +20,25 @@ make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/libft'
 cc -c allocation/ft_bzero.c -o ft_bzero.o
  
 cc -c allocation/ft_calloc.c -o ft_calloc.o
+ 
 cc -c checker/ft_isalnum.c -o ft_isalnum.o
 cc -c checker/ft_isalpha.c -o ft_isalpha.o
 cc -c checker/ft_isascii.c -o ft_isascii.o
+ 
 cc -c checker/ft_isdigit.c -o ft_isdigit.o
 cc -c checker/ft_isprint.c -o ft_isprint.o
 cc -c checker/ft_memchr.c -o ft_memchr.o
 cc -c checker/ft_memcmp.c -o ft_memcmp.o
 cc -c checker/ft_strchr.c -o ft_strchr.o
 cc -c checker/ft_strncmp.c -o ft_strncmp.o
+ 
 cc -c checker/ft_strnstr.c -o ft_strnstr.o
 cc -c checker/ft_strrchr.c -o ft_strrchr.o
 cc -c print/calc_length.c -o calc_length.o
 cc -c print/create_output.c -o create_output.o
 cc -c print/fill_struct.c -o fill_struct.o
 cc -c print/ft_printf.c -o ft_printf.o
+ 
 cc -c print/ft_putchar_fd.c -o ft_putchar_fd.o
 cc -c print/ft_putendl_fd.c -o ft_putendl_fd.o
 cc -c print/ft_putnbr_fd.c -o ft_putnbr_fd.o
@@ -41,6 +46,7 @@ cc -c print/ft_putstr_fd.c -o ft_putstr_fd.o
 cc -c print/printf_convert.c -o printf_convert.o
 cc -c print/typesettera.c -o typesettera.o
 cc -c print/typesetterb.c -o typesetterb.o
+ 
 cc -c list/ft_lstadd_back.c -o ft_lstadd_back.o
 cc -c list/ft_lstadd_front.c -o ft_lstadd_front.o
 cc -c list/ft_lstclear.c -o ft_lstclear.o
@@ -75,13 +81,13 @@ mv libft//libft.a ./lib
 /Applications/Xcode.app/Contents/Developer/usr/bin/make all -C MLX42
  
 make[1]: brew: Command not found
-
 make[1]: Entering directory `/Users/lkrabbe/uruk/fdf/MLX42'
 
 echo "\033[32;1m\033[1mShader to C: shaders/default.frag -> src/mlx_frag_shader.c\033[0m"
 bash tools/compile_shader.sh shaders/default.frag > src/mlx_frag_shader.c
 echo "\033[32;1m\033[1mShader to C: shaders/default.vert -> src/mlx_vert_shader.c\033[0m"
 bash tools/compile_shader.sh shaders/default.vert > src/mlx_vert_shader.c
+ 
 echo "\033[32;1m\033[1mCompiling:\033[0m glad.c"
 cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o lib/glad/glad.o -c lib/glad/glad.c -I include -I /include
 echo "\033[32;1m\033[1mCompiling:\033[0m lodepng.c"
@@ -108,6 +114,7 @@ echo "\033[32;1m\033[1mCompiling:\033[0m mlx_mouse.c"
 cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_mouse.o -c src/mlx_mouse.c -I include -I /include
 echo "\033[32;1m\033[1mCompiling:\033[0m mlx_put_pixel.c"
 cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_put_pixel.o -c src/mlx_put_pixel.c -I include -I /include
+ 
 echo "\033[32;1m\033[1mCompiling:\033[0m mlx_vert_shader.c"
 cc -Wextra -Wall -Werror -Wunreachable-code -Wno-char-subscripts -Wno-sign-compare -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS -DLODEPNG_NO_COMPILE_ENCODER -Ofast -D NDEBUG -o src/mlx_vert_shader.o -c src/mlx_vert_shader.c -I include -I /include
 echo "\033[32;1m\033[1mCompiling:\033[0m mlx_window.c"
@@ -135,8 +142,9 @@ cc -g -c  src/draw_line.c -o draw_line.o
 cc -g -c  src/input_stuff.c -o input_stuff.o 
 cc -g -c  src/mlx_stuff.c -o mlx_stuff.o 
 cc -g -c  src/matrix_stuff.c -o matrix_stuff.o 
+cc -g -c  src/hooks.c -o hooks.o 
 cc -g -c  src/libft_plus/count_stuff.c -o count_stuff.o 
 cc -g -c  src/libft_plus/is_white_space.c -o is_white_space.o 
-cc -g  convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o mlx_stuff.o matrix_stuff.o count_stuff.o is_white_space.o -Llib -lft -Llib -lmatrix -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit -o fdf.a
+cc -g  convertmap.o tmp_main.o utiles.o draw_line.o input_stuff.o mlx_stuff.o matrix_stuff.o hooks.o count_stuff.o is_white_space.o -Llib -lft -Llib -lmatrix -lglfw3 -Llib -lMLX42 -framework Cocoa -framework OpenGL -framework IOKit -o fdf.a
 make: Leaving directory `/Users/lkrabbe/uruk/fdf'
  

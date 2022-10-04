@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:14:51 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/29 13:31:25 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/04 11:03:12 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	count_words_in_str(char *str);
 
 int	is_white_space(int a);
 
+int	ft_abs(int num);
 
 #endif

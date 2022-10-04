@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/03 14:33:08 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/04 12:48:22 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,19 @@ typedef	struct 	s_all_structs
 	t_matrix_obj	*mtx_p;
 }t_all_structs;
 
+
+typedef struct s_bresenham
+{
+	int	dx;
+	int	sx;
+	int	dy;
+	int	sy;
+	int	error;
+	int x;
+	int y;
+	int e2;
+}t_breseham;
+
 //*************************ENUMS*******************************************
 
 typedef enum e_enput{
@@ -103,6 +116,10 @@ typedef enum e_enput{
 	z_rotation = 6,
 	x_translation = 7,
 	y_translation = 8,
+	red = 9,
+	green = 10,
+	blue = 11,
+	opacity = 12,
 }t_enput;
 
 void 	set_the_matrices(t_all_structs *a_s);
@@ -130,7 +147,7 @@ int32_t	mlx_main(t_all_structs *a_s);
 void free_before_end(t_all_structs *a_s);
 void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
 t_matrix_obj	*matrix_setup(t_matrix_obj *mtx);
-
-
+//-----hooks.c
+void	color_hook(t_all_structs *a_s,int caps_check);
 
 #endif

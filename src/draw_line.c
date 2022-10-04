@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/03 14:34:20 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/04 13:01:13 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include	"../include/fdf.h"
+
 
 #include	"../include/fdf.h"
 
@@ -92,106 +95,59 @@ void	draw_vert(t_points *point_a,t_points *point_b, mlx_image_t *img)
 	}
 }
 
-// need to replace abs with ft_abs
-// unsigned ft_abs()
-// {
-	
-	
-// }
-
-// need  to look to avoid using this struct, but its to many variable , maybe look to splitting funktion
-typedef struct s_bresenham
+void	fill_bresenham_struct(t_breseham *ptr, t_points *point_a, t_points *point_b)
 {
-	double dx;
-	double sx;
-	double dy;
-	double sy;
-	double err;
-	double e2;
-	double folow[2];
-}t_bresenham;
-
-void plotLine(mlx_image_t *img ,int x0,int  y0,int x1,int y1);
-
-void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
-{
-			// printf("here");
-
-	plotLine(img,point_a->screen[0],point_a->screen[1],point_b->screen[0],point_b->screen[1]);
-	// t_bresenham data;
-
-	// data.dx =  fabs(point_b->screen[1] - point_a->screen[1]);
-	// data.sx = point_a->screen[1] < point_b->screen[1] ? 1 : -1;
-	// data.dy = -fabs(point_b->screen[0] - point_a->screen[0]);
-	// data.sy = point_a->screen[0] < point_b->screen[0] ? 1 : -1;
-	// data.err = data.dx + data.dy;
-	// data.e2 = 0;
-	// data.folow[0] = point_a->screen[0];
-	// data.folow[1] = point_a->screen[1];
-	// unsigned i = 0;
-
-	// if(point_a->screen[0] <= 0 || point_a->screen[1] <= 0)
-	// 	printf("a below 0 %f %f\n",point_a->screen[0],point_a->screen[1]);
-	// if(point_a->screen[0] >= WIDTH || point_a->screen[1] >= HEIGHT)
-	// 	printf("a above max == %f %f\n",point_a->screen[0],point_a->screen[1]);
-	// if(point_b->screen[0] <= 0 || point_b->screen[1] <= 0)
-	// 	printf("b below 0 %f %f\n",point_a->screen[0],point_a->screen[1]);
-	// if(point_b->screen[0] >= WIDTH || point_b->screen[1] >= HEIGHT)
-	// 	printf("b above max %f %f\n",point_a->screen[0],point_a->screen[1]);
-	// if(point_a->screen[1] > img->height || point_a->screen[0] > img->width)
-	// 	return;
-	// if(data.dx == 0)
-	// 	return(draw_vert(point_a, point_b, img));
-	// if(data.dy == 0)
-	// 	return(draw_hori(point_a, point_b, img));
-	// while (1)
-	// {
-	// 	i++;
-	// 	if(pixel_put_plus(img, data.folow[1], data.folow[0],point_a->colour))
-	// 		return;
-	// 	if (data.folow[1] >= point_b->screen[1] && data.folow[0] >= point_b->screen[0])
-	// 		break;
-	// 	data.e2 = 2 * data.err;
-	// 	if (data.e2 > data.dy) 
-	// 	{
-	// 		data.err += data.dy;
-	// 		data.folow[1] += data.sx;
-	// 	}
-	// 	if (data.e2 < data.dx)
-	// 	{
-	// 		data.err += data.dx;
-	// 		data.folow[0] += data.sy;
-	// 	}
-	// }
+	ptr->x = point_a->screen[0];
+	ptr->y = point_a->screen[1];
+	ptr->dx = ft_abs(point_b->screen[0] - point_a->screen[0]);
+	if(point_b->screen[0] < point_a->screen[0])
+		ptr->sx = 1;
+	else
+		ptr->sx = -1;
+	ptr->dy = -ft_abs(point_b->screen[1] - point_a->screen[1]);
+	if (point_b->screen[1] - point_a->screen[1])
+		ptr->sy =1; 
+	else
+		ptr->sy = -1;
+	ptr->error = ptr->dx + ptr->dy;
+	ptr->e2 = ptr->error * 2;
 }
 
-void plotLine(mlx_image_t *img,int x0,int  y0,int  x1,int y1)
+void plotLine(mlx_image_t *img,int x0,int  y0,int  x1,int y1,t_points *point_a, t_points *point_b)
 {
-    int dx = abs(x1 - x0);
-    int sx = x0 < x1 ? 1 : -1;
-    int dy = -abs(y1 - y0);
-    int sy = y0 < y1 ? 1 : -1;
-    int error = dx + dy;
+	t_breseham b;
+
+	fill_bresenham_struct(&b,point_a,point_b);
+    int dx = ft_abs(x1 - b.x);
+    int sx = b.x < x1 ? 1 : -1;
+    int dy = -ft_abs(y1 - b.y);
+    int sy = b.y < y1 ? 1 : -1;
+    int error = b.dx + b.dy;
     
     while (1)
 	{
-        pixel_put_plus(img,x0, y0,COLOUR);
-        if( x0 == x1 && y0 == y1)
+        pixel_put_plus(img,b.x, b.y,COLOUR);
+        if( b.x == x1 && b.y == y1)
 			break;
         int e2 = 2 * error;
         if (e2 >= dy)
 		{
-            if (x0 == x1 )
+            if (b.x == x1 )
 				break;
-            error = error + dy;
-            x0 = x0 + sx;
+            error = error +b.dy;
+            b.x = b.x + sx;
 		}
         if (e2 <= dx)
 		{
-            if (y0 == y1) 
+            if (b.y == y1) 
 				break;
-            error = error + dx;
-            y0 = y0 + sy;
+            error = error + b.dx;
+            b.y = b.y + sy;
         }
 	}
+}
+
+void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img)
+{
+	plotLine(img,point_a->screen[0],point_a->screen[1],point_b->screen[0],point_b->screen[1],point_a, point_b);
 }
