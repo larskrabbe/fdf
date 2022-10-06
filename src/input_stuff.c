@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:53:26 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/04 12:10:22 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/05 16:23:26 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_input *default_input(t_input *input)
 {
 	input->input[x_scale]  = 300;
 	input->input[y_scale]  = 300;
-	input->input[z_scale] = 1;
+	input->input[z_scale] = 0;
 	input->input[w_scale]  = 1;
 	input->input[x_rotation]  = 0;
 	input->input[y_rotation]  = 0;

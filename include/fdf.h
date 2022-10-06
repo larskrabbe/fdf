@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/04 12:48:22 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/05 15:39:47 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef union u_color{
 		int8_t red;
 		int8_t blue;
 		int8_t green;
-		int8_t opaqnis;
+		int8_t opaqe;
 	};
 	int32_t color;
 }t_color;
@@ -102,6 +102,11 @@ typedef struct s_bresenham
 	int x;
 	int y;
 	int e2;
+	t_color pixel_color;
+	int add_red;
+	int add_blue;
+	int add_green;
+	int add_opaqe;
 }t_breseham;
 
 //*************************ENUMS*******************************************
