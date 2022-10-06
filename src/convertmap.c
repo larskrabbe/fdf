@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/03 14:32:33 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/06 12:31:08 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ t_map	*convert_map(char *filename, t_map *map)
 	map->max_y = counts_lines_from_file(filename);
 	fd = open(filename,O_RDONLY);
 	gnl_ptr = get_next_line(fd);
-	map->max_x = count_words_in_str(gnl_ptr,' ');
+	map->max_x = count_words_in_str(gnl_ptr);
 	create_map(map,map->max_x,map->max_y);
 	read_map(map,fd,gnl_ptr);
 	//print_map(map);

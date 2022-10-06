@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_stuff.h                                      :+:      :+:    :+:   */
+/*   libft_plus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:14:51 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/04 11:03:12 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/06 12:31:35 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ int	count_words_in_str(char *str);
 
 int	is_white_space(int a);
 
-int	ft_abs(int num);
 
+/**
+ * @brief returns the absolut of a number
+ * @param num the number
+ * @return returns always the number as the positive number & for INT_MIN (returns INT_MIN)
+ */
+int	my_abs(int num);
+
+/**
+ * @brief takes a str that should be a hex-number and turns it in to a int=
+ * @param str the number
+ * @return returns the the number as a int
+ */
+int my_hextoi(const char *str);
 #endif

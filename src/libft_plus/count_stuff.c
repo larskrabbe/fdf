@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:48:02 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/07 15:30:35 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/06 12:07:49 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 |																			   |
 \*----------------------------------------------------------------------------*/
 
-#include	"count_stuff.h"
+#include	"libft_plus.h"
 
 //counts the how many times charackter chr apears in a str and returns the value as a int
 //returns 0 if str == null and 1 if chr is '\0'

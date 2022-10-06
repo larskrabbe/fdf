@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/05 15:39:47 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/06 12:37:11 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 //#include	"MLX42_Int.h"
 #include	"MLX42_Input.h"
 #include	<fcntl.h>
-#include	"count_stuff.h"
+#include	"libft_plus.h"
 #include	"math.h"
 #include	"matrix_o.h"
 //*************************STRUCTURE*******************************************
@@ -103,10 +103,6 @@ typedef struct s_bresenham
 	int y;
 	int e2;
 	t_color pixel_color;
-	int add_red;
-	int add_blue;
-	int add_green;
-	int add_opaqe;
 }t_breseham;
 
 //*************************ENUMS*******************************************

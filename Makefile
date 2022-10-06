@@ -6,7 +6,7 @@
 #    By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 10:02:35 by lkrabbe           #+#    #+#              #
-#    Updated: 2022/10/04 09:55:36 by lkrabbe          ###   ########.fr        #
+#    Updated: 2022/10/06 12:33:13 by lkrabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRC = 			convertmap.c \
 				hooks.c
 
 F_LIBFT_PLUS =	count_stuff.c \
-				is_white_space.c
+				is_white_space.c\
+				my_abs.c\
+				my_hextoi.c
 
 MATRIX_LIB = libmatrix.a
 

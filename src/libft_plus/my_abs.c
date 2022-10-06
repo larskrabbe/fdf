@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_white_space.c                                   :+:      :+:    :+:   */
+/*   my_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 13:23:33 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/06 12:09:03 by lkrabbe          ###   ########.fr       */
+/*   Created: 2022/10/06 12:08:56 by lkrabbe           #+#    #+#             */
+/*   Updated: 2022/10/06 12:31:29 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft_plus.h"
 
-int	is_white_space(int a)
+int	my_abs(int num)
 {
-	if (a == ' ' || a == '\n' || a == '\t')
-		return (1);
-	return (0);
+	if (num == -2147483648 || num > 0)
+		return (num);
+	return(num * -1);
 }
