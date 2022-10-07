@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/06 12:32:45 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/07 21:24:30 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,29 @@ void	fill_bresenham_struct(t_breseham *ptr, t_points *point_a, t_points *point_b
 	ptr->error = ptr->dx + ptr->dy;
 	ptr->pixel_color.color = point_a->color.color;
 }
-void	choose_color(t_breseham *ptr, t_points *point_a, t_points *point_b)
-{
-	double	max_distants;// distance in percent
-	double	cur_distants;
-	int		cur_x_d;
-	int		cur_y_d;
 
-	cur_x_d = ptr->dx - ptr->x;
-	cur_y_d = ptr->dy + ptr->y;
-	max_distants = sqrt( ptr->dx * ptr->dx + -(ptr->dy * ptr->dy));
-	cur_distants = sqrt( cur_x_d * cur_x_d + -(cur_y_d * cur_y_d));
+double distants(int ax, int ay, int bx , int by)
+{
+	double	max_distants;
+	long int	x;
+	long int	y;
 	
+	x = my_abs((bx - ax) * (bx - ax));
+	y = my_abs((by - ay) * (by - ay));
+	max_distants = sqrt(x + y);
+	return (max_distants);
+}
+
+void	choose_color(t_breseham *ptr, t_points *point_a, t_points *point_b,float c, float d)
+{
+	//printf(" %% %f and  %% %f\n", (1 - d / c), d / c);
+	double tmp;
+	ptr->pixel_color.red = point_a->color.red * (1 - d / c) + point_b->color.red * (d / c);
+	ptr->pixel_color.blue = point_a->color.blue * (1 - d / c) + point_b->color.blue * (d / c);
+	ptr->pixel_color.green = point_a->color.green * (1 - d / c) + point_b->color.green * (d / c);
+	ptr->pixel_color.opaqe = point_a->color.opaqe * (1 - d / c) + point_b->color.opaqe * (d / c);
+	//printf("red %i = %i and %i \n",ptr->pixel_color.red,  point_a->color.red  ,point_b->color.red);
+	//printf(" pixel %.8x  A %.8x B %.8x\n",ptr->pixel_color.color, point_a->color.color, point_b->color.color);
 }
 
 
@@ -82,9 +93,11 @@ void plotLine(mlx_image_t *img,t_points *point_a, t_points *point_b)
 	t_breseham b;
 	
 	fill_bresenham_struct(&b,point_a,point_b);
+	float c = my_abs(b.dx) + my_abs(b.dy);
+	float d = 0;
     while (1)
 	{
-		choose_color(&b,point_a,point_b);
+		choose_color(&b,point_a,point_b,c ,d);
         pixel_put_plus(img,b.x, b.y,b.pixel_color.color);
         if( b.x == point_b->screen[0] && b.y == point_b->screen[1])
 			break;
@@ -95,6 +108,7 @@ void plotLine(mlx_image_t *img,t_points *point_a, t_points *point_b)
 				break;
             b.error = b.error +b.dy;
             b.x = b.x + b.sx;
+			d++;
 		}
         if (b.e2 <= b.dx)
 		{
@@ -102,6 +116,7 @@ void plotLine(mlx_image_t *img,t_points *point_a, t_points *point_b)
 				break;
             b.error = b.error + b.dx;
             b.y = b.y + b.sy;
+			d++;
         }
 	}
 }

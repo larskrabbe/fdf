@@ -6,7 +6,7 @@
 /*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/09/13 16:58:01 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/07 20:07:18 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	print_screen(t_map *map)
 		while (map->max_x > x)
 		{	
 			printf("{%4d |",map->position[y][x]->screen[0]);
-			printf("%4d}",map->position[y][x]->screen[1]);
+			printf("%4d",map->position[y][x]->screen[1]);
+			printf(" >> %.8x} ",map->position[y][x]->color.color);
 			//printf("%4f}",map->position[y][x]->screen[2]);
 			x++;
 		}
@@ -64,6 +65,31 @@ void	print_screen(t_map *map)
 	}
 }
 
+
+void	print_color(t_map *map)
+{
+	unsigned	 x;
+	unsigned	 y;
+
+	x = 0;
+	y = 0;
+	printf("\n");
+	printf("Map size\n");
+	printf("x = %i\n",map->max_x);
+	printf("y = %i\n",map->max_y);
+	printf("\n");
+	while(map->max_y > y)
+	{
+		while (map->max_x > x)
+		{	
+			printf("{ %x ",map->position[y][x]->color.color);
+			x++;
+		}
+			printf("\n");
+		x = 0;
+		y++;
+	}
+}
 
 void	print_vector(double *vector,int n)
 {

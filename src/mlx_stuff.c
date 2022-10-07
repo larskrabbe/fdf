@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_stuff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/04 10:10:55 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/07 19:44:07 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	hook(void *param)// can use this to  spin things around
 	ft_bzero(a_s->img->pixels,(WIDTH * HEIGHT * sizeof(u_int32_t)));
 	map_to_screen(a_s);
 
+		a_s->input->input[y_rotation] += 0.01;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_TAB))
 	{
 		printf("scale matrix \n");
@@ -74,6 +75,9 @@ void	hook(void *param)// can use this to  spin things around
 		a_s->mtx_x->f_print(a_s->mtx_x);
 		printf("projection matrix \n");
 		a_s->mtx_p->f_print(a_s->mtx_p);
+		printf("color per poinr \n");
+		void	print_color(t_map *map);
+		printf("screen cords \n");
 		print_screen(a_s->map);
 	}
 		draw_on_screen(a_s->map, a_s->img);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/06 12:37:11 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/07 21:24:05 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define WIDTH 1000
 # define HEIGHT 1000
-# define COLOUR 0xFF5b5b 
+# define COLOUR 0x5B5BFF8F 
 
 //*************************LIBARYS*********************************************
 
@@ -35,12 +35,12 @@
  */
 typedef union u_color{
 	struct{
-		int8_t red;
-		int8_t blue;
-		int8_t green;
-		int8_t opaqe;
+		uint8_t red;
+		uint8_t blue;
+		uint8_t green;
+		uint8_t opaqe;
 	};
-	int32_t color;
+	uint32_t color;
 }t_color;
 
 
@@ -142,6 +142,7 @@ void	print_map(t_map *map);
 void	print_cords(t_map *map);
 void	print_vector(double *vector,int n);
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
+void	print_color(t_map *map);
 //------mlx-stuff.c
 int32_t	mlx_main(t_all_structs *a_s);
 //------matrix_stuff.c

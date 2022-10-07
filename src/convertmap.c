@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/06 12:31:08 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/07 21:33:24 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 {
 	char		**info;
 
-	//printf("\n [%i] [%i]",cur_y,cur_x);
 	map->position[cur_y][cur_x] = ft_calloc(sizeof(t_points),1);
 	if (map->position[cur_y][cur_x] == NULL)
 	{
@@ -50,12 +49,13 @@ int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
 	}
 	map->position[cur_y][cur_x]->cords[0] = convert_cords(cur_x,map->max_x );//include inline test
 	map->position[cur_y][cur_x]->cords[1] = convert_cords(cur_y,map->max_y ); //include inline test
-	map->position[cur_y][cur_x]->cords[2] = atoi(info[0]);
+	map->position[cur_y][cur_x]->cords[2] = ft_atoi(info[0]);
 	map->position[cur_y][cur_x]->cords[3] =	1;
-	//printf(" >> %i",	map->position[cur_y][cur_x]->cords[2]);
 	if (info[1] != NULL)
 	{
-		map->position[cur_y][cur_x]->color.color = atoi(info[1]+2);
+		map->position[cur_y][cur_x]->color.color = my_hextoi(info[1]);
+		if (ft_strlen(info[1]) == 8 || info[1][8] == '\n')
+			map->position[cur_y][cur_x]->color.color = (map->position[cur_y][cur_x]->color.color << 4) | 0xff;
 		free(info[1]);
 	}
 	else
