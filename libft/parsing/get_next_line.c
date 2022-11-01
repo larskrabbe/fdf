@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:27:23 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/08/27 17:10:24 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/10/27 04:44:44 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	lookfor(int fd, char *buffer, char *sta_buf)
 	}
 	return (i);
 }
-
 
 char	*rec_str_join(int fd, char *ptr, ssize_t size, char *tmp_buf)
 {
@@ -73,8 +72,7 @@ char	*will_not_read(ssize_t i, char *sta_buf)
 {
 	int		k;
 	char	*ptr;
-	
-	
+
 	k = 0;
 	ptr = ft_calloc(sizeof(char), (i + 1));
 	if (ptr == NULL)
@@ -91,7 +89,7 @@ char	*will_not_read(ssize_t i, char *sta_buf)
 		sta_buf[k] = sta_buf[k + i];
 		k++;
 	}
-	while(k <= BUFFER_SIZE)
+	while (k <= BUFFER_SIZE)
 	{
 		sta_buf[k] = '\0';
 		k++;

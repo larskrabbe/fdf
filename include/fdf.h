@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/07 21:24:05 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/01 22:58:39 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef union u_color{
 typedef struct s_points{
 	double	cords[4];
 	t_color	color;
-	int screen[4];
+	int		screen[4];
 }t_points;
 
 /*
@@ -91,18 +91,19 @@ typedef	struct 	s_all_structs
 	t_matrix_obj	*mtx_p;
 }t_all_structs;
 
-
 typedef struct s_bresenham
 {
-	int	dx;
-	int	sx;
-	int	dy;
-	int	sy;
-	int	error;
-	int x;
-	int y;
-	int e2;
-	t_color pixel_color;
+	int		dx;
+	int		sx;
+	int		dy;
+	int		sy;
+	int		error;
+	int		x;
+	int		y;
+	int		e2;
+	t_color	pixel_color;
+	float	start;
+	float	end;
 }t_breseham;
 
 //*************************ENUMS*******************************************
@@ -123,15 +124,23 @@ typedef enum e_enput{
 	opacity = 12,
 }t_enput;
 
-void 	set_the_matrices(t_all_structs *a_s);
+// typedef enum e_mtxtype{
+// 	s_mtx = 0,
+// 	x_mtx,
+// 	y_mtx,
+// 	z_mtx,
+// 	p_mtx,
+// }t_mtxtype;
+
+void	set_the_matrices(t_all_structs *a_s);
 void	map_to_screen(t_all_structs *a_s);
-void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
+void	vector_transform(t_all_structs *a_s, int cur_x, int cur_y);
 
 //turn the file in 'usefull' dataformat
 void	hook(void *param);
-void	draw_on_screen(t_map *map,mlx_image_t *img);
+void	draw_on_screen(t_map *map, mlx_image_t *img);
 t_map	*convert_map(char *filename, t_map *map);
-void	free_map(t_map *map,int max_x,int max_y);
+void	free_map(t_map *map, int max_x, int max_y);
 void 	*create_map(t_map *map, int max_x, int max_y);
 t_input	*default_input(t_input *input);
 void	set_the_matrix(t_matrix_obj *mat,t_map *map,t_input *input);
@@ -143,13 +152,16 @@ void	print_cords(t_map *map);
 void	print_vector(double *vector,int n);
 void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
 void	print_color(t_map *map);
+void	print_data(t_all_structs *a_s);
 //------mlx-stuff.c
 int32_t	mlx_main(t_all_structs *a_s);
 //------matrix_stuff.c
-void free_before_end(t_all_structs *a_s);
+void 	free_before_end(t_all_structs *a_s);
 void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
 t_matrix_obj	*matrix_setup(t_matrix_obj *mtx);
 //-----hooks.c
-void	color_hook(t_all_structs *a_s,int caps_check);
+void	color_hook(t_all_structs *a_s, int caps_check);
+void	rotation_hook(t_all_structs *a_s, int caps_check);
+void	translation_hook(t_all_structs *a_s);
 
 #endif

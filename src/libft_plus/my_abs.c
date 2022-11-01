@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:08:56 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/06 12:31:29 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/01 20:44:47 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	my_abs(int num)
 {
 	if (num == -2147483648 || num > 0)
 		return (num);
-	return(num * -1);
+	return (num * -1);
 }

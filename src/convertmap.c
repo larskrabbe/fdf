@@ -3,147 +3,144 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/10/07 21:33:24 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/01 22:04:27 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
 
-/*----------------------------------------------------------------------------*\
-|																			   |
-|		create a structure and stores data of the  fdf.file inside of it 	   |
-|																			   |
-\*----------------------------------------------------------------------------*/
-
-
 /*
 	converts the cordinate so that  0 0 is in the the middle of the object
 */
-double convert_cords(unsigned cur_p, double max)
+double	convert_cords(unsigned int cur_p, double max)
 {
-	return((double)(cur_p/(max -1) - 0.5) * 2);	
+	return ((double)(cur_p / (max - 1) - 0.5)*2);
 }
-	
+
 /*
-	takes the information of a string and allocate and stores the information inside of s_points struct
+	takes the information of a string and allocate 
+	and stores the information inside of s_points struct
 */
-int	a_to_points(t_map *map,unsigned cur_x, char *str ,unsigned cur_y)
+int	a_to_points(t_map *map, unsigned int cur_x, \
+char *str, unsigned int cur_y)
 {
 	char		**info;
 
-	map->position[cur_y][cur_x] = ft_calloc(sizeof(t_points),1);
+	map->position[cur_y][cur_x] = ft_calloc(sizeof(t_points), 1);
 	if (map->position[cur_y][cur_x] == NULL)
 	{
-		printf("\n tmp == NULL");//safe free exit
-		return(-1);
+		printf("\n tmp == NULL");
+		return (-1);
 	}
-	
-	info = ft_split(str,',');
+	info = ft_split(str, ',');
 	if (info == NULL)
 	{
-		printf("\n info == NULL");//safe free exit
-		return(-1);
+		printf("\n info == NULL");
+		return (-1);
 	}
-	map->position[cur_y][cur_x]->cords[0] = convert_cords(cur_x,map->max_x );//include inline test
-	map->position[cur_y][cur_x]->cords[1] = convert_cords(cur_y,map->max_y ); //include inline test
+	map->position[cur_y][cur_x]->cords[0] = convert_cords(cur_x, map->max_x);
+	map->position[cur_y][cur_x]->cords[1] = convert_cords(cur_y, map->max_y);
 	map->position[cur_y][cur_x]->cords[2] = ft_atoi(info[0]);
-	map->position[cur_y][cur_x]->cords[3] =	1;
+	map->position[cur_y][cur_x]->cords[3] = 1;
 	if (info[1] != NULL)
 	{
 		map->position[cur_y][cur_x]->color.color = my_hextoi(info[1]);
 		if (ft_strlen(info[1]) == 8 || info[1][8] == '\n')
-			map->position[cur_y][cur_x]->color.color = (map->position[cur_y][cur_x]->color.color << 4) | 0xff;
+			map->position[cur_y][cur_x]->color.color = \
+	(map->position[cur_y][cur_x]->color.color << 4) | 0xff;
 		free(info[1]);
 	}
 	else
 		map->position[cur_y][cur_x]->color.color = COLOUR;
 	free(info[0]);
 	free(info);
-	return(0);
+	return (0);
 }
 
 /*
 	takes the information of a string and stores in the map
 */
-int	a_to_map(char *gnl_ptr,t_map *map, unsigned cur_y)
+int	a_to_map(char *gnl_ptr, t_map *map, unsigned int cur_y)
 {
-	char		**split_str;
-	unsigned	cur_x;
+	char			**split_str;
+	unsigned int	cur_x;
+	int				i;
 
 	cur_x = 0;
 	if (gnl_ptr == NULL || map == NULL)
-		return(-1);
-	split_str = ft_split(gnl_ptr,' ');
+		return (-1);
+	split_str = ft_split(gnl_ptr, ' ');
 	if (split_str == NULL)
-		return(-1);
-	while (split_str[cur_x] != NULL && cur_x < map->max_x)// there should be no need to protect for this (cur_x < map->max_x) case
+		return (-1);
+	while (split_str[cur_x] != NULL && cur_x < map->max_x)
 	{
-		if(a_to_points(map, cur_x, split_str[cur_x],cur_y) != 0)
-			return(-1);
+		if (a_to_points(map, cur_x, split_str[cur_x], cur_y) != 0)
+			return (-1);
 		cur_x++;
 	}
-	int	i;
 	i = 0;
-	while(split_str[i] != NULL)
+	while (split_str[i] != NULL)
 	{
 		free(split_str[i]);
 		i++;
 	}
 	free(split_str);
-	if ( map->max_x != (cur_x))
-		printf("ERROR map size is not uniform { cur_x = %i max_x = %i cur_y = %i max_x = %i}\n",cur_x,map->max_x, cur_y, map->max_y);// need safe exit
-	return(0);
+	if (map->max_x != (cur_x))
+		printf("ERROR map size is not uniform \
+		{ cur_x = %i max_x = %i cur_y = %i max_x = %i}\n" \
+		, cur_x, map->max_x, cur_y, map->max_y);
+	return (0);
 }
 
 /*
 	allocate the whole structur for storing the data of the fdf.file
 */
-void *create_map(t_map *map, int max_x, int max_y)
+void	*create_map(t_map *map, int max_x, int max_y)
 {
 	int	y;
 
 	y = 0;
-	map->position = ft_calloc(sizeof(t_points *) , (max_y + 1));
+	map->position = ft_calloc(sizeof(t_points *), (max_y + 1));
 	if (map->position == NULL)
-		return(NULL);//safe exit free the rest// look into matrix to  get the free ing funktion
+		return (NULL);
 	while (y <= max_y)
 	{
-		map->position[y] = ft_calloc(sizeof(t_points ), (max_x + 1));
-		if(map->position[y] == NULL)
+		map->position[y] = ft_calloc(sizeof(t_points), (max_x + 1));
+		if (map->position[y] == NULL)
 		{
-			free_map(map,0,y);
-			return(NULL); //will return a error code
+			free_map(map, 0, y);
+			return (NULL);
 		}
 		y++;
 	}
-	
-	return(NULL);
+	return (NULL);
 }
 
 /*
 	read a file and stores the information in the map struct
-	can also be massivly improve by changing get next line(in a way where we dont malloc the string at all 
-	and importing the data dirctly in the structes) and so reducing systemcalls for not using after  get_next_line ft_split
+	can also be massivly improve by changing get next 
+	line(in a way where we dont malloc the string at all 
+	and importing the data dirctly in the structes) 
+	and so reducing systemcalls for not using after  get_next_line ft_split
 */
-void	*read_map(t_map *map, int fd,char *gnl_ptr)
+void	*read_map(t_map *map, int fd, char *gnl_ptr)
 {
-	unsigned	y;
+	unsigned int	y;
 
 	y = 0;
 	while (gnl_ptr != NULL)
 	{
-		if(a_to_map(gnl_ptr, map, y) != 0)
-			return(NULL);//error case
+		if (a_to_map(gnl_ptr, map, y) != 0)
+			return (NULL);
 		free(gnl_ptr);
 		gnl_ptr = get_next_line(fd);
 		y++;
 	}
 	return (0);
 }
-
 
 /*
 	convets the file into cordinate inside a struct
@@ -152,32 +149,34 @@ t_map	*convert_map(char *filename, t_map *map)
 {
 	char	*gnl_ptr;
 	int		fd;
-	//printf(">>>%p",map);
+
 	gnl_ptr = NULL;
 	map->max_y = counts_lines_from_file(filename);
-	fd = open(filename,O_RDONLY);
+	if (map->max_y == 0)
+		return (NULL);
+	fd = open(filename, O_RDONLY);
 	gnl_ptr = get_next_line(fd);
 	map->max_x = count_words_in_str(gnl_ptr);
-	create_map(map,map->max_x,map->max_y);
-	read_map(map,fd,gnl_ptr);
-	//print_map(map);
-	return(map);
+	create_map(map, map->max_x, map->max_y);
+	read_map(map, fd, gnl_ptr);
+	return (map);
 }
 
 /*
 	free the whole map that was allocated
-	if the map was correctly allocated  max_x and max_y is the same as the max value inside of the map struct
+	if the map was correctly allocated  max_x 
+	and max_y is the same as the max value inside of the map struct
 */
-void	free_map(t_map *map,int max_x,int max_y)
+void	free_map(t_map *map, int max_x, int max_y)
 {
 	int	x;
-		int	y;
+	int	y;
 
 	x = 0;
 	y = 0;
-	while(max_y >= y)
+	while (max_y >= y)
 	{
-		while(max_x >= x)
+		while (max_x >= x)
 		{
 			free(map->position[y][x]);
 			x++;

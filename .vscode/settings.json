@@ -21,6 +21,7 @@
 		"type_traits": "c",
 		"vector": "c",
 		"string": "c",
-		"unordered_map": "c"
+		"unordered_map": "c",
+		"matrix_o.h": "c"
 	}
 }
