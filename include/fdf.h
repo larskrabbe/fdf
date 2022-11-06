@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/01 22:58:39 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 18:24:28 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 
 //*************************LIBARYS*********************************************
 
-#include	"libft.h"
-#include	"MLX42.h"
-//#include	"MLX42_Int.h"
-#include	"MLX42_Input.h"
-#include	<fcntl.h>
-#include	"libft_plus.h"
-#include	"math.h"
-#include	"matrix_o.h"
+# include	"libft.h"
+# include	"../MLX42/include/MLX42/MLX42.h"
+# include	"../MLX42/include/MLX42/MLX42_Input.h"
+# include	<fcntl.h>
+# include	"libft_plus.h"
+# include	"math.h"
+# include	"matrix_o.h"
 //*************************STRUCTURE*******************************************
 
 /**
@@ -35,21 +34,14 @@
  */
 typedef union u_color{
 	struct{
-		uint8_t red;
-		uint8_t blue;
-		uint8_t green;
-		uint8_t opaqe;
+		uint8_t	red;
+		uint8_t	blue;
+		uint8_t	green;
+		uint8_t	opaqe;
 	};
-	uint32_t color;
+	uint32_t	color;
 }t_color;
 
-
-/*
-		s_points		=>	stores the  information of each cordinate coresponding to the file
-	int cords[4]		=>	stors the  x y z cords /THE LAST VALUE IS ONLY THERE TO USE A 4 X 4 MATRIX								//maybe change in 3 diffrent int , but a array works better for  my matrix solver// lets see for now
-	int colour			=>	stors the colour if any given from the map-file 	//maybe need to change the type
-	int screen[4]		=>	stors the cords after translating it through the matrix,the z position shold be irrelevant
-*/
 typedef struct s_points{
 	double	cords[4];
 	t_color	color;
@@ -63,9 +55,9 @@ typedef struct s_points{
 	t_points **position => x * y size array of points 
 */
 typedef struct s_map{
-	unsigned int max_x;
-	unsigned int max_y;	
-	t_points ***position;
+	unsigned int	max_x;
+	unsigned int	max_y;	
+	t_points		***position;
 }t_map;
 
 /*
@@ -74,11 +66,11 @@ typedef struct s_map{
 typedef struct s_input
 {
 	int32_t	*heigt;
-	int32_t *width;
-	double input[16];
-} t_input;
+	int32_t	*width;
+	double	input[16];
+}t_input;
 
-typedef	struct 	s_all_structs
+typedef struct s_all_structs
 {
 	mlx_t			*mlx;
 	mlx_image_t		*img;
@@ -124,44 +116,52 @@ typedef enum e_enput{
 	opacity = 12,
 }t_enput;
 
-// typedef enum e_mtxtype{
-// 	s_mtx = 0,
-// 	x_mtx,
-// 	y_mtx,
-// 	z_mtx,
-// 	p_mtx,
-// }t_mtxtype;
-
-void	set_the_matrices(t_all_structs *a_s);
-void	map_to_screen(t_all_structs *a_s);
-void	vector_transform(t_all_structs *a_s, int cur_x, int cur_y);
+void			_matrices(t_all_structs *a_s);
+void			screen(t_all_structs *a_s);
+void			transform(t_all_structs *a_s, int cur_x, int cur_y);
 
 //turn the file in 'usefull' dataformat
-void	hook(void *param);
-void	draw_on_screen(t_map *map, mlx_image_t *img);
-t_map	*convert_map(char *filename, t_map *map);
-void	free_map(t_map *map, int max_x, int max_y);
-void 	*create_map(t_map *map, int max_x, int max_y);
-t_input	*default_input(t_input *input);
-void	set_the_matrix(t_matrix_obj *mat,t_map *map,t_input *input);
+void			hook(void *param);
+void			draw_on_screen(t_map *map, mlx_image_t *img);
+t_map			*convert_map(char *filename, t_map *map);
+void			free_map(t_map *map, int max_x, int max_y);
+void			*create_map(t_map *map, int max_x, int max_y);
+t_input			*default_input(t_input *input);
+void			set_the_matrix(t_matrix_obj *mat, t_map *map, t_input *input);
+void			free_str_array(char **strings);
+double			convert_cords(unsigned int cur_p, double max);
+int				pixel_put_plus(mlx_image_t *img, double x, double y, int color);
 
 //------utiles.c
-void	print_screen(t_map *map);
-void	print_map(t_map *map);
-void	print_cords(t_map *map);
-void	print_vector(double *vector,int n);
-void	drawline(t_points *point_a,t_points *point_b, mlx_image_t *img);
-void	print_color(t_map *map);
-void	print_data(t_all_structs *a_s);
+void			print_screen(t_map *map);
+void			print_map(t_map *map);
+void			print_cords(t_map *map);
+void			print_vector(double *vector, int n);
+void			drawline(t_points *point_a, \
+t_points *point_b, mlx_image_t *img);
+void			print_color(t_map *map);
+void			print_data(t_all_structs *a_s);
 //------mlx-stuff.c
-int32_t	mlx_main(t_all_structs *a_s);
+int32_t			mlx_main(t_all_structs *a_s);
 //------matrix_stuff.c
-void 	free_before_end(t_all_structs *a_s);
-void	vector_transform(t_all_structs *a_s,int cur_x, int cur_y);
+void			free_before_end(t_all_structs *a_s);
+void			vector_transform(t_all_structs *a_s, int cur_x, int cur_y);
 t_matrix_obj	*matrix_setup(t_matrix_obj *mtx);
 //-----hooks.c
-void	color_hook(t_all_structs *a_s, int caps_check);
-void	rotation_hook(t_all_structs *a_s, int caps_check);
-void	translation_hook(t_all_structs *a_s);
-
+void			color_hook(t_all_structs *a_s, int caps_check);
+void			rotation_hook(t_all_structs *a_s, int caps_check);
+void			translation_hook(t_all_structs *a_s);
+void			set_the_s_matrix(double **matrix, t_input *input);
+void			set_the_p_matrix(double **matrix, t_input *input);
+void			set_the_x_matrix(double **matrix, double value);
+void			set_the_y_matrix(double **matrix, double value);
+void			set_the_z_matrix(double **matrix, double value);
+int				count_chr_from_str(const char *str, const char chr);
+int				counts_lines_from_file(char *file);
+int				count_words_in_str(char *str);
+int				is_white_space(int a);
+int				my_abs(int num);
+int				my_hextoi(const char *str);
+void			set_the_matrices(t_all_structs *a_s);
+void			map_to_screen(t_all_structs *a_s);
 #endif

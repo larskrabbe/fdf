@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/01 22:57:56 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:03:45 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,21 +124,4 @@ void	print_cords(t_map *map)
 		x = 0;
 		y++;
 	}
-}
-
-void	print_data(t_all_structs *a_s)
-{
-	printf("scale matrix \n");
-	a_s->mtx_s->f_print(a_s->mtx_s);
-	printf("z rotation matrix \n");
-	a_s->mtx_z->f_print(a_s->mtx_z);
-	printf("y rotation matrix \n");
-	a_s->mtx_y->f_print(a_s->mtx_y);
-	printf("x rotation matrix \n");
-	a_s->mtx_x->f_print(a_s->mtx_x);
-	printf("projection matrix \n");
-	a_s->mtx_p->f_print(a_s->mtx_p);
-	printf("color per poinr \n");
-	printf("screen cords \n");
-	print_screen(a_s->map);
 }

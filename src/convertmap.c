@@ -6,19 +6,11 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/01 22:04:27 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 18:17:36 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
-
-/*
-	converts the cordinate so that  0 0 is in the the middle of the object
-*/
-double	convert_cords(unsigned int cur_p, double max)
-{
-	return ((double)(cur_p / (max - 1) - 0.5)*2);
-}
 
 /*
 	takes the information of a string and allocate 
@@ -27,20 +19,14 @@ double	convert_cords(unsigned int cur_p, double max)
 int	a_to_points(t_map *map, unsigned int cur_x, \
 char *str, unsigned int cur_y)
 {
-	char		**info;
+	char	**info;
 
 	map->position[cur_y][cur_x] = ft_calloc(sizeof(t_points), 1);
 	if (map->position[cur_y][cur_x] == NULL)
-	{
-		printf("\n tmp == NULL");
 		return (-1);
-	}
 	info = ft_split(str, ',');
 	if (info == NULL)
-	{
-		printf("\n info == NULL");
 		return (-1);
-	}
 	map->position[cur_y][cur_x]->cords[0] = convert_cords(cur_x, map->max_x);
 	map->position[cur_y][cur_x]->cords[1] = convert_cords(cur_y, map->max_y);
 	map->position[cur_y][cur_x]->cords[2] = ft_atoi(info[0]);
@@ -67,7 +53,6 @@ int	a_to_map(char *gnl_ptr, t_map *map, unsigned int cur_y)
 {
 	char			**split_str;
 	unsigned int	cur_x;
-	int				i;
 
 	cur_x = 0;
 	if (gnl_ptr == NULL || map == NULL)
@@ -81,13 +66,7 @@ int	a_to_map(char *gnl_ptr, t_map *map, unsigned int cur_y)
 			return (-1);
 		cur_x++;
 	}
-	i = 0;
-	while (split_str[i] != NULL)
-	{
-		free(split_str[i]);
-		i++;
-	}
-	free(split_str);
+	free_str_array(split_str);
 	if (map->max_x != (cur_x))
 		printf("ERROR map size is not uniform \
 		{ cur_x = %i max_x = %i cur_y = %i max_x = %i}\n" \
@@ -160,30 +139,4 @@ t_map	*convert_map(char *filename, t_map *map)
 	create_map(map, map->max_x, map->max_y);
 	read_map(map, fd, gnl_ptr);
 	return (map);
-}
-
-/*
-	free the whole map that was allocated
-	if the map was correctly allocated  max_x 
-	and max_y is the same as the max value inside of the map struct
-*/
-void	free_map(t_map *map, int max_x, int max_y)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (max_y >= y)
-	{
-		while (max_x >= x)
-		{
-			free(map->position[y][x]);
-			x++;
-		}
-		free(map->position[y]);
-		y++;
-		x = 0;
-	}
-	free(map->position);
 }

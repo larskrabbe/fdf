@@ -6,20 +6,19 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:30:24 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/01 22:56:38 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 19:55:17 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-#include "../include/glfw3.h"
 
 /*
 	draws line betwenn cords
 */
 void	draw_on_screen(t_map *map, mlx_image_t *img)
 {
-	int	c_y;
-	int	c_x;
+	unsigned int	c_y;
+	unsigned int	c_x;
 
 	c_y = 0;
 	c_x = 0;
@@ -45,8 +44,8 @@ void	draw_on_screen(t_map *map, mlx_image_t *img)
 */
 void	map_to_screen(t_all_structs *a_s)
 {
-	int	cur_x;
-	int	cur_y;
+	unsigned int	cur_x;
+	unsigned int	cur_y;
 
 	cur_x = 0;
 	cur_y = 0;
@@ -86,5 +85,10 @@ int	main(int argc, char **argv)
 	a_s.mtx_p = matrix_setup(NULL);
 	mlx_main(&a_s);
 	free_before_end(&a_s);
+	while (1)
+	{
+		/* code */
+	}
+	
 	return (0);
 }

@@ -6,21 +6,11 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 19:38:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/01 18:20:18 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 18:19:08 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
-
-int	pixel_put_plus(mlx_image_t *img, double x, double y, int color)
-{
-	if (x >= img->width || y >= img->height)
-		return (1);
-	if (x < 0 || y < 0)
-		return (1);
-	mlx_put_pixel(img, x, y, color);
-	return (0);
-}
 
 void	fill_brshm_strct(t_breseham *ptr, t_points *point_a, t_points *point_b)
 {
@@ -57,8 +47,6 @@ double	distants(int ax, int ay, int bx, int by)
 void	choose_color(t_breseham *ptr, t_points *point_a, \
 t_points *point_b, float a_to_b)
 {
-	double	tmp;
-
 	ptr->pixel_color.red = point_a->color.red * \
 	(1 - a_to_b) + point_b->color.red * (a_to_b);
 	ptr->pixel_color.blue = point_a->color.blue * \

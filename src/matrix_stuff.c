@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:44:36 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/01 22:50:53 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 19:43:15 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ t_matrix_obj	*matrix_setup(t_matrix_obj *mtx)
 /*
 	converts the
 */
-double	convert_cords_back(double cur_p, unsigned int max, int zoom)
-{
-	return ((int)(cur_p));
-}
+// double	convert_cords_back(double cur_p, unsigned int max, int zoom)
+// {
+// 	return ((int)(cur_p));
+// }
 
 /*
 	rotaion and transformation of each cordinate
