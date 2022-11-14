@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:30:24 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:55:17 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 19:56:27 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,5 @@ int	main(int argc, char **argv)
 	a_s.mtx_p = matrix_setup(NULL);
 	mlx_main(&a_s);
 	free_before_end(&a_s);
-	while (1)
-	{
-		/* code */
-	}
-	
 	return (0);
 }

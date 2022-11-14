@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 18:17:36 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/06 20:16:26 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ char *str, unsigned int cur_y)
 		free(info[1]);
 	}
 	else
-		map->position[cur_y][cur_x]->color.color = COLOUR;
+	{
+		map->position[cur_y][cur_x]->color.color = 0xFF00FFFF;
+		map->position[cur_y][cur_x]->color.red -= 	map->position[cur_y][cur_x]->cords[2];
+	}
 	free(info[0]);
 	free(info);
 	return (0);
