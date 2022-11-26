@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_many_fuction.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:56:44 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 09:12:04 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 11:29:38 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	set_the_matrices(t_all_structs *a_s)
 t_input	*default_input(t_input *input)
 {
 	input->input[x_scale] = 300;
-	input->input[y_scale] = 300;
+	input->input[y_scale] = 100;
 	input->input[z_scale] = 1;
 	input->input[w_scale] = 1;
 	input->input[x_rotation] = 0.82;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 10:13:54 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 12:29:31 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ char *str, unsigned int cur_y)
 		map->position[cur_y][cur_x]->color.color = my_hextoi(info[1]);
 		if (ft_strlen(info[1]) == 8 || info[1][8] == '\n')
 			map->position[cur_y][cur_x]->color.color = \
-	(map->position[cur_y][cur_x]->color.color << 4) | 0xff;
+	(map->position[cur_y][cur_x]->color.color << 8) | 0xff;
 		free(info[1]);
 	}
 	else
 	{
 		map->position[cur_y][cur_x]->color.color = 0xffffffff;
-		// map->position[cur_y][cur_x]->color.red -= 	map->position[cur_y][cur_x]->cords[2];
+		map->position[cur_y][cur_x]->color.color -=(map->position[cur_y][cur_x]->cords[2]);
 	}
 	free(info[0]);
 	free(info);
