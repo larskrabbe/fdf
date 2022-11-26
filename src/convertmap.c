@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 20:16:26 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 10:13:54 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char *str, unsigned int cur_y)
 	}
 	else
 	{
-		map->position[cur_y][cur_x]->color.color = 0xFF00FFFF;
-		map->position[cur_y][cur_x]->color.red -= 	map->position[cur_y][cur_x]->cords[2];
+		map->position[cur_y][cur_x]->color.color = 0xffffffff;
+		// map->position[cur_y][cur_x]->color.red -= 	map->position[cur_y][cur_x]->cords[2];
 	}
 	free(info[0]);
 	free(info);
@@ -54,8 +54,8 @@ char *str, unsigned int cur_y)
 */
 int	a_to_map(char *gnl_ptr, t_map *map, unsigned int cur_y)
 {
-	char			**split_str;
-	unsigned int	cur_x;
+	char	**split_str;
+	int		cur_x;
 
 	cur_x = 0;
 	if (gnl_ptr == NULL || map == NULL)
@@ -71,8 +71,8 @@ int	a_to_map(char *gnl_ptr, t_map *map, unsigned int cur_y)
 	}
 	free_str_array(split_str);
 	if (map->max_x != (cur_x))
-		printf("ERROR map size is not uniform \
-		{ cur_x = %i max_x = %i cur_y = %i max_x = %i}\n" \
+		ft_printf("ERROR map size is not uniform \
+		{ cur_x = %i max_x = %i cur_y = %i max_y = %i}\n" \
 		, cur_x, map->max_x, cur_y, map->max_y);
 	return (0);
 }
@@ -134,7 +134,7 @@ t_map	*convert_map(char *filename, t_map *map)
 
 	gnl_ptr = NULL;
 	map->max_y = counts_lines_from_file(filename);
-	if (map->max_y == 0)
+	if (map->max_y <= 0)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
 	gnl_ptr = get_next_line(fd);

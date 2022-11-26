@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_stuff.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:53:26 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:59:45 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/24 20:25:04 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 */
 void	set_the_s_matrix(double **matrix, t_input *input)
 {
-	matrix[0][0] = input->input[x_scale];
-	matrix[1][1] = input->input[y_scale];
-	matrix[2][2] = input->input[z_scale];
+	matrix[0][0] = input->input[x_scale] * input->input[zoom];
+	matrix[1][1] = input->input[y_scale] * input->input[zoom];
+	matrix[2][2] = input->input[z_scale] * input->input[zoom];
 }
 
 /*

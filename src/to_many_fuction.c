@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_many_fuction.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:56:44 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/05 19:03:32 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 09:12:04 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,33 +49,34 @@ t_input	*default_input(t_input *input)
 {
 	input->input[x_scale] = 300;
 	input->input[y_scale] = 300;
-	input->input[z_scale] = 0;
+	input->input[z_scale] = 1;
 	input->input[w_scale] = 1;
-	input->input[x_rotation] = 0;
+	input->input[x_rotation] = 0.82;
 	input->input[y_rotation] = 0;
-	input->input[z_rotation] = 0;
+	input->input[z_rotation] = 0.58;
 	input->input[x_translation] = WIDTH / 2;
 	input->input[y_translation] = HEIGHT / 2;
 	input->input[red] = 12;
 	input->input[green] = 12;
 	input->input[blue] = 12;
 	input->input[opacity] = 12;
+	input->input[zoom] = 1;
 	return (input);
 }
 
 void	print_data(t_all_structs *a_s)
 {
-	printf("scale matrix \n");
+	ft_printf("scale matrix \n");
 	a_s->mtx_s->f_print(a_s->mtx_s);
-	printf("z rotation matrix \n");
+	ft_printf("z rotation matrix \n");
 	a_s->mtx_z->f_print(a_s->mtx_z);
-	printf("y rotation matrix \n");
+	ft_printf("y rotation matrix \n");
 	a_s->mtx_y->f_print(a_s->mtx_y);
-	printf("x rotation matrix \n");
+	ft_printf("x rotation matrix \n");
 	a_s->mtx_x->f_print(a_s->mtx_x);
-	printf("projection matrix \n");
+	ft_printf("projection matrix \n");
 	a_s->mtx_p->f_print(a_s->mtx_p);
-	printf("color per poinr \n");
-	printf("screen cords \n");
+	ft_printf("color per poinr \n");
+	ft_printf("screen cords \n");
 	print_screen(a_s->map);
 }

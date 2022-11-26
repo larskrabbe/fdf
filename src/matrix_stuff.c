@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_stuff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:44:36 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:43:15 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/24 20:25:50 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ t_matrix_obj	*matrix_setup(t_matrix_obj *mtx)
 }
 
 /*
-	converts the
-*/
-// double	convert_cords_back(double cur_p, unsigned int max, int zoom)
-// {
-// 	return ((int)(cur_p));
-// }
-
-/*
 	rotaion and transformation of each cordinate
 */
 void	vector_transform(t_all_structs *a_s, int cur_x, int cur_y)
@@ -47,8 +39,8 @@ void	vector_transform(t_all_structs *a_s, int cur_x, int cur_y)
 	matrix_multiply_vector(a_s->mtx_y, tmp_a, 4, tmp_b);
 	matrix_multiply_vector(a_s->mtx_x, tmp_b, 4, tmp_a);
 	matrix_multiply_vector(a_s->mtx_p, tmp_a, 4, tmp_b);
-	a_s->map->position[cur_y][cur_x]->screen[0] = (int)tmp_b[0];
-	a_s->map->position[cur_y][cur_x]->screen[1] = (int)tmp_b[1];
+	a_s->map->position[cur_y][cur_x]->screen[0] = (int)(tmp_b[0]);
+	a_s->map->position[cur_y][cur_x]->screen[1] = (int)(tmp_b[1]);
 }
 
 /*

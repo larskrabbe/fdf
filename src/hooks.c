@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:42:21 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:52:08 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 00:07:14 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	rotation_hook(t_all_structs *a_s, int caps_check)
 		a_s->input->input[y_rotation] += boost * caps_check;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_3))
 		a_s->input->input[z_rotation] += boost * caps_check;
+		
 }
 
 void	color_change(t_all_structs *a_s, int caps_check, int color)
@@ -58,4 +59,8 @@ void	translation_hook(t_all_structs *a_s)
 		a_s->input->input[x_translation] -= boost;
 	if (mlx_is_key_down(a_s->mlx, MLX_KEY_RIGHT))
 		a_s->input->input[x_translation] += boost;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_EQUAL))
+		a_s->input->input[zoom] += 0.1 ;
+	if (mlx_is_key_down(a_s->mlx, MLX_KEY_MINUS))
+		a_s->input->input[zoom] -= 0.1 ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 20:17:21 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 10:21:23 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
  */
 typedef union u_color{
 	struct{
-		uint8_t	red;
+		uint8_t	opaqe;
 		uint8_t	blue;
 		uint8_t	green;
-		uint8_t	opaqe;
+		uint8_t	red;
 	};
 	uint32_t	color;
 }t_color;
@@ -55,8 +55,8 @@ typedef struct s_points{
 	t_points **position => x * y size array of points 
 */
 typedef struct s_map{
-	unsigned int	max_x;
-	unsigned int	max_y;	
+	int	max_x;
+	int	max_y;	
 	t_points		***position;
 }t_map;
 
@@ -114,6 +114,7 @@ typedef enum e_enput{
 	green = 10,
 	blue = 11,
 	opacity = 12,
+	zoom = 13,
 }t_enput;
 
 void			_matrices(t_all_structs *a_s);
@@ -164,4 +165,6 @@ int				my_abs(int num);
 int				my_hextoi(const char *str);
 void			set_the_matrices(t_all_structs *a_s);
 void			map_to_screen(t_all_structs *a_s);
+void			draw_on_screen(t_map *map, mlx_image_t *img);
+
 #endif

@@ -1,5 +1,5 @@
 CC=cc
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=#-Wall -Wextra -Werror
 BOLD    = \033[1m
 BLACK   = \033[30;1m
 RED     = \033[31;1m
@@ -42,7 +42,8 @@ SRC_NAME=convertmap.c \
 				matrix_setter.c \
 				matrix_utils.c \
 				matrix_setup.c \
-				matrix_solver.c
+				matrix_solver.c\
+				draw_order.c
 OBJ_NAME=$(SRC_NAME:.c=.o)
 OBJ=$(addprefix $(OBJ_DIR),$(OBJ_NAME))
 SRC=$(addprefix $(SRC_DIR),$(SRC_NAME))
