@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 10:21:23 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/27 13:07:50 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void			draw_on_screen(t_map *map, mlx_image_t *img);
 t_map			*convert_map(char *filename, t_map *map);
 void			free_map(t_map *map, int max_x, int max_y);
 void			*create_map(t_map *map, int max_x, int max_y);
-t_input			*default_input(t_input *input);
+t_input			*default_input(t_input *input, t_all_structs *a_s);
 void			set_the_matrix(t_matrix_obj *mat, t_map *map, t_input *input);
 void			free_str_array(char **strings);
 double			convert_cords(unsigned int cur_p, double max);

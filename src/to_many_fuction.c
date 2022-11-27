@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_many_fuction.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:56:44 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 17:44:57 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/27 13:25:58 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	set_the_matrices(t_all_structs *a_s)
 /*
 	set the default value inside myinput struct
 */
-t_input	*default_input(t_input *input)
+t_input	*default_input(t_input *input, t_all_structs *a_s)
 {
-	input->input[x_scale] = 100;
-	input->input[y_scale] = 100;
-	input->input[z_scale] = 10;
+	input->input[x_scale] = a_s->map->max_x;
+	input->input[y_scale] = a_s->map->max_y;
+	input->input[z_scale] = 1 / a_s->map->max_y;
 	input->input[w_scale] = 1;
 	input->input[x_rotation] = 0.82;
 	input->input[y_rotation] = 0;

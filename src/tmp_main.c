@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tmp_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:30:24 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/25 02:42:12 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/27 13:15:53 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	a_s.mlx = &mlx;
-	a_s.input = default_input(&input);
 	a_s.map = convert_map(argv[1], &map);
+	a_s.input = default_input(&input, &a_s);
 	if (a_s.map == NULL)
 		return (0);
 	a_s.mtx_s = matrix_setup(NULL);
