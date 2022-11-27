@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_getter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:37:40 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:19:40 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 14:22:16 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ double	*get_single_row(struct s_matrix_obj *matrix, unsigned int t_row)
 	copy = malloc(sizeof(double *) * (matrix->rows + 1));
 	if (copy == NULL)
 	{
-		printf("allocation failed for get row");
+		ft_printf("allocation failed for get row");
 		return (NULL);
 	}
 	while (i <= matrix->columns)
@@ -49,7 +49,7 @@ double	*get_single_column(struct s_matrix_obj *matrix, unsigned int t_column)
 	copy = malloc(sizeof(double *) * (matrix->columns + 1));
 	if (copy == NULL)
 	{
-		printf("allocation failed for get column");
+		ft_printf("allocation failed for get column");
 		return (NULL);
 	}
 	while (i <= matrix->rows)
@@ -70,7 +70,7 @@ double	**get_matrix_copy(struct s_matrix_obj *matrix)
 	copy = malloc(sizeof(double *) * (matrix->columns + 1));
 	if (copy == NULL)
 	{
-		printf("allocation failed for copy matrix");
+		ft_printf("allocation failed for copy matrix");
 		return (NULL);
 	}
 	while (matrix->columns <= i)
@@ -78,7 +78,7 @@ double	**get_matrix_copy(struct s_matrix_obj *matrix)
 		copy[i] = get_single_row(matrix, i);
 		if (copy[i] == NULL)
 		{
-			printf("allocation failed for copy matrix");
+			ft_printf("allocation failed for copy matrix");
 			return (free_arrays(copy, i));
 		}
 		i++;

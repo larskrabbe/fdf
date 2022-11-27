@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_hextoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:04:42 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 12:09:20 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 17:36:25 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static int	x_convert(const char *str)
 
 	num = 0;
 	i = 0;
-	while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'f')\
-	|| str[i] >= ('A' && str[i] <= 'F'))
+	while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'f') \
+	|| (str[i] >= 'A' && str[i] <= 'F'))
 	{
 		num = num * 16;
 		if (str[i] >= '0' && str[i] <= '9')
 			num = num + str[i] - '0';
 		else if (str[i] >= 'a' && str[i] <= 'f')
 			num = num + str[i] - 'a' + 10;
-		else
+		else if (str[i] >= 'A' && str[i] <= 'F')
 			num = num + str[i] - 'A' + 10;
 		if (num > UINT32_MAX)
 			return (0);

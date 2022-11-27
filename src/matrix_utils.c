@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:58:21 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:19:58 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 14:23:31 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	print_matrix(t_matrix_obj *matrix)
 	unsigned int	x;
 	unsigned int	y;
 
-	printf("rows = %u \n", matrix->rows);
-	printf("columns = %u \n\n", matrix->columns);
+	ft_printf("rows = %u \n", matrix->rows);
+	ft_printf("columns = %u \n\n", matrix->columns);
 	x = 0;
 	y = 0;
 	while (y < matrix->columns)
 	{
 		while (x < matrix->rows)
 		{
-			printf("| %3f ", matrix->matrix[y][x]);
+			ft_printf("| %3f ", matrix->matrix[y][x]);
 			x++;
 		}
 		x = 0;
-		printf("|\n\n");
+		ft_printf("|\n\n");
 		y++;
 	}
 }

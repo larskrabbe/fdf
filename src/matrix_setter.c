@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_setter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:53:52 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:19:46 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/26 14:22:23 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ unsigned int column, double value)
 {
 	if (row >= matrix->rows || column >= matrix->columns)
 	{
-		printf("Try to excess outside scope || target => row %u , column %u" \
+		ft_printf("Try to excess outside scope || target => row %u , column %u" \
 		, row, column);
 		exit(EXIT_FAILURE);
 	}
