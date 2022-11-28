@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_many_fuction.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:56:44 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/27 13:25:58 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/27 16:38:46 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_input	*default_input(t_input *input, t_all_structs *a_s)
 {
 	input->input[x_scale] = a_s->map->max_x;
 	input->input[y_scale] = a_s->map->max_y;
-	input->input[z_scale] = 1 / a_s->map->max_y;
+	input->input[z_scale] = 1;
 	input->input[w_scale] = 1;
 	input->input[x_rotation] = 0.82;
 	input->input[y_rotation] = 0;
@@ -60,7 +60,7 @@ t_input	*default_input(t_input *input, t_all_structs *a_s)
 	input->input[green] = 12;
 	input->input[blue] = 12;
 	input->input[opacity] = 12;
-	input->input[zoom] = 1;
+	input->input[zoom] = 10;
 	return (input);
 }
 
