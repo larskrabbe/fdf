@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_many_fuction.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:56:44 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/27 16:38:46 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/28 16:18:22 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 */
 double	convert_cords(unsigned int cur_p, double max)
 {
+	if (max == 1)
+		return (0);
 	return ((double)(cur_p / (max - 1) - 0.5)*2);
 }
 
@@ -60,7 +62,7 @@ t_input	*default_input(t_input *input, t_all_structs *a_s)
 	input->input[green] = 12;
 	input->input[blue] = 12;
 	input->input[opacity] = 12;
-	input->input[zoom] = 10;
+	input->input[zoom] = (400 / (double)a_s->map->max_x);
 	return (input);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convertmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:31:18 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 17:39:03 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/28 16:03:30 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,10 @@ char *str, unsigned int cur_y)
 	if (info[1] != NULL)
 	{
 		map->position[cur_y][cur_x]->color.color = my_hextoi(info[1]);
-		if (ft_strlen(info[1]) == 8 || info[1][8] == '\n')
-			map->position[cur_y][cur_x]->color.color = \
-	(map->position[cur_y][cur_x]->color.color << 8) | 0xff;
 		free(info[1]);
 	}
 	else
-	{
-		map->position[cur_y][cur_x]->color.color = 0xffffffff;
-		map->position[cur_y][cur_x]->color.color -=(map->position[cur_y][cur_x]->cords[2]);
-	}
+		no_color(map, cur_x, cur_y);
 	free(info[0]);
 	free(info);
 	return (0);
@@ -137,8 +131,12 @@ t_map	*convert_map(char *filename, t_map *map)
 	if (map->max_y <= 0)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
+	if (fd <= 0)
+		return (NULL);
 	gnl_ptr = get_next_line(fd);
 	map->max_x = count_words_in_str(gnl_ptr);
+	if (map->max_x <= 0)
+		return (NULL);
 	create_map(map, map->max_x, map->max_y);
 	read_map(map, fd, gnl_ptr);
 	return (map);

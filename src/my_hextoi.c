@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_hextoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkrabbe < lkrabbe@student.42heilbronn.d    +#+  +:+       +#+        */
+/*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:04:42 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/26 17:36:25 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/28 16:08:02 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	x_convert(const char *str)
 			return (0);
 		i++;
 	}
+	if (i < 7)
+		num = num << 8 | 0xff;
 	return (num);
 }
 

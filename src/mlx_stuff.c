@@ -6,11 +6,27 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:15:15 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/06 19:28:23 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/28 14:38:54 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../include/fdf.h"
+
+void	no_color(t_map *map, int cur_x, int cur_y)
+{
+	if (map->position[cur_y][cur_x]->cords[2] > 0)
+	{
+		map->position[cur_y][cur_x]->color.color = 0xff0000ff;
+		map->position[cur_y][cur_x]->color.green += \
+		map->position[cur_y][cur_x]->cords[2] * 10;
+	}
+	else
+	{
+		map->position[cur_y][cur_x]->color.color = 0xff0000ff;
+		map->position[cur_y][cur_x]->color.blue += \
+		map->position[cur_y][cur_x]->cords[2] * 10;
+	}
+}
 
 /*
 	returns plus or minus  One depending if the Caps key is pressed
