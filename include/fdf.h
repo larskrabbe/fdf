@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:32:01 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/27 13:07:50 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/28 14:37:45 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ typedef struct s_points{
 	t_points **position => x * y size array of points 
 */
 typedef struct s_map{
-	int	max_x;
-	int	max_y;	
+	int				max_x;
+	int				max_y;
 	t_points		***position;
 }t_map;
 
@@ -166,5 +166,6 @@ int				my_hextoi(const char *str);
 void			set_the_matrices(t_all_structs *a_s);
 void			map_to_screen(t_all_structs *a_s);
 void			draw_on_screen(t_map *map, mlx_image_t *img);
+void			no_color(t_map *map, int cur_x, int cur_y);
 
 #endif

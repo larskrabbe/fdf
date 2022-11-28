@@ -1,5 +1,5 @@
 CC=cc
-CFLAGS=#-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror
 BOLD    = \033[1m
 BLACK   = \033[30;1m
 RED     = \033[31;1m
@@ -19,7 +19,7 @@ GLFW_DIR=/Users/$(USER)/.brew/opt/glfw/lib/
 BREW_FILE = /Users/$(USER)/.brewconfig.zsh
 LIBFT=$(LIB_DIR)libft.a
 MLX=$(MLX42)libmlx42.a
-#GLFW=$(MLX_DIR)libglfw3.a
+GLFW=$(MLX_DIR)libglfw3.a
 LIB_GLFW=-lglfw
 INC_LIB=-I$(LIB_DIR)
 INC_SRC=-I$(INC_DIR)
@@ -77,3 +77,4 @@ fclean: clean
 	rm -f $(NAME) $(NAME_BONUS)
 	make fclean -C $(LIB_DIR)
 	make fclean -C $(MLX42)
+re: fclean all

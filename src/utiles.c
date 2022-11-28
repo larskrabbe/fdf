@@ -6,7 +6,7 @@
 /*   By: lkrabbe <lkrabbe@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:36:46 by lkrabbe           #+#    #+#             */
-/*   Updated: 2022/11/05 19:03:45 by lkrabbe          ###   ########.fr       */
+/*   Updated: 2022/11/28 16:38:54 by lkrabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_map(t_map *map)
 {
-	unsigned int	x;
-	unsigned int	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -39,8 +39,8 @@ void	print_map(t_map *map)
 
 void	print_screen(t_map *map)
 {
-	unsigned int	x;
-	unsigned int	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -66,8 +66,8 @@ void	print_screen(t_map *map)
 
 void	print_color(t_map *map)
 {
-	unsigned int	x;
-	unsigned int	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -103,8 +103,8 @@ void	print_vector(double *vector, int n)
 
 void	print_cords(t_map *map)
 {
-	unsigned int	x;
-	unsigned int	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
